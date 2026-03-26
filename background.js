@@ -1,6 +1,7 @@
 // NextDNS Traffic Monitor — Background Service Worker
 // Monitors webRequest errors and flags likely NextDNS blocks
 
+importScripts("browser-compat.js");
 importScripts("domain-db.js");
 
 // In-memory store: tabId -> { url, hostname, blocks: Map<domain, blockInfo> }
@@ -40,7 +41,7 @@ function getTabHostname(tabId) {
 }
 
 // Listen for navigation to reset tab data
-chrome.webNavigation.onCommitted.addListener((details) => {
+ext.webNavigation.onCommitted.addListener((details) => {
   if (details.frameId !== 0) return; // top frame only
   const hostname = extractHostname(details.url);
   tabData.set(details.tabId, {
@@ -53,7 +54,7 @@ chrome.webNavigation.onCommitted.addListener((details) => {
 });
 
 // Listen for completed navigation to set tab hostname if not set
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+ext.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === "loading" && tab.url) {
     const hostname = extractHostname(tab.url);
     const data = getOrCreateTabData(tabId);
@@ -70,12 +71,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 });
 
 // Clean up when tab closes
-chrome.tabs.onRemoved.addListener((tabId) => {
+ext.tabs.onRemoved.addListener((tabId) => {
   tabData.delete(tabId);
 });
 
 // Core: monitor request errors
-chrome.webRequest.onErrorOccurred.addListener(
+ext.webRequest.onErrorOccurred.addListener(
   (details) => {
     if (details.tabId < 0) return; // background requests, ignore
     if (!details.error) return;
@@ -126,18 +127,18 @@ chrome.webRequest.onErrorOccurred.addListener(
 
 function updateBadge(tabId, total, highCount = 0) {
   if (total === 0) {
-    chrome.action.setBadgeText({ text: "", tabId });
+    ext.action.setBadgeText({ text: "", tabId });
     return;
   }
-  chrome.action.setBadgeText({ text: String(total), tabId });
-  chrome.action.setBadgeBackgroundColor({
+  ext.action.setBadgeText({ text: String(total), tabId });
+  ext.action.setBadgeBackgroundColor({
     color: highCount > 0 ? "#e53935" : "#f59e0b",
     tabId,
   });
 }
 
 // Message handler — popup requests data for current tab
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+ext.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "GET_TAB_DATA") {
     const data = tabData.get(msg.tabId);
     if (!data) {

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "NextDNS Traffic Monitor",
+  "short_name": "NextDNS Monitor",
+  "version": "1.0.0",
+  "description": "Detects NextDNS blocks that break websites. Groups domains by risk level and lets you allowlist them instantly via the NextDNS API.",
+  "permissions": [
+    "webRequest",
+    "tabs",
+    "storage",
+    "activeTab",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NextDNS Traffic Monitor",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://github.com/jstoneky/nextdns-monitor",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nextdns-monitor@jstoneky.github.io",
+      "strict_min_version": "128.0"
+    }
+  }
+}

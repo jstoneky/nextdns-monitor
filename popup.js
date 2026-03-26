@@ -9,7 +9,7 @@ let profileId = "";
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", async () => {
   // Load settings
-  const stored = await chrome.storage.sync.get(["apiKey", "profileId"]);
+  const stored = await ext.storage.sync.get(["apiKey", "profileId"]);
   apiKey = stored.apiKey || "";
   profileId = stored.profileId || "";
 
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (profileId) document.getElementById("profile-id-input").value = profileId;
 
   // Get active tab
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const [tab] = await ext.tabs.query({ active: true, currentWindow: true });
   if (!tab) return;
 
   currentTabId = tab.id;
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // ── Load & Render Blocks ──────────────────────────────────────────────────────
 async function loadBlocks() {
-  chrome.runtime.sendMessage(
+  ext.runtime.sendMessage(
     { type: "GET_TAB_DATA", tabId: currentTabId },
     (response) => {
-      if (chrome.runtime.lastError) {
-        console.error(chrome.runtime.lastError);
+      if (ext.runtime.lastError) {
+        console.error(ext.runtime.lastError);
         return;
       }
       renderBlocks(response?.blocks || []);
@@ -196,7 +196,7 @@ async function saveSettings() {
   const newKey = document.getElementById("api-key-input").value.trim();
   const newProfile = document.getElementById("profile-id-input").value.trim();
 
-  await chrome.storage.sync.set({ apiKey: newKey, profileId: newProfile });
+  await ext.storage.sync.set({ apiKey: newKey, profileId: newProfile });
   apiKey = newKey;
   profileId = newProfile;
 
@@ -211,7 +211,7 @@ async function saveSettings() {
 
 // ── Clear ─────────────────────────────────────────────────────────────────────
 function clearBlocks() {
-  chrome.runtime.sendMessage(
+  ext.runtime.sendMessage(
     { type: "CLEAR_TAB_DATA", tabId: currentTabId },
     () => loadBlocks()
   );
