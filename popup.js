@@ -497,11 +497,12 @@ async function handleTestPihole() {
 async function fetchDeviceFingerprint() {
   try {
     const res = await fetch("https://test.nextdns.io", { signal: AbortSignal.timeout(5000) });
-    const data = await res.json();
+    const text = await res.text();
+    const data = JSON.parse(text);
     detectedFingerprint = data.profile   || null;
     detectedDeviceName  = data.deviceName || data.clientName || null;
   } catch (_) {
-    // Not on NextDNS, or offline — silent fail
+    // Not on NextDNS or network not configured — silent fail, fall back to saved profileId
   }
 }
 
@@ -525,29 +526,48 @@ async function fetchAndMatchProfiles(key) {
       })
       .join("");
 
-    // Try to auto-match via fingerprint
-    const match = detectedFingerprint
+    // 1. Try fingerprint match (device is actively on NextDNS)
+    const fingerprintMatch = detectedFingerprint
       ? profilesList.find(p => p.fingerprint === detectedFingerprint)
       : null;
 
-    if (match) {
-      profileId = match.id;
-      showDetectedProfile(match, detectedDeviceName);
-    } else if (profilesList.length === 1) {
-      // Only one profile — auto-select it
-      profileId = profilesList[0].id;
-      showDetectedProfile(profilesList[0], detectedDeviceName);
+    // 2. Fall back to previously saved profileId
+    const savedMatch = profileId
+      ? profilesList.find(p => p.id === profileId)
+      : null;
+
+    // 3. Single profile — just use it
+    const singleProfile = profilesList.length === 1 ? profilesList[0] : null;
+
+    if (fingerprintMatch) {
+      profileId = fingerprintMatch.id;
+      showDetectedProfile(fingerprintMatch, detectedDeviceName, true);
+    } else if (savedMatch) {
+      // Show the saved profile — not confirmed as "active" device profile
+      showDetectedProfile(savedMatch, null, false);
+    } else if (singleProfile) {
+      profileId = singleProfile.id;
+      showDetectedProfile(singleProfile, null, false);
     } else {
-      // Multiple profiles, no fingerprint match — show dropdown
       showProfileDropdown();
     }
   } catch (_) {}
 }
 
-function showDetectedProfile(profile, deviceName) {
+function showDetectedProfile(profile, deviceName, isActive) {
   document.getElementById("ndm-profile-detected").classList.remove("hidden");
   document.getElementById("ndm-profile-manual-row").classList.add("hidden");
   document.getElementById("ndm-profile-select-row").classList.add("hidden");
+
+  const labelEl = document.querySelector(".ndm-profile-label");
+  if (isActive) {
+    labelEl.textContent = "✓ Active profile";
+    labelEl.style.color = "";
+  } else {
+    labelEl.textContent = "Selected profile";
+    labelEl.style.color = "#60a5fa"; // blue instead of green
+  }
+
   document.getElementById("ndm-profile-name").textContent = profile.name;
   document.getElementById("ndm-profile-id").textContent   = `(${profile.id})`;
   document.getElementById("ndm-device-name").textContent  = deviceName ? `📱 ${deviceName}` : "";
