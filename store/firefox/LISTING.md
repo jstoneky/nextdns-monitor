@@ -1,7 +1,7 @@
 # Firefox Add-ons Listing
 
 ## Name
-NextDNS Traffic Monitor
+NextDNS Medic
 
 ## Summary (250 chars max)
 Detects NextDNS-blocked requests that silently break websites. Groups blocked domains by risk level — High, Medium, or Low — and lets you allowlist them instantly via the NextDNS API.
@@ -12,7 +12,7 @@ Detects NextDNS-blocked requests that silently break websites. Groups blocked do
 
 If you use NextDNS (or any DNS-based blocker), the answer is often a silently blocked domain. A feature flag service gets blocked, and the inventory page never loads. An auth service is blocked, and login breaks. You reload six times and never find the cause.
 
-**NextDNS Traffic Monitor makes it visible.**
+**NextDNS Medic makes it visible.**
 
 ---
 

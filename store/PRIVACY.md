@@ -1,10 +1,10 @@
-# Privacy Policy — NextDNS Traffic Monitor
+# Privacy Policy — NextDNS Medic
 
 Last updated: March 2026
 
 ## Summary
 
-NextDNS Traffic Monitor does not collect, store, or transmit any personal data or browsing history. It is a local-only tool.
+NextDNS Medic does not collect, store, or transmit any personal data or browsing history. It is a local-only tool.
 
 ## Data collected
 

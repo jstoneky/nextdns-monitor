@@ -1,4 +1,4 @@
-# NextDNS Traffic Monitor
+# NextDNS Medic
 
 A browser extension for **Chrome** and **Firefox** that watches your network traffic in real-time and flags requests that NextDNS may be blocking — specifically ones that could silently break website functionality.
 

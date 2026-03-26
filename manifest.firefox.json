@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "NextDNS Traffic Monitor",
+  "name": "NextDNS Medic",
   "short_name": "NextDNS Monitor",
   "version": "1.0.0",
   "description": "Detects NextDNS blocks that break websites. Groups domains by risk level and lets you allowlist them instantly via the NextDNS API.",
@@ -18,7 +18,7 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
-    "default_title": "NextDNS Traffic Monitor",
+    "default_title": "NextDNS Medic",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

@@ -31,7 +31,7 @@ build_exclude_args() {
 
 build_chrome() {
   echo "▶ Building Chrome v${VERSION}..."
-  local out="$DIST/nextdns-monitor-chrome-v${VERSION}.zip"
+  local out="$DIST/nextdns-medic-chrome-v${VERSION}.zip"
   rm -f "$out"
   zip -r "$out" . $(build_exclude_args)
   echo "  ✓ $(du -sh "$out" | cut -f1)  →  $out"
@@ -39,7 +39,7 @@ build_chrome() {
 
 build_firefox() {
   echo "▶ Building Firefox v${VERSION}..."
-  local out="$DIST/nextdns-monitor-firefox-v${VERSION}.zip"
+  local out="$DIST/nextdns-medic-firefox-v${VERSION}.zip"
   local tmp="$(mktemp -d)"
 
   # Copy all extension files to temp dir
