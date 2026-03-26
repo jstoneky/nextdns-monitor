@@ -358,6 +358,63 @@ body {
   font-style: italic;
 }
 
+/* ── DNS Flush Banner ── */
+.flush-banner {
+  background: #14532d;
+  border-bottom: 1px solid #4ade8033;
+  padding: 10px 14px;
+}
+.flush-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+.flush-banner-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4ade80;
+}
+.flush-dismiss {
+  background: transparent;
+  border: none;
+  color: #4ade8088;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+}
+.flush-dismiss:hover { color: #4ade80; }
+.flush-banner-cmd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f1117;
+  border: 1px solid #4ade8033;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+.flush-cmd-text {
+  flex: 1;
+  font-family: monospace;
+  font-size: 11px;
+  color: #a7f3d0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.flush-copy-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.flush-copy-btn:hover { opacity: 1; }
+
 /* ── Copy button ── */
 .copy-btn {
   background: transparent;

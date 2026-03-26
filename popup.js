@@ -165,6 +165,37 @@ function renderBlocks(blocks) {
   });
 }
 
+// ── DNS Flush Banner ──────────────────────────────────────────────────────────
+function getDNSFlushCommand() {
+  const ua = navigator.userAgent;
+  if (ua.includes("Mac"))  return "sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder";
+  if (ua.includes("Win"))  return "ipconfig /flushdns";
+  // Linux — systemd-resolved is most common; show both common options
+  return "sudo systemd-resolve --flush-caches  # or: sudo service nscd restart";
+}
+
+function showFlushBanner() {
+  const banner  = document.getElementById("flush-banner");
+  const cmdEl   = document.getElementById("flush-cmd");
+  const copyBtn = document.getElementById("flush-copy");
+  const dismiss = document.getElementById("flush-dismiss");
+
+  if (!banner) return;
+  cmdEl.textContent = getDNSFlushCommand();
+  banner.classList.remove("hidden");
+
+  copyBtn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(getDNSFlushCommand());
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = "✓";
+      setTimeout(() => { copyBtn.textContent = orig; }, 1500);
+    } catch (_) {}
+  };
+
+  dismiss.onclick = () => banner.classList.add("hidden");
+}
+
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
 async function copyDomain(btn) {
   const domain = btn.dataset.domain;
@@ -202,6 +233,7 @@ async function addToAllowlist(btn) {
     if (res.ok || res.status === 204 || res.status === 201) {
       btn.textContent = "✓ Added";
       btn.classList.add("success");
+      showFlushBanner();
     } else {
       const body = await res.text();
       console.error("NextDNS API error:", res.status, body);
