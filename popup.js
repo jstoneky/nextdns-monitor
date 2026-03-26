@@ -196,13 +196,15 @@ function getDNSFlushCommand() {
   return "sudo systemd-resolve --flush-caches  # or: sudo service nscd restart";
 }
 
-function showFlushBanner() {
-  const banner  = document.getElementById("flush-banner");
-  const cmdEl   = document.getElementById("flush-cmd");
-  const copyBtn = document.getElementById("flush-copy");
-  const dismiss = document.getElementById("flush-dismiss");
+function showFlushBanner(title = "✓ Added — flush DNS to apply") {
+  const banner   = document.getElementById("flush-banner");
+  const titleEl  = document.querySelector(".flush-banner-title");
+  const cmdEl    = document.getElementById("flush-cmd");
+  const copyBtn  = document.getElementById("flush-copy");
+  const dismiss  = document.getElementById("flush-dismiss");
 
   if (!banner) return;
+  titleEl.textContent = title;
   cmdEl.textContent = getDNSFlushCommand();
   banner.classList.remove("hidden");
 
@@ -220,6 +222,7 @@ function showFlushBanner() {
 
 // ── Copy to clipboard ─────────────────────────────────────────────────────────
 async function copyDomain(btn) {
+  showFlushBanner("📋 Copied — flush DNS after adding to your blocker");
   const domain = btn.dataset.domain;
   if (!domain) return;
   try {
