@@ -37,6 +37,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateProviderUI(provider);
   if (piholeVersion) updatePiholeVersionLabel(piholeVersion);
 
+  // Auto-detect profile on load if NextDNS and API key already saved
+  if (provider === "nextdns" && apiKey) {
+    await fetchDeviceFingerprint();
+    await fetchAndMatchProfiles(apiKey);
+  }
+
   // Get active tab
   const [tab] = await ext.tabs.query({ active: true, currentWindow: true });
   if (!tab) return;
@@ -322,10 +328,9 @@ async function addToAllowlist(btn) {
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 async function toggleSettings() {
-  // Kick off fingerprint detection in background on first open
-  if (!detectedFingerprint) fetchDeviceFingerprint();
-  // If we already have an API key, refresh profile list
-  if (apiKey && provider === "nextdns") fetchAndMatchProfiles(apiKey);
+  // Fingerprint must resolve before profile matching
+  if (!detectedFingerprint) await fetchDeviceFingerprint();
+  if (apiKey && provider === "nextdns") await fetchAndMatchProfiles(apiKey);
   const panel = document.getElementById("settings-panel");
   const isHidden = panel.classList.contains("hidden");
   panel.classList.toggle("hidden");
@@ -566,7 +571,7 @@ function handleProfileSelectChange(e) {
 async function handleApiKeyBlur() {
   const key = document.getElementById("api-key-input").value.trim();
   if (!key) return;
-  if (!detectedFingerprint) await fetchDeviceFingerprint();
+  await fetchDeviceFingerprint(); // always re-fetch to ensure it's fresh
   await fetchAndMatchProfiles(key);
 }
 
