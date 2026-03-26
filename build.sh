@@ -1,14 +1,59 @@
 #!/usr/bin/env bash
-# NextDNS Monitor — Build Script
-# Produces store-ready zips for Chrome and Firefox
-# Usage: ./build.sh [chrome|firefox|all]  (default: all)
+# NextDNS Medic — Build Script
+# Usage: ./build.sh [chrome|firefox|all|clean]  (default: all)
+#
+# Runs the full test suite before building.
+# Build is aborted if any tests fail.
 
 set -e
+cd "$(dirname "$0")"
 
 VERSION=$(node -p "require('./manifest.json').version")
 TARGET=${1:-all}
 DIST="store/dist"
 
+# ── Colors ─────────────────────────────────────────────────────────────────────
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # no color
+
+# ── Clean ──────────────────────────────────────────────────────────────────────
+clean_dist() {
+  echo "▶ Cleaning dist/..."
+  # Remove everything except current version
+  find "$DIST" -type f | while read -r f; do
+    fname=$(basename "$f")
+    # Keep files matching current version
+    if echo "$fname" | grep -q "v${VERSION}"; then
+      echo "  ✓ keeping  $fname"
+    else
+      echo "  🗑  removing $fname"
+      rm -f "$f"
+    fi
+  done
+  echo ""
+}
+
+if [[ "$TARGET" == "clean" ]]; then
+  clean_dist
+  exit 0
+fi
+
+# ── Tests ──────────────────────────────────────────────────────────────────────
+echo "▶ Running tests..."
+echo ""
+if node --test tests/*.test.js 2>&1; then
+  echo ""
+  echo -e "  ${GREEN}✓ All tests passed${NC}"
+else
+  echo ""
+  echo -e "  ${RED}✗ Tests failed — aborting build${NC}"
+  exit 1
+fi
+echo ""
+
+# ── Build setup ────────────────────────────────────────────────────────────────
 mkdir -p "$DIST"
 
 EXCLUDE=(
@@ -19,6 +64,7 @@ EXCLUDE=(
   "store/dist/*"
   "store/*.zip"
   "node_modules/*"
+  "tests/*"
 )
 
 build_exclude_args() {
@@ -29,44 +75,65 @@ build_exclude_args() {
   echo "${args[@]}"
 }
 
+# ── Chrome ─────────────────────────────────────────────────────────────────────
 build_chrome() {
   echo "▶ Building Chrome v${VERSION}..."
   local out="$DIST/nextdns-medic-chrome-v${VERSION}.zip"
   rm -f "$out"
-  zip -r "$out" . $(build_exclude_args)
-  echo "  ✓ $(du -sh "$out" | cut -f1)  →  $out"
+  zip -r "$out" . $(build_exclude_args) > /dev/null
+  echo -e "  ${GREEN}✓ $(du -sh "$out" | cut -f1)  →  $out${NC}"
 }
 
+# ── Firefox ────────────────────────────────────────────────────────────────────
 build_firefox() {
   echo "▶ Building Firefox v${VERSION}..."
-  local out="$DIST/nextdns-medic-firefox-v${VERSION}.zip"
-  local tmp="$(mktemp -d)"
+  local zip_out="$DIST/nextdns-medic-firefox-v${VERSION}.zip"
+  local xpi_out="$DIST/nextdns-medic-firefox-v${VERSION}.xpi"
+  local tmp
+  tmp="$(mktemp -d)"
 
-  # Copy all extension files to temp dir
   rsync -a --exclude=".git" --exclude=".DS_Store" --exclude="*.sh" \
     --exclude="manifest.firefox.json" --exclude="store/dist" \
-    --exclude="store/*.zip" \
+    --exclude="store/*.zip" --exclude="tests" \
     . "$tmp/"
 
-  # Swap manifest
   cp manifest.firefox.json "$tmp/manifest.json"
 
-  rm -f "$out"
-  (cd "$tmp" && zip -r - . --exclude "*.DS_Store*") > "$out"
+  rm -f "$zip_out"
+  (cd "$tmp" && zip -r - . --exclude "*.DS_Store*") > "$zip_out" 2>/dev/null
+  cp "$zip_out" "$xpi_out"
   rm -rf "$tmp"
-  echo "  ✓ $(du -sh "$out" | cut -f1)  →  $out"
+
+  echo -e "  ${GREEN}✓ $(du -sh "$zip_out" | cut -f1)  →  $zip_out${NC}"
+  echo -e "  ${GREEN}✓ $(du -sh "$xpi_out" | cut -f1)  →  $xpi_out${NC}"
 }
 
+# ── Clean old artifacts ────────────────────────────────────────────────────────
+echo "▶ Cleaning old artifacts from dist/..."
+removed=0
+while IFS= read -r f; do
+  fname=$(basename "$f")
+  if ! echo "$fname" | grep -q "v${VERSION}"; then
+    echo "  🗑  $fname"
+    rm -f "$f"
+    ((removed++)) || true
+  fi
+done < <(find "$DIST" -type f 2>/dev/null)
+if [[ $removed -eq 0 ]]; then
+  echo "  nothing to remove"
+fi
+echo ""
+
+# ── Build ──────────────────────────────────────────────────────────────────────
 case "$TARGET" in
   chrome)  build_chrome ;;
   firefox) build_firefox ;;
   all)     build_chrome; build_firefox ;;
   *)
-    echo "Usage: ./build.sh [chrome|firefox|all]"
+    echo -e "${RED}Usage: ./build.sh [chrome|firefox|all|clean]${NC}"
     exit 1
     ;;
 esac
 
 echo ""
-echo "Done. Store packages in $DIST/"
-ls -lh "$DIST/"
+echo -e "${GREEN}Done. v${VERSION} packages in $DIST/${NC}"

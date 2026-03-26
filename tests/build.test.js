@@ -127,9 +127,12 @@ describe("Build zips", () => {
     }
   });
 
+  // Derive expected filenames from the manifest version
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, "manifest.json"), "utf8"));
+  const v = pkg.version;
   const zips = [
-    "nextdns-medic-chrome-v1.0.0.zip",
-    "nextdns-medic-firefox-v1.0.0.zip",
+    `nextdns-medic-chrome-v${v}.zip`,
+    `nextdns-medic-firefox-v${v}.zip`,
   ];
 
   for (const zip of zips) {
@@ -144,7 +147,7 @@ describe("Build zips", () => {
 
   test("XPI exists for Firefox", () =>
     assert.ok(
-      fs.existsSync(path.join(DIST, "nextdns-medic-firefox-v1.0.0.xpi")),
+      fs.existsSync(path.join(DIST, `nextdns-medic-firefox-v${v}.xpi`)),
       "Missing Firefox XPI"
     ));
 });
