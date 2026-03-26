@@ -27,10 +27,34 @@
     <!-- Settings Panel (hidden by default) -->
     <div id="settings-panel" class="settings-panel hidden">
       <div class="settings-title">Settings</div>
-      <label class="settings-label">NextDNS API Key</label>
-      <input type="password" id="api-key-input" placeholder="Enter your NextDNS API key" class="settings-input" />
-      <label class="settings-label">Profile ID</label>
-      <input type="text" id="profile-id-input" placeholder="e.g. a1b2c3" class="settings-input" />
+
+      <label class="settings-label">DNS Provider</label>
+      <select id="provider-select" class="settings-input settings-select">
+        <option value="nextdns">NextDNS</option>
+        <option value="pihole">Pi-hole</option>
+      </select>
+
+      <!-- NextDNS fields -->
+      <div id="provider-nextdns" class="provider-fields">
+        <label class="settings-label">API Key</label>
+        <input type="password" id="api-key-input" placeholder="Enter your NextDNS API key" class="settings-input" />
+        <label class="settings-label">Profile ID</label>
+        <input type="text" id="profile-id-input" placeholder="e.g. a1b2c3" class="settings-input" />
+      </div>
+
+      <!-- Pi-hole fields -->
+      <div id="provider-pihole" class="provider-fields hidden">
+        <label class="settings-label">Pi-hole URL</label>
+        <input type="text" id="pihole-url-input" placeholder="http://pi.hole or http://192.168.1.100" class="settings-input" />
+        <label class="settings-label">API Token</label>
+        <input type="password" id="pihole-token-input" placeholder="Paste your Pi-hole API token" class="settings-input" />
+        <div class="pihole-token-hint">Found in Pi-hole Admin → Settings → API / Web interface</div>
+        <div class="pihole-version-row">
+          <span id="pihole-version-label" class="pihole-version-label"></span>
+          <button id="btn-test-pihole" class="test-btn">Test Connection</button>
+        </div>
+      </div>
+
       <button id="btn-save-settings" class="save-btn">Save Settings</button>
       <div id="settings-status" class="settings-status"></div>
       <div class="db-section">

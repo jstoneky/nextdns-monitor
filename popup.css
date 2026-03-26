@@ -445,6 +445,59 @@ body {
   border-color: #4ade8044;
 }
 
+/* ── Provider select ── */
+.settings-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2364748b'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  cursor: pointer;
+}
+
+.provider-fields { margin-top: 2px; }
+
+.pihole-token-hint {
+  font-size: 10px;
+  color: #475569;
+  margin-top: -4px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.pihole-version-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pihole-version-label {
+  font-size: 11px;
+  color: #475569;
+  flex: 1;
+}
+.pihole-version-label.success { color: #4ade80; }
+.pihole-version-label.error   { color: #f87171; }
+.pihole-version-label.detected { color: #60a5fa; }
+
+.test-btn {
+  background: #1e2130;
+  border: 1px solid #2a2d3e;
+  border-radius: 5px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.test-btn:hover    { background: #2a2d3e; color: #cbd5e1; }
+.test-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
 /* ── DB section in settings ── */
 .db-section {
   margin-top: 14px;

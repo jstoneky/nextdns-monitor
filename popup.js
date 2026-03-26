@@ -6,16 +6,33 @@ let currentTabId = null;
 let apiKey = "";
 let profileId = "";
 let activeFilter = null; // "HIGH" | "MEDIUM" | "LOW" | null
+let provider = "nextdns"; // "nextdns" | "pihole"
+let piholeUrl = "";
+let piholeToken = "";
+let piholeVersion = null; // 5 | 6 | null (cached detection result)
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", async () => {
   // Load settings
-  const stored = await ext.storage.sync.get(["apiKey", "profileId"]);
-  apiKey = stored.apiKey || "";
-  profileId = stored.profileId || "";
+  const stored = await ext.storage.sync.get(["apiKey", "profileId", "provider", "piholeUrl", "piholeToken"]);
+  apiKey     = stored.apiKey     || "";
+  profileId  = stored.profileId  || "";
+  provider   = stored.provider   || "nextdns";
+  piholeUrl  = stored.piholeUrl  || "";
+  piholeToken = stored.piholeToken || "";
 
-  if (apiKey) document.getElementById("api-key-input").value = apiKey;
-  if (profileId) document.getElementById("profile-id-input").value = profileId;
+  // Restore cached version detection from local storage
+  const local = await ext.storage.local.get(["piholeVersion"]);
+  piholeVersion = local.piholeVersion || null;
+
+  if (apiKey)      document.getElementById("api-key-input").value    = apiKey;
+  if (profileId)   document.getElementById("profile-id-input").value = profileId;
+  if (piholeUrl)   document.getElementById("pihole-url-input").value = piholeUrl;
+  if (piholeToken) document.getElementById("pihole-token-input").value = piholeToken;
+
+  document.getElementById("provider-select").value = provider;
+  updateProviderUI(provider);
+  if (piholeVersion) updatePiholeVersionLabel(piholeVersion);
 
   // Get active tab
   const [tab] = await ext.tabs.query({ active: true, currentWindow: true });
@@ -39,6 +56,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("btn-clear").addEventListener("click", clearBlocks);
   document.getElementById("btn-save-settings").addEventListener("click", saveSettings);
   document.getElementById("btn-refresh-db").addEventListener("click", handleRefreshDB);
+  document.getElementById("btn-test-pihole").addEventListener("click", handleTestPihole);
+  document.getElementById("provider-select").addEventListener("change", e => {
+    updateProviderUI(e.target.value);
+  });
 
   // Filter by confidence level on stat click
   ["HIGH", "MEDIUM", "LOW"].forEach(level => {
@@ -120,10 +141,13 @@ function renderBlocks(blocks) {
   let lastConfidence = null;
 
   // No API key note
-  if (!apiKey || !profileId) {
+  const hasCredentials = provider === "pihole" ? (piholeUrl && piholeToken) : (apiKey && profileId);
+  if (!hasCredentials) {
     const note = document.createElement("div");
     note.className = "no-api-key";
-    note.textContent = "⚙️ Add your NextDNS API key in settings to enable one-click allowlist";
+    note.textContent = provider === "pihole"
+      ? "⚙️ Enter your Pi-hole URL and API token in settings to enable one-click allowlist"
+      : "⚙️ Add your NextDNS API key in settings to enable one-click allowlist";
     listEl.appendChild(note);
   }
 
@@ -167,7 +191,7 @@ function renderBlocks(blocks) {
       </div>
       <div class="block-actions">
         <button class="copy-btn" data-domain="${block.domain}" title="Copy domain">📋</button>
-        <button class="allowlist-btn" data-domain="${block.domain}" ${(!apiKey || !profileId) ? "disabled title='Add API key in settings'" : ""}>
+        <button class="allowlist-btn" data-domain="${block.domain}" ${!hasCredentials ? "disabled title='Configure your DNS provider in settings'" : ""}>
           + Allowlist
         </button>
       </div>
@@ -240,12 +264,28 @@ async function copyDomain(btn) {
 // ── NextDNS Allowlist ──────────────────────────────────────────────────────────
 async function addToAllowlist(btn) {
   const domain = btn.dataset.domain;
-  if (!domain || !apiKey || !profileId) return;
+  const canAllowlist = provider === "pihole" ? (piholeUrl && piholeToken) : (apiKey && profileId);
+  if (!domain || !canAllowlist) return;
 
   btn.disabled = true;
   btn.textContent = "Adding...";
 
   try {
+    // Route to the correct provider
+    if (provider === "pihole") {
+      const result = await piholeAllowlist(domain);
+      if (result.ok) {
+        btn.textContent = "✓ Added";
+        btn.classList.add("success");
+        showFlushBanner();
+      } else {
+        btn.textContent = "✗ Failed";
+        btn.title = result.error;
+        setTimeout(() => { btn.textContent = "+ Allowlist"; btn.title = ""; btn.disabled = false; }, 3000);
+      }
+      return;
+    }
+
     const res = await fetch(`${NEXTDNS_API}/profiles/${profileId}/allowlist`, {
       method: "POST",
       headers: {
@@ -296,13 +336,165 @@ async function refreshDBMeta() {
   }
 }
 
+function updateProviderUI(selectedProvider) {
+  document.getElementById("provider-nextdns").classList.toggle("hidden", selectedProvider !== "nextdns");
+  document.getElementById("provider-pihole").classList.toggle("hidden",  selectedProvider !== "pihole");
+}
+
+function updatePiholeVersionLabel(version) {
+  const el = document.getElementById("pihole-version-label");
+  if (!el) return;
+  el.textContent = version ? `Pi-hole v${version} detected` : "";
+  el.className = "pihole-version-label" + (version ? " detected" : "");
+}
+
+// ── Pi-hole API ───────────────────────────────────────────────────────────────
+function normalizePiholeUrl(url) {
+  return url.replace(/\/+$/, "").trim();
+}
+
+async function detectPiholeVersion(url) {
+  // v6 exposes /api/auth; v5 does not
+  try {
+    const res = await fetch(`${url}/api/auth`, { method: "GET", signal: AbortSignal.timeout(4000) });
+    if (res.status === 200 || res.status === 401) return 6;
+  } catch (_) {}
+  return 5; // fallback — assume v5
+}
+
+async function piholeAllowlist(domain) {
+  const url = normalizePiholeUrl(piholeUrl);
+  if (!url || !piholeToken) return { ok: false, error: "No Pi-hole URL or token configured" };
+
+  // Auto-detect version if not yet cached
+  if (!piholeVersion) {
+    piholeVersion = await detectPiholeVersion(url);
+    await ext.storage.local.set({ piholeVersion });
+    updatePiholeVersionLabel(piholeVersion);
+  }
+
+  if (piholeVersion === 6) {
+    return await piholeV6Allowlist(url, domain);
+  } else {
+    return await piholeV5Allowlist(url, domain);
+  }
+}
+
+async function piholeV5Allowlist(url, domain) {
+  try {
+    const res = await fetch(
+      `${url}/admin/api.php?list=white&add=${encodeURIComponent(domain)}&auth=${encodeURIComponent(piholeToken)}`,
+      { signal: AbortSignal.timeout(8000) }
+    );
+    if (!res.ok) return { ok: false, error: `HTTP ${res.status}` };
+    const data = await res.json();
+    if (data.success) return { ok: true };
+    return { ok: false, error: data.message || "Pi-hole returned an error" };
+  } catch (e) {
+    return { ok: false, error: e.name === "TimeoutError" ? "Pi-hole unreachable — check your URL" : e.message };
+  }
+}
+
+async function piholeV6Allowlist(url, domain) {
+  try {
+    // Step 1: get session token
+    const authRes = await fetch(`${url}/api/auth`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: piholeToken }),
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!authRes.ok) return { ok: false, error: authRes.status === 401 ? "Invalid API token" : `Auth failed (HTTP ${authRes.status})` };
+    const authData = await authRes.json();
+    const sid = authData?.session?.sid;
+    if (!sid) return { ok: false, error: "Could not obtain Pi-hole session token" };
+
+    // Step 2: add to allowlist
+    const addRes = await fetch(`${url}/api/domains/allow/exact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-FTL-SID": sid },
+      body: JSON.stringify({ domain, comment: "Added by NextDNS Medic" }),
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!addRes.ok) return { ok: false, error: `HTTP ${addRes.status}` };
+    return { ok: true };
+  } catch (e) {
+    return { ok: false, error: e.name === "TimeoutError" ? "Pi-hole unreachable — check your URL" : e.message };
+  }
+}
+
+async function handleTestPihole() {
+  const btn = document.getElementById("btn-test-pihole");
+  const url = normalizePiholeUrl(document.getElementById("pihole-url-input").value);
+  const token = document.getElementById("pihole-token-input").value.trim();
+  const versionLabel = document.getElementById("pihole-version-label");
+
+  if (!url || !token) {
+    versionLabel.textContent = "Enter URL and token first";
+    versionLabel.className = "pihole-version-label error";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Testing...";
+  versionLabel.textContent = "";
+  versionLabel.className = "pihole-version-label";
+
+  try {
+    const version = await detectPiholeVersion(url);
+
+    // Validate the token works by doing a read-only API call
+    let tokenOk = false;
+    if (version === 5) {
+      const res = await fetch(`${url}/admin/api.php?summaryRaw&auth=${encodeURIComponent(token)}`, { signal: AbortSignal.timeout(6000) });
+      const data = await res.json().catch(() => null);
+      tokenOk = data && typeof data.domains_being_blocked !== "undefined";
+    } else {
+      const res = await fetch(`${url}/api/auth`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: token }),
+        signal: AbortSignal.timeout(6000)
+      });
+      const data = await res.json().catch(() => null);
+      tokenOk = data?.session?.valid === true;
+    }
+
+    if (tokenOk) {
+      piholeVersion = version;
+      await ext.storage.local.set({ piholeVersion });
+      versionLabel.textContent = `✓ Connected (Pi-hole v${version})`;
+      versionLabel.className = "pihole-version-label success";
+    } else {
+      versionLabel.textContent = "✗ Invalid token — check Pi-hole settings";
+      versionLabel.className = "pihole-version-label error";
+    }
+  } catch (e) {
+    versionLabel.textContent = "✗ Unreachable — check your URL";
+    versionLabel.className = "pihole-version-label error";
+  }
+
+  btn.disabled = false;
+  btn.textContent = "Test Connection";
+}
+
 async function saveSettings() {
   const newKey = document.getElementById("api-key-input").value.trim();
   const newProfile = document.getElementById("profile-id-input").value.trim();
 
-  await ext.storage.sync.set({ apiKey: newKey, profileId: newProfile });
-  apiKey = newKey;
-  profileId = newProfile;
+  const newProvider     = document.getElementById("provider-select").value;
+  const newPiholeUrl    = normalizePiholeUrl(document.getElementById("pihole-url-input").value);
+  const newPiholeToken  = document.getElementById("pihole-token-input").value.trim();
+
+  await ext.storage.sync.set({
+    apiKey: newKey, profileId: newProfile,
+    provider: newProvider, piholeUrl: newPiholeUrl, piholeToken: newPiholeToken
+  });
+  apiKey       = newKey;
+  profileId    = newProfile;
+  provider     = newProvider;
+  piholeUrl    = newPiholeUrl;
+  piholeToken  = newPiholeToken;
 
   const status = document.getElementById("settings-status");
   status.textContent = "✓ Saved";
