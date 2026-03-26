@@ -10,9 +10,10 @@ let provider = "nextdns"; // "nextdns" | "pihole"
 let piholeUrl = "";
 let piholeToken = "";
 let piholeVersion = null; // 5 | 6 | null (cached detection result)
-let detectedFingerprint = null;
-let detectedDeviceName  = null;
-let profilesList        = []; // [{ id, name, fingerprint }]
+let detectedFingerprint   = null;
+let detectedDeviceName    = null;
+let profilesList          = []; // [{ id, name, fingerprint }]
+let profilesFetchInFlight = false;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", async () => {
@@ -328,9 +329,11 @@ async function addToAllowlist(btn) {
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 async function toggleSettings() {
-  // Fingerprint must resolve before profile matching
-  if (!detectedFingerprint) await fetchDeviceFingerprint();
-  if (apiKey && provider === "nextdns") await fetchAndMatchProfiles(apiKey);
+  // Only fetch profiles once — loadSettings already ran it on open
+  if (apiKey && provider === "nextdns" && profilesList.length === 0) {
+    if (!detectedFingerprint) await fetchDeviceFingerprint();
+    await fetchAndMatchProfiles(apiKey);
+  }
   const panel = document.getElementById("settings-panel");
   const isHidden = panel.classList.contains("hidden");
   panel.classList.toggle("hidden");
@@ -496,17 +499,21 @@ async function handleTestPihole() {
 // ── NextDNS Profile Auto-detect ───────────────────────────────────────────────
 async function fetchDeviceFingerprint() {
   try {
-    const res = await fetch("https://test.nextdns.io", { signal: AbortSignal.timeout(5000) });
-    const text = await res.text();
-    const data = JSON.parse(text);
-    detectedFingerprint = data.profile   || null;
+    const res = await fetch("https://test.nextdns.io", {
+      headers: { "Accept": "application/json" },
+      signal: AbortSignal.timeout(5000)
+    });
+    const data = await res.json();
+    detectedFingerprint = data.profile    || null;
     detectedDeviceName  = data.deviceName || data.clientName || null;
   } catch (_) {
-    // Not on NextDNS or network not configured — silent fail, fall back to saved profileId
+    // Not on NextDNS or network not configured — silent fail
   }
 }
 
 async function fetchAndMatchProfiles(key) {
+  if (profilesFetchInFlight) return;
+  profilesFetchInFlight = true;
   try {
     const res = await fetch("https://api.nextdns.io/profiles", {
       headers: { "X-Api-Key": key },
@@ -551,7 +558,10 @@ async function fetchAndMatchProfiles(key) {
     } else {
       showProfileDropdown();
     }
-  } catch (_) {}
+  } catch (_) {
+  } finally {
+    profilesFetchInFlight = false;
+  }
 }
 
 function showDetectedProfile(profile, deviceName, isActive) {
