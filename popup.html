@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextDNS Monitor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <span class="logo">🛡️</span>
+        <div>
+          <div class="title">NextDNS Monitor</div>
+          <div class="subtitle" id="page-host">Loading...</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-settings" class="icon-btn" title="Settings">⚙️</button>
+        <button id="btn-clear" class="icon-btn" title="Clear">🗑️</button>
+      </div>
+    </div>
+
+    <!-- Settings Panel (hidden by default) -->
+    <div id="settings-panel" class="settings-panel hidden">
+      <div class="settings-title">Settings</div>
+      <label class="settings-label">NextDNS API Key</label>
+      <input type="password" id="api-key-input" placeholder="Enter your NextDNS API key" class="settings-input" />
+      <label class="settings-label">Profile ID</label>
+      <input type="text" id="profile-id-input" placeholder="e.g. a1b2c3" class="settings-input" />
+      <button id="btn-save-settings" class="save-btn">Save Settings</button>
+      <div id="settings-status" class="settings-status"></div>
+    </div>
+
+    <!-- Stats bar -->
+    <div id="stats-bar" class="stats-bar hidden">
+      <div class="stat">
+        <span class="stat-num" id="stat-high">0</span>
+        <span class="stat-label high-label">High</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" id="stat-medium">0</span>
+        <span class="stat-label medium-label">Medium</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" id="stat-low">0</span>
+        <span class="stat-label low-label">Low</span>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">✅</div>
+      <div class="empty-title">No blocked requests detected</div>
+      <div class="empty-subtitle">Monitoring this page's network traffic</div>
+    </div>
+
+    <!-- Blocks list -->
+    <div id="blocks-list" class="blocks-list hidden"></div>
+
+  </div>
+
+  <script src="domain-db.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
