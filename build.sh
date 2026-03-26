@@ -16,8 +16,6 @@ EXCLUDE=(
   "*.DS_Store*"
   "*.sh"
   "manifest.firefox.json"
-  "store/screenshots/*.html"
-  "store/promo-tile.html"
   "store/dist/*"
   "store/*.zip"
   "node_modules/*"
@@ -46,8 +44,7 @@ build_firefox() {
 
   # Copy all extension files to temp dir
   rsync -a --exclude=".git" --exclude=".DS_Store" --exclude="*.sh" \
-    --exclude="manifest.firefox.json" --exclude="store/screenshots/*.html" \
-    --exclude="store/promo-tile.html" --exclude="store/dist" \
+    --exclude="manifest.firefox.json" --exclude="store/dist" \
     --exclude="store/*.zip" \
     . "$tmp/"
 

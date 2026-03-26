@@ -1,5 +1,7 @@
 # Chrome Web Store Listing
 
+> Also available on Firefox: store/firefox/LISTING.md
+
 ## Name
 NextDNS Traffic Monitor
 
