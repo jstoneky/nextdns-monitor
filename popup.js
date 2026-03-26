@@ -40,17 +40,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ── Load & Render Blocks ──────────────────────────────────────────────────────
-async function loadBlocks() {
-  ext.runtime.sendMessage(
-    { type: "GET_TAB_DATA", tabId: currentTabId },
-    (response) => {
-      if (ext.runtime.lastError) {
-        console.error(ext.runtime.lastError);
-        return;
-      }
-      renderBlocks(response?.blocks || []);
+// Messaging helper — Chrome uses callbacks, Firefox browser.* is Promise-based.
+// Using chrome.runtime directly works in both (Firefox supports Chrome compat API).
+function sendMessage(msg) {
+  return new Promise((resolve) => {
+    if (typeof chrome !== "undefined" && chrome.runtime) {
+      chrome.runtime.sendMessage(msg, (response) => {
+        if (chrome.runtime.lastError) {
+          console.warn("sendMessage:", chrome.runtime.lastError.message);
+          resolve(null);
+        } else {
+          resolve(response);
+        }
+      });
+    } else {
+      browser.runtime.sendMessage(msg).then(resolve).catch(() => resolve(null));
     }
-  );
+  });
+}
+
+async function loadBlocks() {
+  const response = await sendMessage({ type: "GET_TAB_DATA", tabId: currentTabId });
+  renderBlocks(response?.blocks || []);
 }
 
 function renderBlocks(blocks) {
@@ -210,9 +221,7 @@ async function saveSettings() {
 }
 
 // ── Clear ─────────────────────────────────────────────────────────────────────
-function clearBlocks() {
-  ext.runtime.sendMessage(
-    { type: "CLEAR_TAB_DATA", tabId: currentTabId },
-    () => loadBlocks()
-  );
+async function clearBlocks() {
+  await sendMessage({ type: "CLEAR_TAB_DATA", tabId: currentTabId });
+  loadBlocks();
 }

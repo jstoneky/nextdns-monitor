@@ -10,17 +10,28 @@ try { importScripts("domain-db.js"); } catch (e) {}
 const tabData = new Map();
 
 // Errors that indicate DNS-level blocking
+// Chrome uses net::ERR_* — Firefox uses NS_ERROR_*
 const DNS_BLOCK_ERRORS = [
+  // Chrome
   "net::ERR_NAME_NOT_RESOLVED",
   "net::ERR_CERT_AUTHORITY_INVALID",
   "net::ERR_BLOCKED_BY_ADMINISTRATOR",
+  // Firefox
+  "NS_ERROR_UNKNOWN_HOST",        // DNS resolution failed (NextDNS NXDOMAIN)
+  "NS_ERROR_NET_ON_RESOLVING",    // DNS timeout
+  "NS_ERROR_PROXY_CONNECTION_REFUSED", // Blocked by proxy/DNS
 ];
 
 // Also watch for these as possible (lower confidence)
 const POSSIBLE_BLOCK_ERRORS = [
+  // Chrome
   "net::ERR_BLOCKED_BY_CLIENT",
   "net::ERR_CONNECTION_REFUSED",
   "net::ERR_FAILED",
+  // Firefox
+  "NS_ERROR_CONNECTION_REFUSED",
+  "NS_ERROR_NET_RESET",
+  "NS_ERROR_OFFLINE",
 ];
 
 function getOrCreateTabData(tabId) {
@@ -140,20 +151,15 @@ function updateBadge(tabId, total, highCount = 0) {
 }
 
 // Message handler — popup requests data for current tab
+// Returns true (Chrome) to keep channel open; also handles Firefox Promise-based messaging.
 ext.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "GET_TAB_DATA") {
     const data = tabData.get(msg.tabId);
-    if (!data) {
-      sendResponse({ blocks: [], url: "", hostname: "" });
-      return true;
-    }
-    sendResponse({
-      blocks: [...data.blocks.values()],
-      url: data.url,
-      hostname: data.hostname,
-      startTime: data.startTime,
-    });
-    return true;
+    const payload = data
+      ? { blocks: [...data.blocks.values()], url: data.url, hostname: data.hostname, startTime: data.startTime }
+      : { blocks: [], url: "", hostname: "" };
+    sendResponse(payload);
+    return true; // Keep message channel open for Chrome
   }
 
   if (msg.type === "CLEAR_TAB_DATA") {
