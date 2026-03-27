@@ -264,6 +264,13 @@ Run `npm test` before submitting — the test suite validates every entry and wi
 
 ## Changelog
 
+### v2.4.0
+- **Firefox for Android support** — responsive layout fills the full panel width on mobile
+- **API key validation** — entering a bad key on the → button now shows a red error; nothing is saved
+- **Cookie bypass fix** — all NextDNS API calls now use `credentials: omit`; browser session cookies can no longer silently authenticate garbage keys
+- **Android DNS flush** — replaced shell command with mobile-friendly instructions and a Reload button
+- **Popup width** — 440px on desktop, fluid on mobile; height grows with content
+
 ### v2.3.1
 - **Fixed popup icon** — replaced hardcoded 🛡️ emoji with the actual extension icon
 
