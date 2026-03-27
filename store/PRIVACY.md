@@ -34,4 +34,4 @@ Blocked domain information (hostnames and error types) is held in memory only fo
 
 ## Contact
 
-Questions or concerns: open an issue at https://github.com/jstoneky/nextdns-monitor
+Questions or concerns: open an issue at https://github.com/jstoneky/nextdns-medic

@@ -37,7 +37,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "homepage_url": "https://github.com/jstoneky/nextdns-monitor",
+  "homepage_url": "https://github.com/jstoneky/nextdns-medic",
   "browser_specific_settings": {
     "gecko": {
       "id": "nextdns-medic@jstoneky.github.io",
