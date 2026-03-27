@@ -152,7 +152,7 @@ Located in store/chrome/screenshots/
 store/chrome/promo-tile-440x280.jpg
 
 ## Marquee (1400x560)
-store/chrome/marquee-1400x560.jpg
+store/chrome/marquee-1400x560-v2.3.jpg
 
 ## Store icon (128x128)
 store/chrome/icon-128-store.png
