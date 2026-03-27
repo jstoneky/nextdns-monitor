@@ -738,6 +738,7 @@ async function fetchDeviceFingerprint() {
   try {
     const res = await fetch("https://test.nextdns.io", {
       headers: { "Accept": "application/json" },
+      credentials: "omit",
       signal: AbortSignal.timeout(5000)
     });
     const data = await res.json();
@@ -754,6 +755,7 @@ async function fetchAndMatchProfiles(key) {
   try {
     const res = await fetch("https://api.nextdns.io/profiles", {
       headers: { "X-Api-Key": key },
+      credentials: "omit",
       signal: AbortSignal.timeout(6000)
     });
     if (!res.ok) return;
@@ -822,7 +824,8 @@ async function handleLookupProfiles() {
 async function validateNextDNSKey(key) {
   try {
     const resp = await fetch("https://api.nextdns.io/profiles", {
-      headers: { "X-Api-Key": key }
+      headers: { "X-Api-Key": key },
+      credentials: "omit"
     });
     return resp.ok; // 200 = valid, 401/403 = invalid
   } catch (_) {
