@@ -65,10 +65,11 @@ function validateAndCompile(raw) {
       const regex = new RegExp(entry.pattern, flags);
 
       compiled.push({
-        pattern:    regex,
-        label:      entry.label,
-        confidence: entry.confidence,
-        category:   entry.category,
+        pattern:        regex,
+        label:          entry.label,
+        confidence:     entry.confidence,
+        category:       entry.category,
+        functionalImpact: entry.functionalImpact || null,
       });
     } catch (_) {
       // Invalid entry — skip silently
@@ -85,7 +86,7 @@ function classifyDomainActive(hostname) {
   for (const entry of db) {
     try {
       if (entry.pattern.test(hostname)) {
-        return { label: entry.label, confidence: entry.confidence, category: entry.category, known: true };
+        return { label: entry.label, confidence: entry.confidence, category: entry.category, functionalImpact: entry.functionalImpact || null, known: true };
       }
     } catch (_) {
       // Skip broken entry

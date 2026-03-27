@@ -198,6 +198,24 @@ async function fetchPiholeReasons(domains) {
   } catch (_) {}
 }
 
+const IMPACT_LABELS = {
+  login:        "⚠️ May prevent login",
+  forms:        "⚠️ May break forms",
+  media:        "🎬 Media may not load",
+  map:          "🗺️ Map may not load",
+  search:       "🔍 Search may break",
+  chat:         "💬 Support chat may break",
+  features:     "🚩 Feature flags affected",
+  assets:       "🖼️ Assets may not load",
+  monitoring:   "📊 Error monitoring blocked",
+  notifications:"🔔 Notifications may break",
+};
+
+function renderImpactBadge(impact) {
+  if (!impact || !IMPACT_LABELS[impact]) return "";
+  return `<span class="impact-badge impact-${impact}">${IMPACT_LABELS[impact]}</span>`;
+}
+
 function renderBlockedBy(domain) {
   const reasons = blocklistCache[domain];
   if (!reasons?.length) return "";
@@ -300,6 +318,7 @@ function renderBlocks(blocks) {
         <div class="block-meta">
           <span class="block-error">${errorShort}</span>
           ${block.count > 1 ? `<span class="block-count">×${block.count}</span>` : ""}
+          ${renderImpactBadge(block.classification.functionalImpact)}
         </div>
         ${renderBlockedBy(block.domain)}
       </div>

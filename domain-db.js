@@ -542,6 +542,7 @@ function classifyDomain(hostname) {
         label: entry.label,
         confidence: entry.confidence,
         category: entry.category,
+        functionalImpact: entry.functionalImpact || null,
         known: true,
       };
     }

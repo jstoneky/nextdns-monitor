@@ -423,6 +423,29 @@ body {
 }
 .flush-copy-btn:hover { opacity: 1; }
 
+/* ── Functional impact badge ── */
+.impact-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  background: #1e1a0e;
+  border: 1px solid #78350f55;
+  color: #fbbf24;
+}
+.impact-login,
+.impact-forms   { background: #2d0a0a; border-color: #dc262655; color: #f87171; }
+.impact-media,
+.impact-map,
+.impact-assets  { background: #0a1a2d; border-color: #3b82f655; color: #93c5fd; }
+.impact-chat,
+.impact-notifications { background: #0d1a0d; border-color: #22c55e55; color: #86efac; }
+.impact-features { background: #1a0a2d; border-color: #a855f755; color: #d8b4fe; }
+.impact-search  { background: #0a1a1a; border-color: #06b6d455; color: #67e8f9; }
+.impact-monitoring { background: #1a1a1a; border-color: #71717a55; color: #a1a1aa; }
+
 /* ── Blocklist tags ── */
 .block-reasons {
   display: flex;
