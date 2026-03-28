@@ -338,7 +338,7 @@ Run `npm test` before submitting — the test suite validates every entry and wi
 
 ## Support
 
-If DNS Medic saved you a headache, [buy me a beer ☕](https://ko-fi.com/jstoneky) — it's appreciated but never expected.
+If DNS Medic saved you a headache, [buy me a coffee ☕](https://ko-fi.com/jstoneky) — it's appreciated but never expected.
 
 ## License
 
