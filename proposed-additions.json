@@ -1,287 +1,257 @@
 {
   "generated": "2026-03-28",
-  "source": "db-research-agent",
-  "totalCandidates": 28,
+  "source": "db-research-agent-v2",
+  "totalCandidates": 25,
   "candidates": [
     {
-      "pattern": "frontegg\\.com",
+      "pattern": "cdn\\.onesignal\\.com",
       "flags": "",
-      "label": "Auth (Frontegg)",
+      "label": "Notifications (OneSignal CDN)",
       "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "B2B SaaS identity platform — blocking breaks user login, SSO, and org management on any app using Frontegg.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "cdn\\.frontegg\\.com",
-      "flags": "",
-      "label": "Auth (Frontegg CDN)",
-      "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "Frontegg JS SDK and auth UI assets — blocking prevents login UI from rendering.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "descope\\.com",
-      "flags": "",
-      "label": "Auth (Descope)",
-      "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "No-code auth platform with passkeys/magic links — blocking breaks login flows on apps using Descope.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "propelauth\\.com",
-      "flags": "",
-      "label": "Auth (PropelAuth)",
-      "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "B2B authentication platform — auth.propelauth.com hosts the login UI; blocking breaks sign-in for any app using it.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "cloud\\.hanko\\.io",
-      "flags": "",
-      "label": "Auth (Hanko Cloud)",
-      "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "Hanko Cloud API endpoint — blocking breaks passkey/WebAuthn login on apps using Hanko Cloud.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "passkeys\\.hanko\\.io",
-      "flags": "",
-      "label": "Auth (Hanko Passkey API)",
-      "confidence": "HIGH",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "Hanko Passkey API endpoint — blocking breaks passkey authentication for apps using Hanko Passkey API.",
-      "source": "docs.hanko.io passkey API research"
-    },
-    {
-      "pattern": "corbado\\.com",
-      "flags": "",
-      "label": "Auth (Corbado)",
-      "confidence": "MEDIUM",
-      "category": "auth",
-      "functionalImpact": "login",
-      "reason": "Passkey-first auth platform — blocking breaks login flows on apps using Corbado Complete or Connect.",
-      "source": "emerging auth provider research 2025"
-    },
-    {
-      "pattern": "js\\.lemonsqueezy\\.com",
-      "flags": "",
-      "label": "Payments (Lemon Squeezy JS)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Lemon Squeezy checkout overlay JS — blocking prevents the purchase modal from loading on any Lemon Squeezy store.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "assets\\.lemonsqueezy\\.com",
-      "flags": "",
-      "label": "Payments (Lemon Squeezy assets)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Lemon Squeezy checkout assets CDN — blocking breaks checkout UI rendering.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "lemonsqueezy\\.com",
-      "flags": "",
-      "label": "Payments (Lemon Squeezy)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Lemon Squeezy payment platform widely used by indie developers — blocking breaks checkout completely.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "js\\.checkout\\.com",
-      "flags": "",
-      "label": "Payments (Checkout.com JS)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Checkout.com Frames JS library — blocking breaks card payment forms on e-commerce sites using Checkout.com.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "cdn\\.checkout\\.com",
-      "flags": "",
-      "label": "Payments (Checkout.com CDN)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Checkout.com assets CDN — blocking prevents payment forms and checkout UI from loading.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "checkout\\.com",
-      "flags": "",
-      "label": "Payments (Checkout.com)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Major global payment processor used by enterprise merchants — blocking breaks all payment flows.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "core\\.spreedly\\.com",
-      "flags": "",
-      "label": "Payments (Spreedly)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Spreedly payment orchestration iframe endpoint — blocking breaks card tokenization on sites using Spreedly.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "spreedly\\.com",
-      "flags": "",
-      "label": "Payments (Spreedly)",
-      "confidence": "HIGH",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Spreedly payment orchestration platform — blocking breaks hosted payment forms.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "sdk\\.primer\\.io",
-      "flags": "",
-      "label": "Payments (Primer SDK)",
-      "confidence": "MEDIUM",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Primer payment orchestration SDK — blocking prevents checkout UI from loading on sites using Primer.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "primer\\.io",
-      "flags": "",
-      "label": "Payments (Primer)",
-      "confidence": "MEDIUM",
-      "category": "payments",
-      "functionalImpact": "forms",
-      "reason": "Primer payment orchestration platform — blocking breaks payment flows for apps using Primer.",
-      "source": "emerging payments provider research 2025"
-    },
-    {
-      "pattern": "js\\.devcycle\\.com",
-      "flags": "",
-      "label": "Feature Flags (DevCycle CDN)",
-      "confidence": "HIGH",
-      "category": "feature-flags",
+      "category": "notifications",
       "functionalImpact": "features",
-      "reason": "DevCycle JS SDK CDN endpoint (js.devcycle.com/devcycle.min.js) — blocking silently disables feature flags causing missing UI or broken flows.",
-      "source": "docs.devcycle.com SDK install docs"
+      "reason": "OneSignal is one of the most widely-used web push notification platforms. Blocking cdn.onesignal.com prevents the JS SDK from loading, breaking push notification subscriptions and permission prompts on sites that embed it.",
+      "source": "HaGeZi blocklist false positive reports; OneSignal documented as commonly blocked by Pi-hole/NextDNS users"
     },
     {
-      "pattern": "bucketing-api\\.devcycle\\.com",
+      "pattern": "onesignal\\.com",
       "flags": "",
-      "label": "Feature Flags (DevCycle API)",
+      "label": "Notifications (OneSignal API)",
       "confidence": "HIGH",
-      "category": "feature-flags",
+      "category": "notifications",
       "functionalImpact": "features",
-      "reason": "DevCycle server-side bucketing API — blocking disables server SDK feature flag evaluation.",
-      "source": "docs.devcycle.com bucketing API"
+      "reason": "OneSignal API endpoint used for push registration and delivery. Blocking breaks push notification delivery and subscription flows.",
+      "source": "OneSignal official docs; widely reported in pihole/nextdns communities"
     },
     {
-      "pattern": "devcycle\\.com",
+      "pattern": "cdn\\.pushwoosh\\.com",
       "flags": "",
-      "label": "Feature Flags (DevCycle)",
+      "label": "Notifications (Pushwoosh CDN)",
       "confidence": "HIGH",
-      "category": "feature-flags",
+      "category": "notifications",
       "functionalImpact": "features",
-      "reason": "DevCycle feature flag platform — blocking breaks any feature flag evaluation, causing apps to fall back to defaults silently.",
-      "source": "emerging feature flag provider research 2025"
+      "reason": "cdn.pushwoosh.com serves the Pushwoosh web push notification SDK. Blocking breaks web push opt-in prompts and notification delivery on websites using Pushwoosh.",
+      "source": "github.com/Pushwoosh/web-push-notifications README; confirmed CDN endpoint for web SDK"
     },
     {
-      "pattern": "edge\\.hypertune\\.com",
+      "pattern": "cp\\.pushwoosh\\.com",
       "flags": "",
-      "label": "Feature Flags (Hypertune Edge)",
+      "label": "Notifications (Pushwoosh API)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "features",
+      "reason": "cp.pushwoosh.com is the Pushwoosh control panel API used for push notification delivery. Blocking breaks push subscription registration and notification send.",
+      "source": "Pushwoosh documentation; confirmed API endpoint for push delivery"
+    },
+    {
+      "pattern": "go\\.airship\\.com",
+      "flags": "",
+      "label": "Notifications (Airship SDK endpoint)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "features",
+      "reason": "Airship (formerly Urban Airship) is an enterprise push notification platform. go.airship.com is the primary SDK API endpoint; blocking breaks web push subscriptions and in-app messaging.",
+      "source": "airship.com/docs/developer/sdk-integration/web; enterprise push platform SDK docs"
+    },
+    {
+      "pattern": "cdn\\.airship\\.com",
+      "flags": "",
+      "label": "Notifications (Airship Web SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "features",
+      "reason": "cdn.airship.com hosts the Airship Web SDK JS file loaded by websites that use Airship for push notifications and in-app messaging. Blocking prevents SDK initialization.",
+      "source": "Airship Web SDK v2 documentation (released August 2024); SDK CDN endpoint"
+    },
+    {
+      "pattern": "js\\.appboycdn\\.com",
+      "flags": "",
+      "label": "Notifications (Braze Web SDK CDN)",
       "confidence": "MEDIUM",
-      "category": "feature-flags",
+      "category": "notifications",
       "functionalImpact": "features",
-      "reason": "Hypertune GraphQL edge endpoint for feature flags — blocking causes flag evaluation to fail or fall back to defaults.",
-      "source": "emerging feature flag provider research 2025"
+      "reason": "js.appboycdn.com (legacy Appboy/Braze name) serves the Braze Web SDK used for in-app messaging, push notifications, and personalized content delivery. Blocking disables all in-app messages and push prompts.",
+      "source": "Braze SDK docs; appboycdn.com is Braze's longstanding CDN domain, commonly flagged by blocklists"
     },
     {
-      "pattern": "hypertune\\.com",
+      "pattern": "static\\.iterable\\.com",
       "flags": "",
-      "label": "Feature Flags (Hypertune)",
+      "label": "Notifications (Iterable Web SDK CDN)",
       "confidence": "MEDIUM",
-      "category": "feature-flags",
+      "category": "notifications",
       "functionalImpact": "features",
-      "reason": "Hypertune type-safe feature flag platform — blocking breaks feature flag evaluation in apps using it.",
-      "source": "emerging feature flag provider research 2025"
+      "reason": "static.iterable.com hosts the Iterable web SDK used for push notifications, in-browser messages, and web push subscription management.",
+      "source": "Iterable web push documentation; confirmed CDN hostname for SDK delivery"
     },
     {
-      "pattern": "gcaptcha4?\\.geetest\\.com",
+      "pattern": "cdn\\.attn\\.tv",
       "flags": "",
-      "label": "CAPTCHA (Geetest)",
+      "label": "Notifications (Attentive popup CDN)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "features",
+      "reason": "cdn.attn.tv serves the Attentive signup widget JS embedded on e-commerce sites for SMS/push subscriber acquisition. Blocking hides the subscriber sign-up modal/popup.",
+      "source": "Attentive developer docs; attn.tv CDN confirmed as script source for embedded popups"
+    },
+    {
+      "pattern": "static\\.klaviyo\\.com",
+      "flags": "",
+      "label": "Notifications (Klaviyo onsite JS CDN)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "forms",
+      "reason": "static.klaviyo.com serves the Klaviyo Active On Site JS (e.g. klaviyo.js) required for sign-up forms, pop-ups, and conversion tracking on e-commerce sites. Blocking causes embedded email capture forms to disappear.",
+      "source": "Klaviyo Help Center articles; Stack Overflow Q 76222749; widely reported as critical for e-commerce forms"
+    },
+    {
+      "pattern": "dev\\.visualwebsiteoptimizer\\.com",
+      "flags": "",
+      "label": "A/B Testing (VWO SmartCode API)",
+      "confidence": "MEDIUM",
+      "category": "ab-testing",
+      "functionalImpact": "features",
+      "reason": "dev.visualwebsiteoptimizer.com is the primary VWO (Visual Website Optimizer) SmartCode endpoint. Blocking it causes 'connection disruption' errors and prevents A/B test variants from loading, which can break page elements modified by experiments.",
+      "source": "VWO Help Center article 21410329983001 'Troubleshooting Connection Disruptions in VWO'; confirmed as commonly blocked"
+    },
+    {
+      "pattern": "cdn\\.abtasty\\.com",
+      "flags": "",
+      "label": "A/B Testing (AB Tasty CDN)",
+      "confidence": "MEDIUM",
+      "category": "ab-testing",
+      "functionalImpact": "features",
+      "reason": "cdn.abtasty.com serves the AB Tasty script that applies experiment variations and personalization. Blocking can result in missing page elements or broken layouts if the default state depends on the test variant.",
+      "source": "AB Tasty documentation; confirmed CDN hostname for experiment script delivery"
+    },
+    {
+      "pattern": "data\\.convert\\.com",
+      "flags": "",
+      "label": "A/B Testing (Convert.com data endpoint)",
+      "confidence": "MEDIUM",
+      "category": "ab-testing",
+      "functionalImpact": "features",
+      "reason": "data.convert.com is the Convert Experiences experiment data endpoint. Blocking it halts A/B test execution and can leave pages in an indeterminate state if experiments control content display.",
+      "source": "Convert.com developer documentation; confirmed data endpoint for experiment delivery"
+    },
+    {
+      "pattern": "cdn\\.convertexperiments\\.com",
+      "flags": "",
+      "label": "A/B Testing (Convert.com JS CDN)",
+      "confidence": "MEDIUM",
+      "category": "ab-testing",
+      "functionalImpact": "features",
+      "reason": "cdn.convertexperiments.com serves the Convert Experiences JavaScript tag. Blocking prevents A/B experiment scripts from loading.",
+      "source": "Convert Experiences implementation docs; confirmed CDN hostname for tracking script"
+    },
+    {
+      "pattern": "lottie\\.host",
+      "flags": "",
+      "label": "Animation (LottieFiles hosted CDN)",
       "confidence": "HIGH",
-      "category": "captcha",
+      "category": "animation",
+      "functionalImpact": "assets",
+      "reason": "lottie.host is LottieFiles' primary CDN for self-hosted Lottie animations. Many sites use <lottie-player> or dotLottie elements referencing lottie.host URLs; blocking replaces animations with blank space.",
+      "source": "LottieFiles documentation; commonly embedded on marketing and product pages; HIGH usage as of 2024-2025"
+    },
+    {
+      "pattern": "assets\\.lottiefiles\\.com",
+      "flags": "",
+      "label": "Animation (LottieFiles assets CDN)",
+      "confidence": "HIGH",
+      "category": "animation",
+      "functionalImpact": "assets",
+      "reason": "assets.lottiefiles.com serves Lottie JSON animation files and the LottieFiles player SDK. Blocking breaks embedded animations used for loaders, onboarding, and UI feedback.",
+      "source": "LottieFiles embed documentation; widely used CDN for animation delivery"
+    },
+    {
+      "pattern": "cdn\\.crowdin\\.com",
+      "flags": "",
+      "label": "Localization (Crowdin CDN)",
+      "confidence": "MEDIUM",
+      "category": "localization",
+      "functionalImpact": "features",
+      "reason": "cdn.crowdin.com serves the Crowdin in-context translation overlay SDK used by internationalized web apps. Blocking breaks the translation management overlay used by translators and may prevent locale string bundles from loading.",
+      "source": "Crowdin documentation; CDN endpoint for in-context localization SDK"
+    },
+    {
+      "pattern": "distributions\\.crowdin\\.com",
+      "flags": "",
+      "label": "Localization (Crowdin string distribution CDN)",
+      "confidence": "MEDIUM",
+      "category": "localization",
+      "functionalImpact": "features",
+      "reason": "distributions.crowdin.com is used by apps that deliver translated string bundles via Crowdin OTA distribution. Blocking can cause UI to fall back to default language or show missing text.",
+      "source": "Crowdin OTA (Over-The-Air) content delivery docs; production CDN for localization bundles"
+    },
+    {
+      "pattern": "\\.authkit\\.app",
+      "flags": "",
+      "label": "Auth (WorkOS AuthKit hosted login)",
+      "confidence": "HIGH",
+      "category": "auth",
       "functionalImpact": "login",
-      "reason": "Geetest CAPTCHA (v3/v4) used widely in Asian-market apps and global SaaS — blocking breaks login, signup, and form submissions.",
-      "source": "captcha provider research 2025"
+      "reason": "*.authkit.app is the default hosted login page domain for WorkOS AuthKit. Apps redirect users to *.authkit.app for sign-in; blocking this domain prevents login entirely.",
+      "source": "WorkOS blog 'Introducing AuthKit and User Management' (Nov 2023); Hacker News HN 41927400; confirmed as primary auth redirect domain"
     },
     {
-      "pattern": "api\\.geetest\\.com",
+      "pattern": "api\\.supertokens\\.io",
       "flags": "",
-      "label": "CAPTCHA (Geetest API)",
+      "label": "Auth (SuperTokens cloud API)",
       "confidence": "HIGH",
-      "category": "captcha",
+      "category": "auth",
       "functionalImpact": "login",
-      "reason": "Geetest CAPTCHA verification API — blocking prevents challenge completion, breaking login and form flows.",
-      "source": "captcha provider research 2025"
+      "reason": "api.supertokens.io is the SuperTokens managed cloud API for session management and authentication. Blocking it breaks login, signup, and session refresh for apps using SuperTokens hosted service.",
+      "source": "SuperTokens documentation; confirmed API endpoint for cloud-hosted auth service"
     },
     {
-      "pattern": "service\\.mtcaptcha\\.com",
+      "pattern": "api\\.maptiler\\.com",
       "flags": "",
-      "label": "CAPTCHA (MTCaptcha)",
-      "confidence": "MEDIUM",
-      "category": "captcha",
-      "functionalImpact": "login",
-      "reason": "MTCaptcha GDPR-compliant CAPTCHA service endpoint — blocking breaks form submissions and login on sites using it.",
-      "source": "captcha provider research 2025"
-    },
-    {
-      "pattern": "cdnapi\\.kaltura\\.com",
-      "flags": "",
-      "label": "Video (Kaltura CDN API)",
+      "label": "Maps (MapTiler API)",
       "confidence": "HIGH",
-      "category": "video",
-      "functionalImpact": "media",
-      "reason": "Kaltura video platform CDN API — widely used in education and enterprise; blocking breaks video playback entirely.",
-      "source": "video platform research 2025"
+      "category": "maps",
+      "functionalImpact": "map",
+      "reason": "api.maptiler.com is the primary MapTiler endpoint for map tiles, geocoding, and geodata APIs. MapTiler is widely used as an OpenStreetMap-based alternative to Google Maps; blocking causes maps to fail to load.",
+      "source": "MapTiler Terms and Conditions; confirmed as single required endpoint per MapTiler TOS: 'requests directly to MapTiler infrastructure via https://api.maptiler.com/'"
     },
     {
-      "pattern": "kaltura\\.com",
+      "pattern": "cdn\\.maptiler\\.com",
       "flags": "",
-      "label": "Video (Kaltura)",
+      "label": "Maps (MapTiler SDK CDN)",
       "confidence": "HIGH",
-      "category": "video",
-      "functionalImpact": "media",
-      "reason": "Kaltura enterprise video platform (major in education/LMS) — blocking breaks video players and media delivery.",
-      "source": "video platform research 2025"
+      "category": "maps",
+      "functionalImpact": "map",
+      "reason": "cdn.maptiler.com serves the MapTiler SDK JavaScript and CSS files. Blocking prevents the map component from initializing.",
+      "source": "MapTiler SDK documentation; CDN for MapTiler GL JS library"
     },
     {
-      "pattern": "cdn\\.sproutvideo\\.com",
+      "pattern": "app\\.vwo\\.com",
       "flags": "",
-      "label": "Video (SproutVideo CDN)",
+      "label": "A/B Testing (VWO app endpoint)",
       "confidence": "MEDIUM",
-      "category": "video",
-      "functionalImpact": "media",
-      "reason": "SproutVideo marketing video platform CDN — blocking breaks embedded video players on business websites.",
-      "source": "video platform research 2025"
+      "category": "ab-testing",
+      "functionalImpact": "features",
+      "reason": "app.vwo.com is used by the VWO SmartCode for certain API calls and configuration fetches. Blocking it alongside dev.visualwebsiteoptimizer.com can cause experiment loading failures.",
+      "source": "VWO SmartCode implementation docs; secondary endpoint used with dev.visualwebsiteoptimizer.com"
+    },
+    {
+      "pattern": "a\\.klaviyo\\.com",
+      "flags": "",
+      "label": "Notifications (Klaviyo tracking endpoint)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "monitoring",
+      "reason": "a.klaviyo.com is the Klaviyo analytics and event tracking endpoint. While blocking it doesn't break site UI directly, it prevents Klaviyo from identifying users and can cause form submission attribution to fail.",
+      "source": "Klaviyo developer documentation; standard analytics endpoint alongside static.klaviyo.com"
+    },
+    {
+      "pattern": "sdk\\.iad-\\d+\\.braze\\.com",
+      "flags": "",
+      "label": "Notifications (Braze SDK endpoint)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "features",
+      "reason": "sdk.iad-XX.braze.com endpoints are the Braze SDK data centers (e.g. sdk.iad-06.braze.com). Blocking them prevents in-app messages, push notifications, and content cards from being fetched and displayed.",
+      "source": "Braze SDK configuration docs; confirmed as region-specific SDK endpoints"
     }
   ]
 }
