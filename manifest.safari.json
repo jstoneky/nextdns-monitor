@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "DNS Medic",
+  "short_name": "DNS Medic",
+  "version": "3.0.0",
+  "description": "Detects DNS blocks that break websites. Supports NextDNS, Pi-hole, and Control D. Groups domains by risk level and lets you allowlist them instantly.",
+  "permissions": [
+    "webRequest",
+    "tabs",
+    "storage",
+    "activeTab",
+    "webNavigation",
+    "<all_urls>",
+    "https://raw.githubusercontent.com/jstoneky/nextdns-medic/*",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": [
+      "browser-compat.js",
+      "domain-db.js",
+      "db-loader.js",
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "DNS Medic",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://github.com/jstoneky/nextdns-medic"
+}
