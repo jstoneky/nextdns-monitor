@@ -827,6 +827,10 @@ body.mobile .flush-cmd-text {
   padding-top: 10px;
   border-top: 1px solid #1e293b;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .bug-report-link {
@@ -841,9 +845,9 @@ body.mobile .flush-cmd-text {
   opacity: 1;
 }
 
-.kofi-section {
-  margin-top: 8px;
-  text-align: center;
+.footer-divider {
+  font-size: 11px;
+  color: #334155;
 }
 
 .kofi-link {
