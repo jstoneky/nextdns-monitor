@@ -40,7 +40,6 @@
 		9ABF05722F785FB400F82F83 /* providers in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055A2F785FB400F82F83 /* providers */; };
 		9ABF05732F785FB400F82F83 /* tests in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055B2F785FB400F82F83 /* tests */; };
 		9ABF05742F785FB400F82F83 /* manifest.firefox.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055C2F785FB400F82F83 /* manifest.firefox.json */; };
-		9ABF05752F785FB400F82F83 /* docs in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055D2F785FB400F82F83 /* docs */; };
 		9ABF05772F785FB400F82F83 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055F2F785FB400F82F83 /* README.md */; };
 		9ABF05782F785FB400F82F83 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05602F785FB400F82F83 /* build.sh */; };
 		9ABF05792F785FB400F82F83 /* diagnostics.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05612F785FB400F82F83 /* diagnostics.html */; };
@@ -63,7 +62,6 @@
 		9ABF058A2F785FB400F82F83 /* providers in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055A2F785FB400F82F83 /* providers */; };
 		9ABF058B2F785FB400F82F83 /* tests in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055B2F785FB400F82F83 /* tests */; };
 		9ABF058C2F785FB400F82F83 /* manifest.firefox.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055C2F785FB400F82F83 /* manifest.firefox.json */; };
-		9ABF058D2F785FB400F82F83 /* docs in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055D2F785FB400F82F83 /* docs */; };
 		9ABF058F2F785FB400F82F83 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055F2F785FB400F82F83 /* README.md */; };
 		9ABF05902F785FB400F82F83 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05602F785FB400F82F83 /* build.sh */; };
 		9ABF05912F785FB400F82F83 /* diagnostics.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05612F785FB400F82F83 /* diagnostics.html */; };
@@ -152,7 +150,6 @@
 		9ABF055A2F785FB400F82F83 /* providers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = providers; path = ../../../../providers; sourceTree = "<group>"; };
 		9ABF055B2F785FB400F82F83 /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tests; path = ../../../../tests; sourceTree = "<group>"; };
 		9ABF055C2F785FB400F82F83 /* manifest.firefox.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.firefox.json; path = ../../../../manifest.firefox.json; sourceTree = "<group>"; };
-		9ABF055D2F785FB400F82F83 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = ../../../../docs; sourceTree = "<group>"; };
 		9ABF055F2F785FB400F82F83 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../../README.md; sourceTree = "<group>"; };
 		9ABF05602F785FB400F82F83 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build.sh; path = ../../../../build.sh; sourceTree = "<group>"; };
 		9ABF05612F785FB400F82F83 /* diagnostics.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = diagnostics.html; path = ../../../../diagnostics.html; sourceTree = "<group>"; };
@@ -304,7 +301,6 @@
 				9ABF055A2F785FB400F82F83 /* providers */,
 				9ABF055B2F785FB400F82F83 /* tests */,
 				9ABF055C2F785FB400F82F83 /* manifest.firefox.json */,
-				9ABF055D2F785FB400F82F83 /* docs */,
 				9ABF055F2F785FB400F82F83 /* README.md */,
 				9ABF05602F785FB400F82F83 /* build.sh */,
 				9ABF05612F785FB400F82F83 /* diagnostics.html */,
@@ -502,7 +498,6 @@
 				9ABF05962F785FB400F82F83 /* domain-db.js in Resources */,
 				9ABF058F2F785FB400F82F83 /* README.md in Resources */,
 				9ABF05922F785FB400F82F83 /* package.json in Resources */,
-				9ABF058D2F785FB400F82F83 /* docs in Resources */,
 				9ABF058B2F785FB400F82F83 /* tests in Resources */,
 				9ABF05982F785FB400F82F83 /* store in Resources */,
 				9ABF05862F785FB400F82F83 /* browser-compat.js in Resources */,
@@ -532,7 +527,6 @@
 				9ABF057E2F785FB400F82F83 /* domain-db.js in Resources */,
 				9ABF05772F785FB400F82F83 /* README.md in Resources */,
 				9ABF057A2F785FB400F82F83 /* package.json in Resources */,
-				9ABF05752F785FB400F82F83 /* docs in Resources */,
 				9ABF05732F785FB400F82F83 /* tests in Resources */,
 				9ABF05802F785FB400F82F83 /* store in Resources */,
 				9ABF056E2F785FB400F82F83 /* browser-compat.js in Resources */,
