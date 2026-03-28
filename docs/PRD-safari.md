@@ -53,22 +53,23 @@ DNS Medic's detection engine is built on `webRequest.onErrorOccurred`. This API 
 
 ## Architecture Decision: Two Approaches
 
-### Option A — MV2 Persistent (macOS only)
+### Option A — MV2 Persistent (macOS)
 
 Use Safari MV2 with `"persistent": true` background page. This is the most direct path and preserves the existing `webRequest.onErrorOccurred` detection logic almost unchanged.
 
 **Pros:**
 - Minimal code change — reuse `background.js` with minor Safari guards
 - Detection accuracy identical to Firefox MV2 build
+- Full background tab monitoring — catches blocks on pages that load while you've switched away
 - Ships faster
 
 **Cons:**
-- macOS only — iOS gets nothing
+- macOS only — iOS doesn't support persistent backgrounds
 - Persistent background pages consume more memory (always-on process)
 - Apple may flag this in review (persistent backgrounds draw scrutiny)
 - May become unsupported if Apple deprecates MV2 in a future Safari version
 
-**Verdict:** Best path for macOS v1. Acceptable tradeoff given iOS constraints.
+**Verdict:** ✅ Selected for macOS. Full feature parity is worth the tradeoff. Background tab monitoring is a core feature — page loads that complete while you've moved to another tab are a primary use case.
 
 ---
 
@@ -87,18 +88,22 @@ Use a content script that runs on every page and monitors `window.onerror`, reso
 - False negative rate is significantly higher — DNS blocks that happen silently (the resource just fails to load without a JS-visible error) are invisible
 - Implementation complexity is high
 
-**Verdict:** Valid for iOS where we have no choice. Not the right approach for macOS where Option A works.
+**Verdict:** ✅ Selected for iOS. Active-tab-only monitoring is a real limitation but the right tradeoff — DNS Medic on iOS is still useful for diagnosing blocks on pages you're actively viewing. The UI will be transparent about the scope limitation.
 
 ---
 
 ### Recommended Architecture: Hybrid
 
-| Platform | Manifest | Background | Detection |
-|---|---|---|---|
-| macOS Safari | MV2 | Persistent background | `webRequest.onErrorOccurred` (same as Firefox) |
-| iOS Safari | MV2 | Non-persistent | Content script heuristics (degraded mode) |
+| Platform | Manifest | Background | Detection | Scope |
+|---|---|---|---|---|
+| macOS Safari | MV2 | Persistent background | `webRequest.onErrorOccurred` (same as Firefox) | All tabs, including background loads |
+| iOS Safari | MV2 | Non-persistent | Content script heuristics (degraded mode) | Active tab only |
 
-Ship macOS first with full parity. Ship iOS as a "lite" version with a degraded-mode indicator in the UI — honest about the limitation.
+**macOS gets full feature parity** — persistent background, all-tab monitoring, same detection accuracy as Firefox. No compromises.
+
+**iOS gets a practical build** — non-persistent background, active-tab-only monitoring, content script fallback detection. The UI is honest about the limitation with a persistent "Safari iOS: active tab only" indicator. Users still get classification, allowlist, and DB lookup — just limited to what they can see.
+
+Why this split matters: DNS Medic's core value is catching blocks that happen on page loads you've already moved away from (background tabs, cmd+click opens, multi-tab browsing). That requires a persistent background process. macOS supports this; iOS does not. The macOS build preserves this fully. The iOS build trades completeness for availability — better than nothing, clearly labeled.
 
 ---
 
