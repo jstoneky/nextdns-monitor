@@ -87,11 +87,18 @@ async function checkDNSRouting() {
     }
   }
 
+  const providerLabels = {
+    nextdns:  "NextDNS",
+    controld: "Control D",
+    pihole:   "Pi-hole",
+  };
+  const label = providerLabels[providerKey] || providerKey;
+
   if (active === true) {
-    chip.textContent = "✓ active";
+    chip.textContent = `✓ ${label} active`;
     chip.className = "dns-status-chip active";
   } else if (active === false) {
-    chip.textContent = "⚠ not routing";
+    chip.textContent = `⚠ Not routing to ${label}`;
     chip.className = "dns-status-chip inactive";
   } else {
     chip.classList.add("hidden");
