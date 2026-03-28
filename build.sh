@@ -61,7 +61,7 @@ build_exclude_args() {
   echo "--exclude=*.git* --exclude=*.DS_Store* --exclude=*.sh --exclude=*.md \
     --exclude=manifest.firefox.json --exclude=store/* --exclude=icons/concepts/* \
     --exclude=node_modules/* --exclude=tests/* --exclude=scripts/* \
-    --exclude=package.json --exclude=package-lock.json \
+    --exclude=package.json --exclude=package-lock.json"
 }
 
 # ── Chrome ─────────────────────────────────────────────────────────────────────
