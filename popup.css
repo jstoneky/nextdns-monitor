@@ -124,6 +124,9 @@ body.mobile .blocks-list {
   padding: 14px;
   background: #1a1d27;
   border-bottom: 1px solid #2a2d3e;
+  max-height: calc(100vh - 60px); /* leave room for header */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth Safari scroll */
 }
 
 .settings-title {
