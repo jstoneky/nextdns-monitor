@@ -116,6 +116,9 @@ ext.webNavigation.onCommitted.addListener((details) => {
     startTime: Date.now(),
   });
   updateBadge(details.tabId, 0);
+
+  // Notify popup to close if it's open for this tab
+  ext.runtime.sendMessage({ type: "TAB_NAVIGATED", tabId: details.tabId }).catch(() => {});
 });
 
 // Listen for completed navigation to set tab hostname if not set
