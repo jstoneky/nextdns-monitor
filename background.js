@@ -200,7 +200,7 @@ function updateBadge(tabId, total, highCount = 0) {
 
 // Exports for unit testing (Node environment only)
 if (typeof module !== "undefined") {
-  module.exports = { DNS_BLOCK_ERRORS, POSSIBLE_BLOCK_ERRORS, extractHostname, getOrCreateTabData, tabData };
+  module.exports = { DNS_BLOCK_ERRORS, POSSIBLE_BLOCK_ERRORS, extractHostname, getOrCreateTabData, tabData, logError, ERROR_LOG_KEY, ERROR_LOG_MAX };
 }
 
 // Message handler — popup requests data for current tab
