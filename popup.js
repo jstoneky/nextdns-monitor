@@ -149,8 +149,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   checkDNSRouting();
 
   // Get active tab
-  const [tab] = await ext.tabs.query({ active: true, currentWindow: true });
-  if (!tab) return;
+  let tab;
+  try {
+    [tab] = await ext.tabs.query({ active: true, currentWindow: true });
+  } catch (e) {
+    // Tab closed or moved between query and response — bail silently
+    return;
+  }
+  if (!tab || tab.id == null) return;
   currentTabId = tab.id;
 
   try {
@@ -191,6 +197,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // ── Load & Render Blocks ──────────────────────────────────────────────────────
 async function loadBlocks() {
+  if (currentTabId == null) return;
   const response = await sendMessage({ type: "GET_TAB_DATA", tabId: currentTabId });
   const blocks = response?.blocks || [];
   blocklistCache = {};
