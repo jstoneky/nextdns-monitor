@@ -24,7 +24,7 @@ This extension makes that visible — and tells you exactly what's at stake.
 
 1. **Monitors network errors** on every tab using the browser's `webRequest` API
 2. **Identifies DNS-block signatures** — certificate issuer failures, name resolution errors, and other patterns that indicate a DNS-level block (not a server error or timeout)
-3. **Classifies every blocked domain** against a database of **492 known services across 13 categories**, grouped by how likely they are to break site functionality:
+3. **Classifies every blocked domain** against a database of **561 known services across 27 categories**, grouped by how likely they are to break site functionality:
    - 🔴 **High** — Feature flags, authentication, payment processors, search APIs, core CDNs, CAPTCHA. These break sites.
    - 🟡 **Medium** — Support chat, video players, maps, image CDNs, error monitoring, e-commerce. May affect functionality depending on the site.
    - 🟢 **Low** — Pure analytics and advertising. Almost never affects how a site works.
@@ -107,11 +107,11 @@ Without credentials the extension still monitors and classifies — you just won
 | Browser | Manifest | Background | Status |
 |---|---|---|---|
 | Chrome 109+ | MV3 | Service Worker | ✅ Supported |
-| Firefox 109+ | MV2 | Background Scripts | ✅ Supported |
+| Firefox 140+ | MV2 | Background Scripts | ✅ Supported |
 | Firefox for Android | MV2 | Background Scripts | ✅ Supported |
 | Edge | MV3 | Service Worker | ✅ Should work (untested) |
 
-**Firefox note:** NextDNS blocks appear as certificate issuer errors in Firefox (e.g. "Peer's Certificate issuer is not recognized"). The extension detects these correctly, including the curly-apostrophe variant (U+2019) that Firefox uses internally.
+**Firefox note:** Requires Firefox 140+ due to use of the `data_collection_permissions` manifest field. NextDNS blocks appear as certificate issuer errors in Firefox (e.g. "Peer's Certificate issuer is not recognized"). The extension detects these correctly, including the curly-apostrophe variant (U+2019) that Firefox uses internally.
 
 **Firefox for Android:** Install via Firefox Nightly. Enable debug mode: `about:Firefox` → tap the logo 5× → Install Extension from File. The popup is fully responsive and fills the panel width on mobile.
 
@@ -119,7 +119,7 @@ Without credentials the extension still monitors and classifies — you just won
 
 ## Domain Classification Database
 
-The extension ships with a bundled database of **492 entries across 13 categories** and automatically fetches updates from this repository. The database is cached locally for 7 days and can be force-refreshed from the Settings panel at any time.
+The extension ships with a bundled database of **561 entries across 27 categories** and automatically fetches updates from this repository. The database is cached locally for 7 days and can be force-refreshed from the Settings panel at any time.
 
 ### Coverage
 
@@ -132,12 +132,25 @@ The extension ships with a bundled database of **492 entries across 13 categorie
 | CDN | Cloudflare, Fastly, Akamai, jsDelivr, unpkg, Google APIs, AWS | 🔴 High | 🔵 media/maps/assets |
 | Real-time / WebSocket | Pusher, Ably, Twilio, LiveKit, Daily.co, Agora | 🔴 High | 🟢 chat |
 | CAPTCHA | reCAPTCHA, hCaptcha, Turnstile, FunCAPTCHA, GeeTest | 🔴 High | 🔴 login/forms |
-| Video Players | YouTube Embed, Vimeo, Wistia, Mux, Brightcove, JW Player | 🟡 Medium | 🔵 media/maps/assets |
+| A/B Testing | VWO, AB Tasty, Convert.com, Kameleoon, Optimizely Web | 🔴 High | 🟣 feature flags |
+| Video Players | YouTube Embed, Vimeo, Wistia, Mux, Brightcove, JW Player, Kaltura | 🟡 Medium | 🔵 media/maps/assets |
 | Maps | Google Maps, Mapbox, HERE Maps, MapTiler, OpenStreetMap tiles | 🟡 Medium | 🔵 media/maps/assets |
 | Support Chat | Intercom, Zendesk, HubSpot, Drift, Crisp, Freshchat, LiveChat | 🟡 Medium | 🟢 chat |
+| Notifications | OneSignal, Pushwoosh, Airship, Braze, Iterable, Attentive, Klaviyo | 🟡 Medium | 🟢 chat |
 | Image CDNs | Cloudinary, Imgix, Fastly Image Optimizer, Thumbor, ImageKit | 🟡 Medium | 🔵 media/maps/assets |
 | Error Monitoring | Sentry, Datadog RUM, New Relic, Bugsnag, Rollbar, Raygun | 🟡 Medium | ⚫ monitoring |
+| Session Replay | Hotjar, FullStory, LogRocket, Mouseflow, Lucky Orange, Contentsquare | 🟡 Medium | ⚫ monitoring |
 | E-commerce | Shopify, Affirm, Klarna widgets, Yotpo, Bazaarvoice, Stamped | 🟡 Medium | 🔴 login/forms |
+| Reviews | Yotpo, Bazaarvoice, Trustpilot, Okendo | 🟡 Medium | 🔵 media/maps/assets |
+| Headless CMS | Contentful (ctfassets.net), Storyblok, Sanity, DatoCMS | 🟡 Medium | 🔵 media/maps/assets |
+| Tag Manager | Google Tag Manager, Tealium, Ensighten, Segment | 🟡 Medium | ⚫ monitoring |
+| Consent | Cookiebot, Quantcast Choice, OneTrust, TrustArc | 🟡 Medium | 🔴 login/forms |
+| Analytics | Google Analytics, Mixpanel, Amplitude, Segment, Heap, Chartbeat | 🟢 Low | ⚫ monitoring |
+| Advertising | Google Ads, Facebook Pixel, AdRoll, Taboola, Outbrain | 🟢 Low | ⚫ monitoring |
+| Animation | LottieFiles (lottie.host) | 🟡 Medium | 🔵 media/maps/assets |
+| Localization | Crowdin CDN | 🟡 Medium | 🔵 media/maps/assets |
+| Call Tracking | CallRail, CallTrackingMetrics, WhatConverts | 🟢 Low | ⚫ monitoring |
+| SEO | Semrush, Moz, similar SEO toolbars | 🟢 Low | ⚫ monitoring |
 
 ### Dynamic updates
 
@@ -186,13 +199,13 @@ Output goes to `store/dist/`.
 npm test
 
 # Run specific suites
-npm run test:domain   # Domain classification (492 entries, 13 categories)
+npm run test:domain   # Domain classification (561 entries, 27 categories)
 npm run test:errors   # Error string detection (24 tests)
 npm run test:build    # Build artifact validation (41 tests)
 ```
 
 No dependencies — uses Node's built-in `node:test` runner. Tests cover:
-- Domain classification accuracy across all 13 categories
+- Domain classification accuracy across all 27 categories
 - Chrome and Firefox error string matching (including curly-apostrophe edge case)
 - False-positive rejection (NS_BINDING_ABORTED, ERR_TIMED_OUT, etc.)
 - `extractHostname()` edge cases
@@ -255,7 +268,7 @@ PRs welcome. Most useful contributions:
 - **Confidence corrections** — if a domain is miscategorized, open a PR with justification
 - **Impact badge corrections** — if the functional impact label is wrong, fix it with reasoning
 - **Blocklist attribution data** — if you know which blocklist targets a domain, add it
-- **New categories** — e.g. A/B testing tools, identity verification, streaming infrastructure
+- **New categories** — e.g. identity verification, streaming infrastructure, live events
 - **Edge / Safari port**
 - **Automated integration tests**
 
