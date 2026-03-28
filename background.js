@@ -157,9 +157,42 @@ ext.webRequest.onErrorOccurred.addListener(
     // Skip errors on the main page domain itself
     if (reqHostname === tabHostname) return;
 
-    // Determine if this looks like a NextDNS block
+    // Determine if this looks like a DNS block
     const isDefiniteBlock = DNS_BLOCK_ERRORS.some(e => error.includes(e));
     const isPossibleBlock = !isDefiniteBlock && POSSIBLE_BLOCK_ERRORS.some(e => error.includes(e));
+
+    // Safari reports ERR_ABORTED for DNS blocks instead of ERR_NAME_NOT_RESOLVED.
+    // ERR_ABORTED is too broad on its own (also fires for cancelled prefetches, etc.)
+    // so we only treat it as a block when the domain is known in our database.
+    const isSafariAbort = !isDefiniteBlock && !isPossibleBlock && error === "net::ERR_ABORTED";
+    if (isSafariAbort) {
+      const classification = classifyDomain(reqHostname);
+      if (!classification.known) return; // unknown domain abort — skip
+      // Treat as possible block for known domains
+      const data = getOrCreateTabData(details.tabId);
+      const existing = data.blocks.get(reqHostname);
+      if (existing) {
+        existing.count++;
+        existing.lastSeen = Date.now();
+      } else {
+        data.blocks.set(reqHostname, {
+          domain: reqHostname,
+          url: details.url,
+          error: error,
+          isDefiniteBlock: false,
+          isPossibleBlock: true,
+          classification,
+          count: 1,
+          firstSeen: Date.now(),
+          lastSeen: Date.now(),
+        });
+      }
+      const highCount = [...data.blocks.values()].filter(
+        b => b.classification.confidence === "HIGH"
+      ).length;
+      updateBadge(details.tabId, data.blocks.size, highCount);
+      return;
+    }
 
     if (!isDefiniteBlock && !isPossibleBlock) return;
 
