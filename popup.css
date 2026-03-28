@@ -7,16 +7,23 @@
 body {
   width: 440px;
   min-width: 440px;
-  height: 600px;
-  max-height: 600px;
+  min-height: 500px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   background: #0f1117;
   color: #e2e8f0;
-  overflow: hidden; /* Safari: prevent body from growing when settings opens */
+  overflow-x: hidden;
 }
 
-#app {
+/* Safari: fix body to a set height so it can't grow when settings opens,
+   which causes a white gap on close */
+body.safari {
+  height: 600px;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+body.safari #app {
   display: flex;
   flex-direction: column;
   height: 100%;
