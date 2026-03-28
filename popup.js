@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   loadBlocks();
 
   // Close popup when the tab navigates (refresh, new URL, etc.)
-  // so the user always gets a fresh read after page load completes.
-  browser.tabs.onUpdated.addListener((tabId, changeInfo) => {
-    if (tabId === currentTabId && changeInfo.status === "loading") {
+  // Background sends TAB_NAVIGATED on onCommitted — works on Chrome MV3 and Firefox.
+  browser.runtime.onMessage.addListener((msg) => {
+    if (msg.type === "TAB_NAVIGATED" && msg.tabId === currentTabId) {
       window.close();
     }
   });
