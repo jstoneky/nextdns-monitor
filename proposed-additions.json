@@ -1,7 +1,7 @@
 {
   "generated": "2026-03-28",
   "source": "db-research-agent-v2",
-  "totalCandidates": 36,
+  "totalCandidates": 39,
   "candidates": [
     {
       "pattern": "cdn\\.onesignal\\.com",
@@ -362,6 +362,36 @@
       "functionalImpact": "login",
       "reason": "propelauth.com subdomains serve both the hosted login page and the auth API. Blocking prevents user sign-in for B2B apps using PropelAuth.",
       "source": "PropelAuth documentation; auth provider used by hundreds of B2B SaaS apps"
+    },
+    {
+      "pattern": "cdn\\.callrail\\.com",
+      "flags": "",
+      "label": "Call Tracking (CallRail CDN)",
+      "confidence": "HIGH",
+      "category": "call-tracking",
+      "functionalImpact": "features",
+      "reason": "cdn.callrail.com serves the CallRail JavaScript swap.js used for dynamic number insertion (DNI). Blocking it prevents phone number swapping on websites, breaking call attribution tracking. CallRail's own Help Center documents interference from ad blockers and lists cdn.callrail.com as the required domain.",
+      "source": "CallRail Help Center 'Support CNAME Cloaking for tracking scripts'; hagezi/dns-blocklists issue #4245; CallRail DNI docs"
+    },
+    {
+      "pattern": "cdn\\.bc0a\\.com",
+      "flags": "",
+      "label": "SEO (BrightEdge AutoPilot CDN)",
+      "confidence": "HIGH",
+      "category": "seo",
+      "functionalImpact": "features",
+      "reason": "cdn.bc0a.com is the BrightEdge AutoPilot SEO platform CDN. It was incorrectly categorized as adware/tracking in the MyPDNS blocklist, confirmed as a false positive by BrightEdge themselves in github.com/mypdns/Support/issues/2. Blocking it can affect content recommendations on sites using BrightEdge.",
+      "source": "github.com/mypdns/Support/issues/2 'bc0a.com domain is wrongly categorized and moved to the blacklist'; BrightEdge official statement in issue; HaGeZi issue #4133"
+    },
+    {
+      "pattern": "bc0a\\.com",
+      "flags": "",
+      "label": "SEO (BrightEdge AutoPilot apex domain)",
+      "confidence": "HIGH",
+      "category": "seo",
+      "functionalImpact": "features",
+      "reason": "bc0a.com is the BrightEdge AutoPilot SEO platform domain. Wrongly categorized in multiple blocklists. BrightEdge confirmed this is a non-tracking CDN domain used for content optimization delivery.",
+      "source": "github.com/mypdns/Support/issues/2; BrightEdge official statement"
     }
   ]
 }
