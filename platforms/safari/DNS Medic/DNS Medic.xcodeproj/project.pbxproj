@@ -65,6 +65,8 @@
 		9ABF058F2F785FB400F82F83 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF055F2F785FB400F82F83 /* README.md */; };
 		9ABF05902F785FB400F82F83 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05602F785FB400F82F83 /* build.sh */; };
 		9ABF05912F785FB400F82F83 /* diagnostics.html in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05612F785FB400F82F83 /* diagnostics.html */; };
+		9ABF05A22F785FB400F82F83 /* diagnostics.js in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05A12F785FB400F82F83 /* diagnostics.js */; };
+		9ABF05A32F785FB400F82F83 /* diagnostics.js in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05A12F785FB400F82F83 /* diagnostics.js */; };
 		9ABF05922F785FB400F82F83 /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05622F785FB400F82F83 /* package.json */; };
 		9ABF05932F785FB400F82F83 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05632F785FB400F82F83 /* icons */; };
 		9ABF05942F785FB400F82F83 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF05642F785FB400F82F83 /* scripts */; };
@@ -153,6 +155,7 @@
 		9ABF055F2F785FB400F82F83 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../../README.md; sourceTree = "<group>"; };
 		9ABF05602F785FB400F82F83 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = build.sh; path = ../../../../build.sh; sourceTree = "<group>"; };
 		9ABF05612F785FB400F82F83 /* diagnostics.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = diagnostics.html; path = ../../../../diagnostics.html; sourceTree = "<group>"; };
+		9ABF05A12F785FB400F82F83 /* diagnostics.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = diagnostics.js; path = ../../../../diagnostics.js; sourceTree = "<group>"; };
 		9ABF05622F785FB400F82F83 /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = package.json; path = ../../../../package.json; sourceTree = "<group>"; };
 		9ABF05632F785FB400F82F83 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../../icons; sourceTree = "<group>"; };
 		9ABF05642F785FB400F82F83 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../../../../scripts; sourceTree = "<group>"; };
@@ -304,6 +307,7 @@
 				9ABF055F2F785FB400F82F83 /* README.md */,
 				9ABF05602F785FB400F82F83 /* build.sh */,
 				9ABF05612F785FB400F82F83 /* diagnostics.html */,
+				9ABF05A12F785FB400F82F83 /* diagnostics.js */,
 				9ABF05622F785FB400F82F83 /* package.json */,
 				9ABF05632F785FB400F82F83 /* icons */,
 				9ABF05642F785FB400F82F83 /* scripts */,
@@ -495,6 +499,7 @@
 				9ABF05952F785FB400F82F83 /* manifest.json in Resources */,
 				9ABF05832F785FB400F82F83 /* popup.js in Resources */,
 				9ABF05912F785FB400F82F83 /* diagnostics.html in Resources */,
+				9ABF05A22F785FB400F82F83 /* diagnostics.js in Resources */,
 				9ABF05962F785FB400F82F83 /* domain-db.js in Resources */,
 				9ABF058F2F785FB400F82F83 /* README.md in Resources */,
 				9ABF05922F785FB400F82F83 /* package.json in Resources */,
@@ -524,6 +529,7 @@
 				9ABF057D2F785FB400F82F83 /* manifest.json in Resources */,
 				9ABF056B2F785FB400F82F83 /* popup.js in Resources */,
 				9ABF05792F785FB400F82F83 /* diagnostics.html in Resources */,
+				9ABF05A32F785FB400F82F83 /* diagnostics.js in Resources */,
 				9ABF057E2F785FB400F82F83 /* domain-db.js in Resources */,
 				9ABF05772F785FB400F82F83 /* README.md in Resources */,
 				9ABF057A2F785FB400F82F83 /* package.json in Resources */,
