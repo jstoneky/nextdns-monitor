@@ -298,6 +298,18 @@ function renderBlocks(blocks) {
     listEl.appendChild(note);
   }
 
+  // Promote unverified blocks confirmed by NextDNS logs
+  for (const block of blocks) {
+    if (!block.classification.known && blocklistCache[block.domain]?.length) {
+      block.classification = {
+        ...block.classification,
+        known: true,
+        label: "Confirmed by DNS logs",
+        confidence: "MEDIUM",
+      };
+    }
+  }
+
   // Split into known (confirmed) and unknown (unverified Safari aborts)
   const knownBlocks   = blocks.filter(b => b.classification.known);
   const unknownBlocks = blocks.filter(b => !b.classification.known);
@@ -327,7 +339,7 @@ function renderBlocks(blocks) {
           ${block.count > 1 ? `<span class="block-count">×${block.count}</span>` : ""}
         </div>
         ${muted ? "" : renderImpactBadge(block.classification.functionalImpact)}
-        ${muted ? "" : renderBlockedBy(block.domain)}
+        ${renderBlockedBy(block.domain)}
       </div>
       <div class="block-actions">
         <button class="copy-btn" data-domain="${esc(block.domain)}" title="Copy domain">📋</button>
