@@ -8,7 +8,7 @@ A browser extension for **Chrome**, **Firefox**, and **Firefox for Android** tha
 [![Firefox](https://img.shields.io/badge/Firefox-MV2-FF7139?logo=firefox&logoColor=white)](https://addons.mozilla.org)
 [![Firefox Android](https://img.shields.io/badge/Firefox_Android-MV2-FF7139?logo=firefox&logoColor=white)](https://addons.mozilla.org)
 
-![DNS Medic](store/chrome/marquee-1400x560-v2.3.jpg)
+![DNS Medic](store/chrome/marquee-1400x560-v3.0.jpg)
 
 ---
 
