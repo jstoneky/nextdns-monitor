@@ -4,6 +4,18 @@ All notable changes to DNS Medic are documented here.
 
 ---
 
+## [3.1.2] — 2026-03-28
+
+### Fixed
+- Resolved all AMO linter warnings: bumped `strict_min_version` to 142, replaced all `innerHTML` assignments with DOM construction, extracted inline `<script>` from `diagnostics.html` to external `diagnostics.js`
+- Safari popup height no longer expands when settings panel opens, eliminating white gap on close
+- Settings panel scrolls internally on Safari instead of scrolling the whole popup
+
+### Added
+- Ko-fi support link ("☕ Buy me a coffee") in settings panel footer alongside bug report link
+
+---
+
 ## [3.1.0] — 2026-03-28
 
 ### Added
