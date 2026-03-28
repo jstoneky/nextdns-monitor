@@ -113,11 +113,14 @@ Without credentials the extension still monitors and classifies — you just won
 | Chrome 109+ | MV3 | Service Worker | ✅ Supported |
 | Firefox 140+ | MV2 | Background Scripts | ✅ Supported |
 | Firefox for Android | MV2 | Background Scripts | ✅ Supported |
+| Safari (macOS) | MV2 | Background Scripts | ✅ Supported (Beta) |
 | Edge | MV3 | Service Worker | ✅ Should work (untested) |
 
 **Firefox note:** Requires Firefox 140+ due to use of the `data_collection_permissions` manifest field. NextDNS blocks appear as certificate issuer errors in Firefox (e.g. "Peer's Certificate issuer is not recognized"). The extension detects these correctly, including the curly-apostrophe variant (U+2019) that Firefox uses internally.
 
 **Firefox for Android:** Install via Firefox Nightly. Enable debug mode: `about:Firefox` → tap the logo 5× → Install Extension from File. The popup is fully responsive and fills the panel width on mobile.
+
+**Safari (macOS):** Detects blocked requests using Safari's `ERR_ABORTED` signal. Known tracker domains are classified immediately; unknown aborted domains appear in a separate **⚪ Unverified** section. For NextDNS users, unverified domains are automatically confirmed using the NextDNS logs API when the popup is opened. Note: "Allow Unsigned Extensions" resets every time Safari quits — re-enable it each session until the Mac App Store version is available.
 
 ---
 
