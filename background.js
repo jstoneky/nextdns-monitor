@@ -115,18 +115,26 @@ ext.webNavigation.onCommitted.addListener((details) => {
 
 // Listen for completed navigation to set tab hostname if not set
 ext.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.status === "loading" && tab.url) {
+  // Only reset on a genuine navigation to a new hostname.
+  // Ignore status="loading" here — onCommitted is the authoritative navigation event.
+  // We use onUpdated only as a fallback for cases where webNavigation doesn't fire
+  // (e.g. very early page loads before the extension initialises).
+  if (changeInfo.status === "complete" && tab.url) {
     const hostname = extractHostname(tab.url);
-    const data = getOrCreateTabData(tabId);
-    if (data.hostname !== hostname) {
-
-      tabData.set(tabId, {
-        url: tab.url,
-        hostname,
-        blocks: new Map(),
-        startTime: Date.now(),
-      });
-      updateBadge(tabId, 0);
+    const data = tabData.get(tabId);
+    // If we already have data for this exact hostname, don't wipe it.
+    // onCommitted already handled the reset if the hostname changed.
+    if (!data || data.hostname !== hostname) {
+      // Only set if we have no record at all — don't overwrite onCommitted data.
+      if (!data) {
+        tabData.set(tabId, {
+          url: tab.url,
+          hostname,
+          blocks: new Map(),
+          startTime: Date.now(),
+        });
+        updateBadge(tabId, 0);
+      }
     }
   }
 });
