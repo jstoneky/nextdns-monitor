@@ -42,6 +42,50 @@ let profilesFetchInFlight = false;
 let controldProfilesList = [];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+// Map verbose Firefox/Chrome error strings to short, readable labels
+const ERROR_LABELS = [
+  // Firefox cert errors (prose strings)
+  [/certificate issuer is not recognized/i,     "untrusted cert issuer"],
+  [/invalid security certificate/i,             "invalid certificate"],
+  [/received an invalid certificate/i,          "invalid certificate"],
+  [/SEC_ERROR_UNKNOWN_ISSUER/i,                 "untrusted cert issuer"],
+  [/SEC_ERROR_EXPIRED_CERTIFICATE/i,            "cert expired"],
+  [/SEC_ERROR_REVOKED_CERTIFICATE/i,            "cert revoked"],
+  [/SEC_ERROR_BAD_SIGNATURE/i,                  "cert bad signature"],
+  [/SSL_ERROR_BAD_CERT_DOMAIN/i,               "cert domain mismatch"],
+  [/SSL_ERROR_RX_RECORD_TOO_LONG/i,            "SSL protocol error"],
+  [/PR_CONNECT_RESET_ERROR/i,                   "connection reset"],
+  [/PR_END_OF_FILE_ERROR/i,                     "connection closed"],
+  // Chrome / generic net:: errors
+  [/ERR_CERT_AUTHORITY_INVALID/,               "untrusted cert issuer"],
+  [/ERR_CERT_DATE_INVALID/,                    "cert expired"],
+  [/ERR_CERT_REVOKED/,                         "cert revoked"],
+  [/ERR_CERT_COMMON_NAME_INVALID/,             "cert domain mismatch"],
+  [/ERR_SSL_PROTOCOL_ERROR/,                   "SSL protocol error"],
+  [/ERR_CONNECTION_RESET/,                     "connection reset"],
+  [/ERR_CONNECTION_REFUSED/,                   "connection refused"],
+  [/ERR_NAME_NOT_RESOLVED/,                    "DNS not resolved"],
+  [/ERR_INTERNET_DISCONNECTED/,               "no internet"],
+  [/ERR_NETWORK_CHANGED/,                      "network changed"],
+  [/ERR_TIMED_OUT/,                            "timed out"],
+  [/ERR_BLOCKED_BY_CLIENT/,                    "blocked by extension"],
+  [/ERR_ABORTED/,                              "request aborted"],
+];
+
+function friendlyError(raw) {
+  if (!raw) return "";
+  for (const [pattern, label] of ERROR_LABELS) {
+    if (pattern.test(raw)) return label;
+  }
+  // Fallback: strip net:: prefix, ERR_ prefix, underscores → lowercase
+  return raw
+    .replace(/^net::/, "")
+    .replace(/^ERR_/, "")
+    .replace(/_/g, " ")
+    .toLowerCase();
+}
+
 function getProvider() {
   return window.NDMProviders?.[providerKey];
 }
@@ -359,11 +403,7 @@ function renderBlocks(blocks) {
     const item = document.createElement("div");
     item.className = "block-item" + (muted ? " block-item-unverified" : "");
 
-    const errorShort = block.error
-      .replace("net::", "")
-      .replace("ERR_", "")
-      .replace(/_/g, " ")
-      .toLowerCase();
+    const errorShort = friendlyError(block.error);
 
     // confidence dot
     const dot = document.createElement("div");
