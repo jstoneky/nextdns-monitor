@@ -181,6 +181,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("btn-clear").addEventListener("click", clearBlocks);
   document.getElementById("btn-save-settings").addEventListener("click", saveSettings);
   document.getElementById("btn-refresh-db").addEventListener("click", handleRefreshDB);
+
+  // Theme toggle
+  initThemeToggle();
+
   document.getElementById("btn-test-pihole").addEventListener("click", handleTestPihole);
   document.getElementById("btn-lookup-profiles").addEventListener("click", handleLookupProfiles);
   document.getElementById("btn-clear-apikey").addEventListener("click", handleClearApiKey);
@@ -901,6 +905,45 @@ async function handleLookupProfiles() {
   btn.textContent = "→";
   btn.disabled = false;
   lockApiKeyField();
+}
+
+// ── Theme Toggle ──────────────────────────────────────────────────────────────
+function initThemeToggle() {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+
+  // Load current preference and highlight active button
+  ext.storage.sync.get(["themePreference"], function(result) {
+    const pref = result.themePreference || "system";
+    setActiveThemeBtn(pref);
+  });
+
+  // Handle button clicks
+  toggle.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.addEventListener("click", async function() {
+      const pref = this.dataset.theme;
+      await ext.storage.sync.set({ themePreference: pref });
+      setActiveThemeBtn(pref);
+      // applyTheme is called via storage.onChanged in platform-detect.js
+      // but call directly here too for immediate response
+      if (typeof applyTheme === "function") {
+        applyTheme(pref);
+      } else {
+        // Fallback: apply inline
+        const preferLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        const useLightMode = (pref === "light") || (pref === "system" && preferLight);
+        document.body.classList.toggle("light-mode", useLightMode);
+      }
+    });
+  });
+}
+
+function setActiveThemeBtn(pref) {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+  toggle.querySelectorAll(".theme-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.theme === pref);
+  });
 }
 
 // ── Save Settings ─────────────────────────────────────────────────────────────
