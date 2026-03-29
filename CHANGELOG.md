@@ -4,6 +4,20 @@ All notable changes to DNS Medic are documented here.
 
 ---
 
+## [3.2.1] — 2026-03-29
+
+### Fixed
+- **`ERR_BLOCKED_BY_ORB` now detected** — Chrome fires Opaque Response Blocking (ORB) instead of `ERR_NAME_NOT_RESOLVED` when a NextDNS block page is returned as a cross-origin sub-resource (script, image, fetch). These were silently missed before; now classified as definite blocks
+- **Firefox background page reliability** — `persistent: true` added to Firefox manifest; without it, Firefox MV2 event pages could be suspended mid-request, causing `tabData` loss and missed detections
+- **Bundled DB fallback** — `db-loader.js` now loads the bundled `domain-db.json` if both storage cache and remote GitHub fetch fail, ensuring the DB is always populated (critical for offline use and fresh installs)
+- **Dead code removed** — `NEXTDNS_ERRORS` and `isLikelyNextDNSBlock` removed from `domain-db.js`; error detection lives solely in `background.js`
+
+### Database
+- **642 entries** across 27 categories (source of truth migrated to YAML)
+- Production build strips internal research metadata — 188KB → 133KB (29% smaller)
+
+---
+
 ## [3.2.0] — 2026-03-29
 
 ### Added
