@@ -174,21 +174,12 @@ ext.webRequest.onErrorOccurred.addListener(
       console.log(`[DNS Medic] error: ${error} | req: ${reqHostname} | tab: ${tabHostname}`);
     }
 
-    // Skip errors on the main page domain itself or any subdomain of it
-    // e.g. images.dickssportinggoods.com when on www.dickssportinggoods.com
+    // Skip errors on the main page domain itself (exact match only)
     if (reqHostname === tabHostname) return;
-    if (tabHostname && reqHostname.endsWith("." + tabHostname)) return;
 
-    // Determine block type before same-domain filter
+    // Determine if this looks like a DNS block
     const isDefiniteBlock = DNS_BLOCK_ERRORS.some(e => error.includes(e));
     const isPossibleBlock = !isDefiniteBlock && POSSIBLE_BLOCK_ERRORS.some(e => error.includes(e));
-
-    // For POSSIBLE blocks only (ERR_FAILED, ERR_CONNECTION_REFUSED, etc.):
-    // filter same-eTLD1 requests — these are usually the site's own CDN/assets failing,
-    // not DNS blocks. e.g. images.site.com ERR_FAILED when tab is www.site.com.
-    // We do NOT apply this to definite blocks (ERR_CERT_AUTHORITY_INVALID, ERR_NAME_NOT_RESOLVED)
-    // because those are real NextDNS block pages even on same-root subdomains.
-    if (!isDefiniteBlock && tabHostname && eTLD1(reqHostname) === eTLD1(tabHostname)) return;
 
     // Safari reports ERR_ABORTED for DNS blocks instead of ERR_NAME_NOT_RESOLVED.
     // ERR_ABORTED is too broad on its own (also fires for cancelled prefetches, etc.)
