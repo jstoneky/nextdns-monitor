@@ -6,3 +6,9 @@ docs/
 
 # Safari/Xcode — contains Team ID, bundle IDs, personal signing config
 platforms/safari/
+
+# Generated screenshots (derived from store/screenshots/source/)
+store/screenshots/universal/
+store/safari/screenshots/
+store/chrome/screenshots/
+store/firefox/screenshots/

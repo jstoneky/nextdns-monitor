@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  .mac-window { background: #0f1117; border-radius: 14px; box-shadow: 0 50px 120px rgba(0,0,0,0.8), 0 0 0 1px #2a2d3e; overflow: hidden; width: 440px; }
+  .titlebar { background: #1a1d27; padding: 10px 14px; display: flex; align-items: center; border-bottom: 1px solid #2a2d3e; }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .d-r { background: #ef4444; } .d-y { background: #f59e0b; } .d-g { background: #22c55e; }
+  .win-title { flex: 1; text-align: center; font-size: 11px; color: #475569; font-family: -apple-system, sans-serif; margin-right: 30px; }
+
+  html {
+    width: 1280px;
+    height: 800px;
+    overflow: hidden;
+    background: #0d1117;
+  }
+  .screenshot-canvas {
+    width: 1280px;
+    height: 800px;
+    background: #0d1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0; left: 0;
+  }
+</style>
+<link rel="stylesheet" href="../../../popup.css">
+</head>
+<body style="width:1280px;height:800px;overflow:hidden;background:#0d1117;margin:0;padding:0;" class="desktop">
+<div class="screenshot-canvas">
+<div class="mac-window" style="zoom:1.2;">
+  <div class="titlebar">
+    <div class="dots"><div class="dot d-r"></div><div class="dot d-y"></div><div class="dot d-g"></div></div>
+    <div class="win-title">DNS Medic — Settings</div>
+  </div>
+  <div class="header">
+    <div class="header-left">
+      <img src="../../../icons/icon48.png" class="logo" alt="" onerror="this.style.display='none'">
+      <div>
+        <div class="title">DNS Medic</div>
+        <div class="subtitle">Settings</div>
+      </div>
+    </div>
+  </div>
+  <div class="settings-panel" style="max-height:460px; overflow: hidden;">
+    <div class="settings-title">Configuration</div>
+    <label class="settings-label">DNS Provider</label>
+    <div style="display:flex; gap:6px; margin-bottom:8px;">
+      <button style="flex:1; background:#6366f1; border:none; border-radius:6px; color:white; font-size:12px; font-weight:600; padding:7px;">NextDNS</button>
+      <button style="flex:1; background:#1e2130; border:1px solid #2a2d3e; border-radius:6px; color:#94a3b8; font-size:12px; padding:7px;">Pi-hole</button>
+      <button style="flex:1; background:#1e2130; border:1px solid #2a2d3e; border-radius:6px; color:#94a3b8; font-size:12px; padding:7px;">Control D</button>
+    </div>
+    <label class="settings-label">API Key</label>
+    <div class="api-key-row">
+      <input class="settings-input api-key-input locked" value="••••••••••••••••••••••••" readonly>
+      <button class="clear-apikey-btn">Clear</button>
+    </div>
+    <label class="settings-label">Profile</label>
+    <div class="ndm-profile-list">
+      <div class="ndm-profile-item selected">
+        <div class="ndm-profile-item-info">
+          <div class="ndm-profile-item-name">Home Network</div>
+          <div class="ndm-profile-item-id">82eed3</div>
+        </div>
+        <div class="ndm-profile-item-right">
+          <span class="ndm-profile-item-badge">This device</span>
+          <span class="ndm-profile-item-check">✓</span>
+        </div>
+      </div>
+
+    </div>
+    <button class="save-btn" style="margin-top:14px;">Save Settings</button>
+    <div class="settings-status">✓ Settings saved</div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

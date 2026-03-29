@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  .mac-window { background: #0f1117; border-radius: 14px; box-shadow: 0 50px 120px rgba(0,0,0,0.8), 0 0 0 1px #2a2d3e; overflow: hidden; width: 440px; }
+  .titlebar { background: #1a1d27; padding: 10px 14px; display: flex; align-items: center; border-bottom: 1px solid #2a2d3e; }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .d-r { background: #ef4444; } .d-y { background: #f59e0b; } .d-g { background: #22c55e; }
+  .win-title { flex: 1; text-align: center; font-size: 11px; color: #475569; font-family: -apple-system, sans-serif; margin-right: 30px; }
+  .blocks-list { max-height: 200px; overflow: hidden; }
+
+  html {
+    width: 1280px;
+    height: 800px;
+    overflow: hidden;
+    background: #0d1117;
+  }
+  .screenshot-canvas {
+    width: 1280px;
+    height: 800px;
+    background: #0d1117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0; left: 0;
+  }
+</style>
+<link rel="stylesheet" href="../../../popup.css">
+</head>
+<body style="width:1280px;height:800px;overflow:hidden;background:#0d1117;margin:0;padding:0;" class="desktop">
+<div class="screenshot-canvas">
+<div class="mac-window" style="zoom:1.3;">
+  <div class="titlebar">
+    <div class="dots"><div class="dot d-r"></div><div class="dot d-y"></div><div class="dot d-g"></div></div>
+    <div class="win-title">DNS Medic</div>
+  </div>
+  <div class="header">
+    <div class="header-left">
+      <img src="../../../icons/icon48.png" class="logo" alt="" onerror="this.style.display='none'">
+      <div>
+        <div class="title">DNS Medic <span class="dns-status-chip active">NextDNS ✓</span></div>
+        <div class="subtitle">app.example.com</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn">⚙️</button>
+      <button class="icon-btn">🗑️</button>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num high-label">0</div>
+      <div class="stat-label high-label">High</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num medium-label">0</div>
+      <div class="stat-label medium-label">Medium</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num low-label">2</div>
+      <div class="stat-label low-label">Low</div>
+    </div>
+  </div>
+  <!-- Flush banner shown after allowlist -->
+  <div class="flush-banner">
+    <div class="flush-banner-top">
+      <span class="flush-banner-title">✓ Added to NextDNS allowlist</span>
+      <button class="flush-dismiss">✕</button>
+    </div>
+    <div class="flush-banner-cmd">
+      <span class="flush-cmd-text">sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</span>
+      <button class="flush-copy-btn">Copy</button>
+    </div>
+  </div>
+  <div class="blocks-list">
+</div>
+
+</div>
+</body>
+</html>

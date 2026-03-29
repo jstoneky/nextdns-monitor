@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  .mac-window { background: #ffffff; border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,0.18), 0 0 0 1px #d1d9e0; overflow: hidden; width: 440px; }
+  .titlebar { background: #F4F6F8; padding: 10px 14px; display: flex; align-items: center; border-bottom: 1px solid #d1d9e0; }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .d-r { background: #ef4444; } .d-y { background: #f59e0b; } .d-g { background: #22c55e; }
+  .win-title { flex: 1; text-align: center; font-size: 11px; color: #718096; font-family: -apple-system, sans-serif; margin-right: 30px; }
+
+  html {
+    width: 1280px;
+    height: 800px;
+    overflow: hidden;
+    background: #c8d0dc;
+  }
+  .screenshot-canvas {
+    width: 1280px;
+    height: 800px;
+    background: #c8d0dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0; left: 0;
+  }
+</style>
+<link rel="stylesheet" href="../../../popup.css">
+</head>
+<body style="width:1280px;height:800px;overflow:hidden;background:#c8d0dc;margin:0;padding:0;" class="desktop light-mode">
+<div class="screenshot-canvas">
+<div class="mac-window" style="zoom:1.1;">
+  <div class="titlebar">
+    <div class="dots"><div class="dot d-r"></div><div class="dot d-y"></div><div class="dot d-g"></div></div>
+    <div class="win-title">DNS Medic</div>
+  </div>
+  <div class="header">
+    <div class="header-left">
+      <img src="../../../icons/icon48.png" class="logo" alt="" onerror="this.style.display='none'">
+      <div>
+        <div class="title">DNS Medic <span class="dns-status-chip active">NextDNS ✓</span></div>
+        <div class="subtitle">news.example.com</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn">⚙️</button>
+      <button class="icon-btn">🗑️</button>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num high-label">1</div>
+      <div class="stat-label high-label">High</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num medium-label">1</div>
+      <div class="stat-label medium-label">Medium</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num low-label">1</div>
+      <div class="stat-label low-label">Low</div>
+    </div>
+  </div>
+  <div class="blocks-list">
+    <div class="section-header high">HIGH — MAY BREAK THIS SITE</div>
+    <div class="block-item">
+      <div class="confidence-dot HIGH"></div>
+      <div class="block-info">
+        <div class="block-domain">cdn.auth0.com</div>
+        <div class="block-label">Auth0 — Authentication</div>
+        <div class="block-meta"><span class="block-error">DNS not resolved</span></div>
+        <div class="block-reasons"><span class="blocklist-tag">uBlock Origin</span></div>
+        <span class="impact-badge impact-login">may prevent login</span>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+    <div class="section-header medium">MEDIUM — WORTH REVIEWING</div>
+    <div class="block-item">
+      <div class="confidence-dot MEDIUM"></div>
+      <div class="block-info">
+        <div class="block-domain">cdn.segment.com</div>
+        <div class="block-label">Segment — Analytics pipeline</div>
+        <div class="block-meta"><span class="block-error">DNS not resolved</span></div>
+        <div class="block-reasons"><span class="blocklist-tag">HaGeZi Pro</span></div>
+        <span class="impact-badge impact-monitoring">monitoring</span>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+    <div class="section-header low">LOW — SAFE TO IGNORE</div>
+    <div class="block-item">
+      <div class="confidence-dot LOW"></div>
+      <div class="block-info">
+        <div class="block-domain">www.google-analytics.com</div>
+        <div class="block-label">Google Analytics — Analytics</div>
+        <div class="block-meta"><span class="block-error">DNS not resolved</span></div>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

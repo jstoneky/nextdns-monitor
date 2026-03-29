@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 800px; overflow: hidden; background: #0d1117; display: flex; align-items: center; justify-content: center; }
+  .scene { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+  .mac-window {
+    background: #0f1117;
+    border-radius: 14px;
+    box-shadow: 0 50px 120px rgba(0,0,0,0.8), 0 0 0 1px #2a2d3e;
+    overflow: hidden;
+    width: 440px;
+
+  }
+  .titlebar {
+    background: #1a1d27;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2a2d3e;
+  }
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .d-r { background: #ef4444; }
+  .d-y { background: #f59e0b; }
+  .d-g { background: #22c55e; }
+  .win-title { flex: 1; text-align: center; font-size: 11px; color: #475569; font-family: -apple-system, sans-serif; margin-right: 30px; }
+
+  /* Use real popup CSS */
+  .blocks-list { max-height: 340px; overflow: hidden; }
+</style>
+<link rel="stylesheet" href="../../../popup.css">
+</head>
+<body class="desktop">
+<div class="scene">
+<div class="mac-window">
+  <div class="titlebar">
+    <div class="dots"><div class="dot d-r"></div><div class="dot d-y"></div><div class="dot d-g"></div></div>
+    <div class="win-title">DNS Medic</div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <img src="../../../icons/icon48.png" class="logo" alt="" onerror="this.style.display='none'">
+      <div>
+        <div class="title">DNS Medic <span class="dns-status-chip active">NextDNS ✓</span></div>
+        <div class="subtitle">shop.example.com</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" title="Settings">⚙️</button>
+      <button class="icon-btn" title="Clear">🗑️</button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num high-label" id="stat-high">3</div>
+      <div class="stat-label high-label">High</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num medium-label" id="stat-medium">2</div>
+      <div class="stat-label medium-label">Medium</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num low-label" id="stat-low">4</div>
+      <div class="stat-label low-label">Low</div>
+    </div>
+  </div>
+
+  <!-- Block list -->
+  <div class="blocks-list" id="blocks">
+    <div class="section-header high">HIGH — MAY BREAK THIS SITE</div>
+
+    <div class="block-item">
+      <div class="confidence-dot HIGH"></div>
+      <div class="block-info">
+        <div class="block-domain">featureassets.org</div>
+        <div class="block-label">Statsig — Feature flags</div>
+        <div class="block-meta">
+          <span class="block-error">untrusted cert issuer</span>
+          <span class="block-count">×3</span>
+        </div>
+        <div class="block-reasons"><span class="blocklist-tag">HaGeZi Pro</span><span class="blocklist-tag">AdGuard DNS</span></div>
+        <span class="impact-badge impact-features">feature flags</span>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+
+    <div class="block-item">
+      <div class="confidence-dot HIGH"></div>
+      <div class="block-info">
+        <div class="block-domain">cdn.auth0.com</div>
+        <div class="block-label">Auth0 — Authentication</div>
+        <div class="block-meta"><span class="block-error">DNS not resolved</span></div>
+        <div class="block-reasons"><span class="blocklist-tag">uBlock Origin</span></div>
+        <span class="impact-badge impact-login">may prevent login</span>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+
+    <div class="block-item">
+      <div class="confidence-dot HIGH"></div>
+      <div class="block-info">
+        <div class="block-domain">js.stripe.com</div>
+        <div class="block-label">Stripe — Payments</div>
+        <div class="block-meta"><span class="block-error">DNS not resolved</span></div>
+        <div class="block-reasons"><span class="blocklist-tag">HaGeZi Pro</span></div>
+        <span class="impact-badge impact-login">may break checkout</span>
+      </div>
+      <div class="block-actions"><button class="allowlist-btn">+ Allowlist</button></div>
+    </div>
+
+
+
+  </div>
+
+</div><!-- /mac-window -->
+</div><!-- /scene -->
+</body>
+</html>
