@@ -3,7 +3,7 @@
   "name": "DNS Medic",
   "short_name": "NextDNS Monitor",
   "version": "3.2.0",
-  "description": "Detects DNS blocks that break websites. Supports NextDNS, Pi-hole, and Control D. Groups domains by risk level and lets you allowlist them instantly.",
+  "description": "Detects DNS blocks that break websites. Supports NextDNS, Pi-hole, and Control D. Groups by risk and lets you allowlist instantly.",
   "permissions": [
     "webRequest",
     "tabs",
