@@ -184,10 +184,17 @@ function getDBMeta() {
 // Override global classifyDomain from domain-db.js
 globalThis.classifyDomain = classifyDomainActive;
 
-// Initialize on load — non-blocking, bundled DB handles requests in the meantime
-initDB();
+// Seed _activeDB from bundled JSON immediately — eliminates the cold-start window
+// where initDB() is async and _activeDB is null (causing everything to classify as unknown).
+// initDB() will then upgrade to cache/remote in the background without blocking requests.
+loadBundled().then(() => initDB());
 
 // Node test exports
 if (typeof module !== "undefined") {
-  module.exports = { validateAndCompile, classifyDomainActive, forceRefreshDB, getDBMeta, loadBundled, initDB, SAFE_PATTERN_RE };
+  module.exports = {
+    validateAndCompile, classifyDomainActive, forceRefreshDB, getDBMeta,
+    loadBundled, initDB, SAFE_PATTERN_RE,
+    // Test helper: seed _activeDB directly (avoids needing ext.runtime.getURL in tests)
+    _seedDB: (compiled) => { _activeDB = compiled; },
+  };
 }

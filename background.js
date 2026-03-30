@@ -202,6 +202,7 @@ ext.webRequest.onErrorOccurred.addListener(
           lastSeen: Date.now(),
         });
       }
+      if (data.blocks.size > 100) data.blocks.delete(data.blocks.keys().next().value);
       const highCount = [...data.blocks.values()].filter(
         b => b.classification.confidence === "HIGH"
       ).length;
@@ -231,6 +232,12 @@ ext.webRequest.onErrorOccurred.addListener(
         firstSeen: Date.now(),
         lastSeen: Date.now(),
       });
+    }
+
+    // Cap blocks per tab to avoid unbounded memory growth on long-lived tabs
+    if (data.blocks.size > 100) {
+      // Drop the oldest entry (Maps preserve insertion order)
+      data.blocks.delete(data.blocks.keys().next().value);
     }
 
     // Update badge

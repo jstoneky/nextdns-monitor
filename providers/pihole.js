@@ -151,16 +151,17 @@
         const sid = authData?.session?.sid;
         if (!sid) return result;
 
-        for (const domain of domains) {
+        // Fetch all domains in parallel — much faster than sequential awaits
+        await Promise.allSettled(domains.map(async (domain) => {
           try {
             const res = await fetch(
               `${url}/api/search/${encodeURIComponent(domain)}`,
               { headers: { "X-FTL-SID": sid }, signal: AbortSignal.timeout(6000) }
             );
-            if (!res.ok) continue;
+            if (!res.ok) return;
             const data = await res.json();
             const gravityHits = data?.search?.gravity || [];
-            if (!gravityHits.length) continue;
+            if (!gravityHits.length) return;
 
             const seen = new Set();
             const reasons = [];
@@ -172,7 +173,7 @@
             }
             if (reasons.length) result[domain] = reasons;
           } catch (_) {}
-        }
+        }));
       } catch (_) {}
 
       return result;

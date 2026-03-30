@@ -256,7 +256,16 @@ async function loadBlocks() {
   if (currentTabId == null) return;
   const response = await sendMessage({ type: "GET_TAB_DATA", tabId: currentTabId });
   const blocks = response?.blocks || [];
-  blocklistCache = {};
+
+  // Only clear the blocklist cache on a fresh data load (not on filter toggles).
+  // Filter toggles call renderBlocks() directly with the already-fetched blocks,
+  // so we track the last fetched tab to know when we actually have new data.
+  if (loadBlocks._lastTabId !== currentTabId || loadBlocks._lastBlockCount !== blocks.length) {
+    blocklistCache = {};
+    loadBlocks._lastTabId = currentTabId;
+    loadBlocks._lastBlockCount = blocks.length;
+  }
+
   renderBlocks(blocks);
 
   const blockedDomains = blocks.map(b => b.domain);
@@ -325,14 +334,14 @@ function renderBlocks(blocks) {
   }
 
   const order = { HIGH: 0, MEDIUM: 1, LOW: 2 };
-  blocks.sort((a, b) => {
+  displayBlocks.sort((a, b) => {
     const co = order[a.classification.confidence] - order[b.classification.confidence];
     return co !== 0 ? co : b.count - a.count;
   });
 
-  const highCount   = blocks.filter(b => b.classification.confidence === "HIGH").length;
-  const mediumCount = blocks.filter(b => b.classification.confidence === "MEDIUM").length;
-  const lowCount    = blocks.filter(b => b.classification.confidence === "LOW").length;
+  const highCount   = displayBlocks.filter(b => b.classification.confidence === "HIGH").length;
+  const mediumCount = displayBlocks.filter(b => b.classification.confidence === "MEDIUM").length;
+  const lowCount    = displayBlocks.filter(b => b.classification.confidence === "LOW").length;
 
   document.getElementById("stat-high").textContent   = highCount;
   document.getElementById("stat-medium").textContent = mediumCount;
@@ -364,35 +373,31 @@ function renderBlocks(blocks) {
     listEl.appendChild(note);
   }
 
-  // Promote unverified blocks confirmed by NextDNS logs
-  for (const block of blocks) {
-    if (!block.classification.known && blocklistCache[block.domain]?.length) {
-      block.classification = {
-        ...block.classification,
-        known: true,
-        label: "Confirmed by DNS logs",
-        confidence: "MEDIUM",
-      };
+  // Compute display classification for each block — never mutate the original block objects.
+  // This function is called on every render so it must be pure (same input → same output).
+  function displayClassification(block) {
+    const c = block.classification;
+    // Priority 1: confirmed by DNS provider logs
+    if (!c.known && blocklistCache[block.domain]?.length) {
+      return { ...c, known: true, label: "Confirmed by DNS logs", confidence: "MEDIUM" };
     }
+    // Priority 2: definite or non-Safari possible block → promote to known MEDIUM
+    // (real DNS block, just not in our DB yet; Safari ERR_ABORTED stays unverified)
+    if (!c.known && (block.isDefiniteBlock || (block.isPossibleBlock && !block.isSafariAbort))) {
+      return { ...c, known: true, label: "Unknown Domain", confidence: "MEDIUM" };
+    }
+    return c;
   }
 
-  // Promote definite or possible DNS blocks on unknown domains to known MEDIUM —
-  // these are real blocks (ERR_NAME_NOT_RESOLVED, ERR_FAILED, ERR_BLOCKED_BY_CLIENT etc.),
-  // just not in our database yet. Unverified section is then Safari ERR_ABORTED only.
-  for (const block of blocks) {
-    if (!block.classification.known && (block.isDefiniteBlock || (block.isPossibleBlock && !block.isSafariAbort))) {
-      block.classification = {
-        ...block.classification,
-        known: true,
-        label: "Unknown Domain",
-        confidence: "MEDIUM",
-      };
-    }
-  }
+  // Build display blocks — immutable view over the raw blocks array
+  const displayBlocks = blocks.map(block => ({
+    ...block,
+    classification: displayClassification(block),
+  }));
 
   // Split into known (confirmed) and unknown (unverified Safari aborts only)
-  const knownBlocks   = blocks.filter(b => b.classification.known);
-  const unknownBlocks = blocks.filter(b => !b.classification.known);
+  const knownBlocks   = displayBlocks.filter(b => b.classification.known);
+  const unknownBlocks = displayBlocks.filter(b => !b.classification.known);
 
   const visibleKnown = activeFilter
     ? knownBlocks.filter(b => b.classification.confidence === activeFilter)
@@ -621,12 +626,17 @@ async function refreshDBMeta() {
   if (!meta) return;
   const el = document.getElementById("db-meta-label");
   if (!el) return;
-  if (meta.source === "bundled") {
+  if (meta.source === "empty") {
+    el.textContent = "⚠ DB failed to load — click Refresh";
+    el.style.color = "#f87171";
+  } else if (meta.source === "bundled") {
     el.textContent = `Bundled DB • ${meta.count} entries`;
+    el.style.color = "";
   } else {
     const age = meta.fetchedAt ? Math.floor((Date.now() - meta.fetchedAt) / 86400000) : "?";
     const ageStr = age === 0 ? "today" : age === 1 ? "1 day ago" : `${age} days ago`;
     el.textContent = `${meta.source === "remote" ? "Remote" : "Cached"} DB v${meta.version} • ${meta.count} entries • fetched ${ageStr}`;
+    el.style.color = "";
   }
   await buildBugReportLink(meta);
 }

@@ -4,7 +4,12 @@
 
 const { test, describe } = require("node:test");
 const assert = require("node:assert/strict");
-const { classifyDomain } = require("../domain-db.js");
+
+// domain-db.js no longer owns classifyDomain — db-loader.js does.
+// Seed _activeDB from the bundled domain-db.json before running tests.
+const dbJson = require("../domain-db.json");
+const { validateAndCompile, classifyDomainActive: classifyDomain, _seedDB } = require("../db-loader.js");
+_seedDB(validateAndCompile(dbJson));
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function assertHigh(hostname, desc) {
