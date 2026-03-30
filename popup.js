@@ -284,6 +284,28 @@ async function fetchBlocklistReasons(domains) {
   Object.assign(blocklistCache, result);
 }
 
+// ── Display block computation (pure — no DOM, no globals) ────────────────────
+// Takes the raw blocks array from the background and a blocklistCache map.
+// Returns a new array with computed display classifications — originals never mutated.
+// Exported via module.exports for unit testing.
+function computeDisplayBlocks(blocks, cache) {
+  return blocks.map(block => {
+    const c = block.classification;
+    let displayC = c;
+
+    // Priority 1: confirmed by DNS provider logs
+    if (!c.known && cache[block.domain]?.length) {
+      displayC = { ...c, known: true, label: "Confirmed by DNS logs", confidence: "MEDIUM" };
+    // Priority 2: definite or non-Safari possible block → promote to known MEDIUM
+    // (real DNS block, just not in DB yet; Safari ERR_ABORTED stays unverified)
+    } else if (!c.known && (block.isDefiniteBlock || (block.isPossibleBlock && !block.isSafariAbort))) {
+      displayC = { ...c, known: true, label: "Unknown Domain", confidence: "MEDIUM" };
+    }
+
+    return { ...block, classification: displayC };
+  });
+}
+
 // ── Render ────────────────────────────────────────────────────────────────────
 const IMPACT_LABELS = {
   login:        "⚠️ May prevent login",
@@ -336,27 +358,8 @@ function renderBlocks(blocks) {
   const provider = getProvider();
   const hasCredentials = provider?.hasCredentials(creds) ?? false;
 
-  // Compute display classification for each block — never mutate the original block objects.
-  // This function is called on every render so it must be pure (same input → same output).
-  function displayClassification(block) {
-    const c = block.classification;
-    // Priority 1: confirmed by DNS provider logs
-    if (!c.known && blocklistCache[block.domain]?.length) {
-      return { ...c, known: true, label: "Confirmed by DNS logs", confidence: "MEDIUM" };
-    }
-    // Priority 2: definite or non-Safari possible block → promote to known MEDIUM
-    // (real DNS block, just not in our DB yet; Safari ERR_ABORTED stays unverified)
-    if (!c.known && (block.isDefiniteBlock || (block.isPossibleBlock && !block.isSafariAbort))) {
-      return { ...c, known: true, label: "Unknown Domain", confidence: "MEDIUM" };
-    }
-    return c;
-  }
-
   // Build display blocks — immutable view over the raw blocks array
-  const displayBlocks = blocks.map(block => ({
-    ...block,
-    classification: displayClassification(block),
-  }));
+  const displayBlocks = computeDisplayBlocks(blocks, blocklistCache);
 
   const order = { HIGH: 0, MEDIUM: 1, LOW: 2 };
   displayBlocks.sort((a, b) => {
@@ -1075,4 +1078,8 @@ async function handleRefreshDB() {
     label.textContent = result?.error || "Unknown error";
     setTimeout(() => { btn.textContent = "↻ Refresh"; btn.disabled = false; }, 2500);
   }
+}
+
+if (typeof module !== "undefined") {
+  module.exports = { computeDisplayBlocks };
 }
