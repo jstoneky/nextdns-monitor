@@ -875,9 +875,10 @@ async function triggerDisableBlocking(seconds) {
 
   if (result.ok) {
     blockingState.blocking = false;
-    blockingState.timer = timer || null;
+    const remaining = result.timer || timer || null;
+    blockingState.timer = remaining;
     stopCountdown();
-    if (timer) startCountdown(timer);
+    if (remaining) startCountdown(remaining);
     updateBlockingButton();
   } else {
     btn.textContent = "✗";

@@ -275,7 +275,9 @@
         });
         if (!res.ok) return { ok: false, error: `HTTP ${res.status}` };
         const data = await res.json();
-        return { ok: true, blocking: data.blocking };
+        const result = { ok: true, blocking: data.blocking === "enabled" || data.blocking === true };
+        if (data.timer != null && data.timer > 0) result.timer = data.timer;
+        return result;
       } catch (e) {
         return { ok: false, error: e.name === "TimeoutError" ? "Pi-hole unreachable — check your URL" : e.message };
       }
@@ -326,8 +328,10 @@
         });
         if (!res.ok) return { ok: false, error: `HTTP ${res.status}` };
         const data = await res.json();
-        const result = { ok: true, blocking: data.blocking };
-        if (data.timer != null) result.timer = data.timer;
+        // v6 returns blocking as "enabled"/"disabled" string — normalize to boolean
+        const blocking = data.blocking === "enabled" || data.blocking === true;
+        const result = { ok: true, blocking };
+        if (data.timer != null && data.timer > 0) result.timer = data.timer;
         return result;
       } catch (e) {
         return { ok: false, error: e.name === "TimeoutError" ? "Pi-hole unreachable — check your URL" : e.message };
