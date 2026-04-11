@@ -155,10 +155,14 @@ async function checkDNSRouting() {
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
-// Log out of the Pi-hole v6 session when the popup closes
-window.addEventListener("unload", () => {
-  window.NDMProviders?.pihole?.destroySession?.();
-});
+// TODO: Re-enable once Pi-hole fixes its FTL concurrency bug.
+// Any concurrent API requests (including a DELETE /api/auth arriving while
+// search requests are still in flight) can trigger a freeze in FTL.
+// Tracked: https://github.com/pi-hole/FTL — restore when confirmed fixed.
+//
+// window.addEventListener("unload", () => {
+//   window.NDMProviders?.pihole?.destroySession?.();
+// });
 
 document.addEventListener("DOMContentLoaded", async () => {
   const stored = await ext.storage.sync.get([

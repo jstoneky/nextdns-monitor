@@ -91,20 +91,22 @@
     _sessionCache = null;
   }
 
-  // Delete the session on the Pi-hole server and clear the local cache.
-  // Uses keepalive so it survives popup close / unload.
-  function destroyV6Session() {
-    if (!_sessionCache) return;
-    const { url, sid } = _sessionCache;
-    _sessionCache = null;
-    try {
-      fetch(`${url}/api/auth`, {
-        method: "DELETE",
-        headers: { "X-FTL-SID": sid },
-        keepalive: true,
-      });
-    } catch (_) {}
-  }
+  // TODO: Re-enable once Pi-hole fixes its FTL concurrency bug.
+  // Any concurrent API requests can freeze FTL — the DELETE arriving while
+  // search requests are still in flight triggers it. Restore when confirmed fixed.
+  //
+  // function destroyV6Session() {
+  //   if (!_sessionCache) return;
+  //   const { url, sid } = _sessionCache;
+  //   _sessionCache = null;
+  //   try {
+  //     fetch(`${url}/api/auth`, {
+  //       method: "DELETE",
+  //       headers: { "X-FTL-SID": sid },
+  //       keepalive: true,
+  //     });
+  //   } catch (_) {}
+  // }
   // ─────────────────────────────────────────────────────────────────
 
   // v6 exposes /api/auth; v5 does not
@@ -205,21 +207,58 @@
         let session = await getV6Session(url, piholeToken);
         if (!session.ok) return result;
 
-        // Fetch all domains in parallel — much faster than sequential awaits.
-        // Returns true if any request got a 401 (session expired mid-flight).
+        // TODO: Re-enable parallel fetching once Pi-hole fixes its FTL concurrency
+        // bug. Concurrent API requests (even just parallel search calls) can freeze
+        // FTL. Sequential is slower but safe. Restore Promise.allSettled version
+        // when confirmed fixed.
+        //
+        // const fetchDomains = async (sid) => {
+        //   let sessionExpired = false;
+        //   await Promise.allSettled(domains.map(async (domain) => {
+        //     try {
+        //       const res = await fetch(
+        //         `${url}/api/search/${encodeURIComponent(domain)}`,
+        //         { headers: { "X-FTL-SID": sid }, signal: AbortSignal.timeout(6000) }
+        //       );
+        //       if (res.status === 401) { sessionExpired = true; return; }
+        //       if (!res.ok) return;
+        //       const data = await res.json();
+        //       const gravityHits = data?.search?.gravity || [];
+        //       if (!gravityHits.length) return;
+        //       const seen = new Set();
+        //       const reasons = [];
+        //       for (const hit of gravityHits) {
+        //         const address = hit.address || "";
+        //         if (seen.has(address)) continue;
+        //         seen.add(address);
+        //         reasons.push({ id: String(hit.id || ""), name: prettyListName(address) });
+        //       }
+        //       if (reasons.length) result[domain] = reasons;
+        //     } catch (_) {}
+        //   }));
+        //   return sessionExpired;
+        // };
+        // const expired = await fetchDomains(session.sid);
+        // if (expired) {
+        //   clearV6Session();
+        //   session = await getV6Session(url, piholeToken);
+        //   if (session.ok) await fetchDomains(session.sid);
+        // }
+
+        // Sequential fetch — one domain at a time to avoid triggering Pi-hole FTL
+        // concurrency bug. Replace with the parallel version above when fixed.
         const fetchDomains = async (sid) => {
-          let sessionExpired = false;
-          await Promise.allSettled(domains.map(async (domain) => {
+          for (const domain of domains) {
             try {
               const res = await fetch(
                 `${url}/api/search/${encodeURIComponent(domain)}`,
                 { headers: { "X-FTL-SID": sid }, signal: AbortSignal.timeout(6000) }
               );
-              if (res.status === 401) { sessionExpired = true; return; }
-              if (!res.ok) return;
+              if (res.status === 401) return true;
+              if (!res.ok) continue;
               const data = await res.json();
               const gravityHits = data?.search?.gravity || [];
-              if (!gravityHits.length) return;
+              if (!gravityHits.length) continue;
 
               const seen = new Set();
               const reasons = [];
@@ -231,8 +270,8 @@
               }
               if (reasons.length) result[domain] = reasons;
             } catch (_) {}
-          }));
-          return sessionExpired;
+          }
+          return false;
         };
 
         const expired = await fetchDomains(session.sid);
@@ -509,7 +548,7 @@
     },
 
     clearSession: clearV6Session,
-    destroySession: destroyV6Session,
+    // destroySession: destroyV6Session, // TODO: restore when Pi-hole FTL concurrency bug is fixed
     detectVersion,
   };
 })();
