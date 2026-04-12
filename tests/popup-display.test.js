@@ -23,7 +23,12 @@ globalThis.document = {
   createElement: () => ({ classList: { add(){}, remove(){}, toggle(){} }, appendChild(){}, textContent: "", style: {} }),
   body: { classList: { add(){}, remove(){}, toggle(){} } },
 };
-globalThis.window = { NDMProviders: {} };
+globalThis.window = {
+  NDMProviders: {},
+  addEventListener: () => {},
+  matchMedia: () => ({ matches: false, addEventListener: () => {} }),
+  close: () => {},
+};
 
 const { computeDisplayBlocks } = require("../popup.js");
 
