@@ -1,7 +1,7 @@
 {
-  "version": "2.18.0",
-  "updated": "2026-04-11",
-  "_entriesHash": "ad56975684cf132f",
+  "version": "2.33.0",
+  "updated": "2026-04-12",
+  "_entriesHash": "cbe26f7ae26e8626",
   "entries": [
     {
       "pattern": "cdn\\.abtasty\\.com",
@@ -1052,6 +1052,22 @@
       "functionalImpact": "login"
     },
     {
+      "pattern": "\\.authgear\\.cloud",
+      "flags": "",
+      "label": "Auth (Authgear Cloud)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "authgear\\.cloud",
+      "flags": "",
+      "label": "Auth (Authgear Cloud base)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
       "pattern": "cdn\\.callrail\\.com",
       "flags": "",
       "label": "Call Tracking (CallRail CDN)",
@@ -1276,6 +1292,30 @@
       "functionalImpact": "login"
     },
     {
+      "pattern": "api\\.castle\\.io",
+      "flags": "",
+      "label": "CAPTCHA (Castle bot/fraud protection)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "castle\\.io",
+      "flags": "",
+      "label": "CAPTCHA (Castle)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "altcha\\.org",
+      "flags": "",
+      "label": "CAPTCHA (ALTCHA proof-of-work)",
+      "confidence": "MEDIUM",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
       "pattern": "cloudflare\\.com",
       "flags": "",
       "label": "CDN (Cloudflare)",
@@ -1447,6 +1487,46 @@
       "pattern": "akamai\\.net",
       "flags": "i",
       "label": "CDN (Akamai)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "cloudinary\\.com",
+      "flags": "",
+      "label": "CDN (Cloudinary)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "ik\\.imagekit\\.io",
+      "flags": "",
+      "label": "CDN (ImageKit image/video CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "imagekit\\.io",
+      "flags": "",
+      "label": "CDN (ImageKit)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "\\.ucarecd\\.net",
+      "flags": "",
+      "label": "CDN (Uploadcare delivery)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "uploadcare\\.com",
+      "flags": "",
+      "label": "CDN (Uploadcare)",
       "confidence": "HIGH",
       "category": "cdn",
       "functionalImpact": "assets"
@@ -1962,6 +2042,86 @@
       "confidence": "MEDIUM",
       "category": "ecommerce",
       "functionalImpact": "forms"
+    },
+    {
+      "pattern": "api\\.crystallize\\.com",
+      "flags": "",
+      "label": "Ecommerce (Crystallize Core API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "shop-api\\.crystallize\\.com",
+      "flags": "",
+      "label": "Ecommerce (Crystallize Shop/Cart API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "crystallize\\.com",
+      "flags": "",
+      "label": "Ecommerce (Crystallize)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "\\.swell\\.store",
+      "flags": "",
+      "label": "Ecommerce (Swell Commerce store API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "swell\\.is",
+      "flags": "",
+      "label": "Ecommerce (Swell Commerce)",
+      "confidence": "MEDIUM",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "vtexcommercestable\\.com\\.br",
+      "flags": "",
+      "label": "Ecommerce (VTEX backend API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "vteximg\\.com\\.br",
+      "flags": "",
+      "label": "Ecommerce (VTEX image CDN)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "vtex\\.com\\.br",
+      "flags": "",
+      "label": "Ecommerce (VTEX)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "api\\.elasticpath\\.com",
+      "flags": "",
+      "label": "Ecommerce (Elastic Path API)",
+      "confidence": "MEDIUM",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "elasticpath\\.com",
+      "flags": "",
+      "label": "Ecommerce (Elastic Path)",
+      "confidence": "MEDIUM",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
     },
     {
       "pattern": "featureassets\\.org",
@@ -2532,6 +2692,22 @@
       "functionalImpact": "features"
     },
     {
+      "pattern": "api\\.tggl\\.io",
+      "flags": "",
+      "label": "Feature Flags (Tggl)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "tggl\\.io",
+      "flags": "",
+      "label": "Feature Flags (Tggl base)",
+      "confidence": "MEDIUM",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
       "pattern": "images\\.ctfassets\\.net",
       "flags": "",
       "label": "Headless CMS (Contentful image CDN)",
@@ -2586,6 +2762,134 @@
       "confidence": "HIGH",
       "category": "headless-cms",
       "functionalImpact": "assets"
+    },
+    {
+      "pattern": "\\.cdn\\.prismic\\.io",
+      "flags": "",
+      "label": "Headless CMS (Prismic CDN delivery)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.prismic\\.io",
+      "flags": "",
+      "label": "Headless CMS (Prismic CDN base)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "prismic\\.io",
+      "flags": "",
+      "label": "Headless CMS (Prismic)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "deliver\\.kontent\\.ai",
+      "flags": "",
+      "label": "Headless CMS (Kontent.ai Delivery API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "graphql\\.kontent\\.ai",
+      "flags": "",
+      "label": "Headless CMS (Kontent.ai GraphQL API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "kontent\\.ai",
+      "flags": "",
+      "label": "Headless CMS (Kontent.ai)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.builder\\.io",
+      "flags": "",
+      "label": "Headless CMS (Builder.io CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn2\\.builder\\.io",
+      "flags": "",
+      "label": "Headless CMS (Builder.io CDN2)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "builder\\.io",
+      "flags": "",
+      "label": "Headless CMS (Builder.io)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.contentstack\\.io",
+      "flags": "",
+      "label": "Headless CMS (Contentstack CDN delivery)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "eu-cdn\\.contentstack\\.com",
+      "flags": "",
+      "label": "Headless CMS (Contentstack EU CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "contentstack\\.com",
+      "flags": "",
+      "label": "Headless CMS (Contentstack)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "api\\.cosmicjs\\.com",
+      "flags": "",
+      "label": "Headless CMS (Cosmic API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cosmicjs\\.com",
+      "flags": "",
+      "label": "Headless CMS (Cosmic)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "api\\.buttercms\\.com",
+      "flags": "",
+      "label": "Headless CMS (ButterCMS API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "buttercms\\.com",
+      "flags": "",
+      "label": "Headless CMS (ButterCMS)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
     },
     {
       "pattern": "\\.imgix\\.net",
@@ -3148,6 +3452,38 @@
       "functionalImpact": "monitoring"
     },
     {
+      "pattern": "faro-collector.*\\.grafana\\.net",
+      "flags": "",
+      "label": "Monitoring (Grafana Faro collector)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "faro-collector\\.grafana\\.net",
+      "flags": "",
+      "label": "Monitoring (Grafana Faro base collector)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "otlp-gateway.*\\.grafana\\.net",
+      "flags": "",
+      "label": "Monitoring (Grafana Cloud OTLP gateway)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "grafana\\.net",
+      "flags": "",
+      "label": "Monitoring (Grafana Cloud)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
       "pattern": "cdn\\.onesignal\\.com",
       "flags": "",
       "label": "Notifications (OneSignal CDN)",
@@ -3287,6 +3623,54 @@
       "pattern": "pusherplatform\\.io",
       "flags": "",
       "label": "Push Platform (Pusher Beams)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "hub\\.suprsend\\.com",
+      "flags": "",
+      "label": "Notifications (SuprSend API hub)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "suprsend\\.com",
+      "flags": "",
+      "label": "Notifications (SuprSend)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "api\\.magicbell\\.com",
+      "flags": "",
+      "label": "Notifications (MagicBell API)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "magicbell\\.com",
+      "flags": "",
+      "label": "Notifications (MagicBell)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "api\\.notix\\.co",
+      "flags": "",
+      "label": "Notifications (Notix web push)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "notix\\.co",
+      "flags": "",
+      "label": "Notifications (Notix)",
       "confidence": "MEDIUM",
       "category": "notifications",
       "functionalImpact": "notifications"
@@ -3684,6 +4068,70 @@
       "functionalImpact": "checkout"
     },
     {
+      "pattern": "pay\\.gocardless\\.com",
+      "flags": "",
+      "label": "Payments (GoCardless Drop-in)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "gocardless\\.com",
+      "flags": "",
+      "label": "Payments (GoCardless)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "cdn\\.safecharge\\.com",
+      "flags": "",
+      "label": "Payments (Nuvei Web SDK)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "api\\.nuvei\\.com",
+      "flags": "",
+      "label": "Payments (Nuvei API)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "checkout\\.flutterwave\\.com",
+      "flags": "",
+      "label": "Payments (Flutterwave Inline)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "flutterwave\\.com",
+      "flags": "",
+      "label": "Payments (Flutterwave)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "js\\.paystack\\.co",
+      "flags": "",
+      "label": "Payments (Paystack Inline JS)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "paystack\\.co",
+      "flags": "",
+      "label": "Payments (Paystack)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
       "pattern": "pusherapp\\.com",
       "flags": "",
       "label": "Real-time (Pusher)",
@@ -3842,6 +4290,46 @@
       "confidence": "HIGH",
       "category": "realtime",
       "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "ps\\.pndsn\\.com",
+      "flags": "",
+      "label": "Realtime (PubNub messaging endpoint)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "cdn\\.pubnub\\.com",
+      "flags": "",
+      "label": "Realtime (PubNub CDN)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "pubnub\\.com",
+      "flags": "",
+      "label": "Realtime (PubNub)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "api\\.liveblocks\\.io",
+      "flags": "",
+      "label": "Realtime (Liveblocks API)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "liveblocks\\.io",
+      "flags": "",
+      "label": "Realtime (Liveblocks)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
     },
     {
       "pattern": "staticw2\\.yotpo\\.com",
@@ -4087,6 +4575,54 @@
       "pattern": "findify\\.io",
       "flags": "i",
       "label": "Search (Findify)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "eu1-search\\.doofinder\\.com",
+      "flags": "",
+      "label": "Search (Doofinder EU)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "us1-search\\.doofinder\\.com",
+      "flags": "",
+      "label": "Search (Doofinder US)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "ap1-search\\.doofinder\\.com",
+      "flags": "",
+      "label": "Search (Doofinder APAC)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "doofinder\\.com",
+      "flags": "",
+      "label": "Search (Doofinder)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "rapi\\.recombee\\.com",
+      "flags": "",
+      "label": "Search (Recombee Recommendations API)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "recombee\\.com",
+      "flags": "",
+      "label": "Search (Recombee)",
       "confidence": "HIGH",
       "category": "search-api",
       "functionalImpact": "search"
@@ -4378,6 +4914,30 @@
       "confidence": "MEDIUM",
       "category": "session-replay",
       "functionalImpact": "session replay"
+    },
+    {
+      "pattern": "cdn\\.sprig\\.com",
+      "flags": "",
+      "label": "Session Replay (Sprig CDN)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.sprig\\.com",
+      "flags": "",
+      "label": "Session Replay (Sprig API)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "sprig\\.com",
+      "flags": "",
+      "label": "Session Replay (Sprig)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": null
     },
     {
       "pattern": "api\\.intercom\\.io",
@@ -4703,6 +5263,54 @@
       "pattern": "plain\\.com",
       "flags": "",
       "label": "Support Chat (Plain)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "app\\.chatwoot\\.com",
+      "flags": "",
+      "label": "Support Chat (Chatwoot Cloud)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "chatwoot\\.com",
+      "flags": "",
+      "label": "Support Chat (Chatwoot)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "widget\\.jivosite\\.com",
+      "flags": "",
+      "label": "Support Chat (JivoChat widget)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "jivosite\\.com",
+      "flags": "",
+      "label": "Support Chat (JivoChat)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "go\\.reamaze\\.com",
+      "flags": "",
+      "label": "Support Chat (Re:amaze)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "reamaze\\.com",
+      "flags": "",
+      "label": "Support Chat (Re:amaze base)",
       "confidence": "MEDIUM",
       "category": "support-chat",
       "functionalImpact": "chat"
