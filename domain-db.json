@@ -1,7 +1,7 @@
 {
-  "version": "2.33.0",
-  "updated": "2026-04-12",
-  "_entriesHash": "cbe26f7ae26e8626",
+  "version": "2.34.0",
+  "updated": "2026-07-25",
+  "_entriesHash": "4af2ed1aec450bfc",
   "entries": [
     {
       "pattern": "cdn\\.abtasty\\.com",
@@ -82,6 +82,70 @@
       "confidence": "HIGH",
       "category": "ab-testing",
       "functionalImpact": "a/b testing"
+    },
+    {
+      "pattern": "vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "affiliates\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (affiliates.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "developers\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (developers.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "help\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (help.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "research\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (research.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "resources\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (resources.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "trust\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (trust.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
+    },
+    {
+      "pattern": "www\\.vwo\\.com",
+      "flags": "",
+      "label": "ab-testing (www.vwo.com)",
+      "confidence": "HIGH",
+      "category": "ab-testing",
+      "functionalImpact": "personalization"
     },
     {
       "pattern": "googleadservices\\.com",
@@ -1068,6 +1132,118 @@
       "functionalImpact": "login"
     },
     {
+      "pattern": "oryapis\\.com",
+      "flags": "",
+      "label": "Auth (Ory Network)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "\\.zitadel\\.cloud",
+      "flags": "",
+      "label": "Auth (ZITADEL Cloud)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "\\.logto\\.app",
+      "flags": "",
+      "label": "Auth (Logto Cloud)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "duosecurity\\.com",
+      "flags": "",
+      "label": "Auth (Duo Security MFA)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "\\.fusionauth\\.io",
+      "flags": "",
+      "label": "Auth (FusionAuth Cloud)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "loginradius\\.com|lrcontent",
+      "flags": "",
+      "label": "Auth (LoginRadius)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "gigya\\.com",
+      "flags": "",
+      "label": "Auth (SAP Customer Data Cloud / Gigya)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "userfront\\.com",
+      "flags": "",
+      "label": "Auth (Userfront)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "supabase\\.co",
+      "flags": "",
+      "label": "Auth (Supabase Auth / GoTrue)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "\\.scalekit\\.dev",
+      "flags": "",
+      "label": "Auth (Scalekit)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "transmitsecurity\\.io",
+      "flags": "",
+      "label": "Auth (Transmit Security Mosaic)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "api\\.mojoauth\\.com",
+      "flags": "",
+      "label": "Auth (MojoAuth)",
+      "confidence": "MEDIUM",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "forgeblocks\\.com|id\\.forgerock\\.io",
+      "flags": "",
+      "label": "Auth (PingOne Advanced Identity Cloud / ForgeRock)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
+      "pattern": "firebase\\.afafb\\.com",
+      "flags": "",
+      "label": "auth (firebase.afafb.com)",
+      "confidence": "HIGH",
+      "category": "auth",
+      "functionalImpact": "login"
+    },
+    {
       "pattern": "cdn\\.callrail\\.com",
       "flags": "",
       "label": "Call Tracking (CallRail CDN)",
@@ -1316,6 +1492,102 @@
       "functionalImpact": "forms"
     },
     {
+      "pattern": "smartcaptcha\\.yandexcloud\\.net",
+      "flags": "",
+      "label": "CAPTCHA (Yandex SmartCaptcha)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "(js|api)\\.prosopo\\.io",
+      "flags": "",
+      "label": "CAPTCHA (Prosopo Procaptcha)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "captcha\\.(qcloud|gtimg|qq)\\.com",
+      "flags": "",
+      "label": "CAPTCHA (Tencent Captcha)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "\\.awswaf\\.com",
+      "flags": "",
+      "label": "CAPTCHA (AWS WAF CAPTCHA/Challenge)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "\\.perfdrive\\.com",
+      "flags": "",
+      "label": "CAPTCHA (Radware Bot Manager / ShieldSquare)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "\\.vaptcha\\.com",
+      "flags": "",
+      "label": "CAPTCHA (VAPTCHA)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "(cstaticdun\\.126\\.net|c\\.dun\\.163\\.com)",
+      "flags": "",
+      "label": "CAPTCHA (NetEase Yidun)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "(fpcdn\\.io|fpjs\\.io|fpnpmcdn\\.net)",
+      "flags": "",
+      "label": "CAPTCHA (Fingerprint bot detection)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "queue-it\\.net",
+      "flags": "",
+      "label": "CAPTCHA (Queue-it virtual waiting room)",
+      "confidence": "HIGH",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "capy\\.me",
+      "flags": "",
+      "label": "CAPTCHA (Capy Puzzle Captcha)",
+      "confidence": "MEDIUM",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "keycaptcha\\.com",
+      "flags": "",
+      "label": "CAPTCHA (KeyCAPTCHA)",
+      "confidence": "MEDIUM",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
+      "pattern": "api\\.botpoison\\.com",
+      "flags": "",
+      "label": "CAPTCHA (Botpoison anti-spam)",
+      "confidence": "MEDIUM",
+      "category": "captcha",
+      "functionalImpact": "forms"
+    },
+    {
       "pattern": "cloudflare\\.com",
       "flags": "",
       "label": "CDN (Cloudflare)",
@@ -1527,6 +1799,142 @@
       "pattern": "uploadcare\\.com",
       "flags": "",
       "label": "CDN (Uploadcare)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "cloudfront\\.net",
+      "flags": "",
+      "label": "CDN (Amazon CloudFront)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "azureedge\\.net",
+      "flags": "",
+      "label": "CDN (Microsoft Azure CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "azurefd\\.net",
+      "flags": "",
+      "label": "CDN (Azure Front Door)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "ajax\\.aspnetcdn\\.com",
+      "flags": "",
+      "label": "CDN (Microsoft Ajax CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "code\\.jquery\\.com",
+      "flags": "",
+      "label": "CDN (jQuery CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "bootstrapcdn\\.com",
+      "flags": "",
+      "label": "CDN (BootstrapCDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "esm\\.sh",
+      "flags": "",
+      "label": "CDN (esm.sh module CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "cdn\\.skypack\\.dev",
+      "flags": "",
+      "label": "CDN (Skypack module CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "imgix\\.net",
+      "flags": "",
+      "label": "CDN (imgix image CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "cdn77\\.org",
+      "flags": "",
+      "label": "CDN (CDN77)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "gcdn\\.co",
+      "flags": "",
+      "label": "CDN (Gcore CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "cachefly\\.net",
+      "flags": "",
+      "label": "CDN (CacheFly)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "\\.wp\\.com",
+      "flags": "",
+      "label": "CDN (WordPress.com / Jetpack Site Accelerator)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "alicdn\\.com",
+      "flags": "",
+      "label": "CDN (Alibaba Cloud CDN)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "statically\\.io",
+      "flags": "",
+      "label": "CDN (Statically)",
+      "confidence": "MEDIUM",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "netlify\\.app",
+      "flags": "",
+      "label": "Hosting (Netlify)",
+      "confidence": "HIGH",
+      "category": "cdn",
+      "functionalImpact": "assets"
+    },
+    {
+      "pattern": "vercel\\.app",
+      "flags": "",
+      "label": "Hosting (Vercel)",
       "confidence": "HIGH",
       "category": "cdn",
       "functionalImpact": "assets"
@@ -1988,6 +2396,54 @@
       "functionalImpact": "consent"
     },
     {
+      "pattern": "analytics\\.cookiefirst\\.dev",
+      "flags": "",
+      "label": "consent (analytics.cookiefirst.dev)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "onetrust\\.com\\.data\\.adobedc\\.net",
+      "flags": "",
+      "label": "consent (onetrust.com.data.adobedc.net)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "onetrust\\.techservices\\.illinois\\.edu",
+      "flags": "",
+      "label": "consent (onetrust.techservices.illinois.edu)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "cookiefirst\\.tapfiliate\\.com",
+      "flags": "",
+      "label": "consent (cookiefirst.tapfiliate.com)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "didomi\\.com",
+      "flags": "",
+      "label": "consent (didomi.com)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "didomi\\.foodvisor\\.io",
+      "flags": "",
+      "label": "consent (didomi.foodvisor.io)",
+      "confidence": "MEDIUM",
+      "category": "consent",
+      "functionalImpact": null
+    },
+    {
       "pattern": "shopify\\.com",
       "flags": "",
       "label": "E-commerce (Shopify)",
@@ -2119,6 +2575,94 @@
       "pattern": "elasticpath\\.com",
       "flags": "",
       "label": "Ecommerce (Elastic Path)",
+      "confidence": "MEDIUM",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "snipcart\\.com",
+      "flags": "",
+      "label": "Ecommerce (Snipcart)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "ecwid\\.com",
+      "flags": "",
+      "label": "Ecommerce (Ecwid by Lightspeed)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "foxycart\\.com",
+      "flags": "",
+      "label": "Ecommerce (Foxy.io cart/checkout)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "cdn-js\\.foxy\\.io",
+      "flags": "",
+      "label": "Ecommerce (Foxy.io elements CDN)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "commercelayer\\.io",
+      "flags": "",
+      "label": "Ecommerce (Commerce Layer API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "saleor\\.cloud",
+      "flags": "",
+      "label": "Ecommerce (Saleor Cloud GraphQL API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "shopware\\.store",
+      "flags": "",
+      "label": "Ecommerce (Shopware SaaS storefront/API)",
+      "confidence": "MEDIUM",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "storefront\\.api\\.nacelle\\.com",
+      "flags": "",
+      "label": "Ecommerce (Nacelle Storefront GraphQL API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "api\\.ordercloud\\.io",
+      "flags": "",
+      "label": "Ecommerce (Sitecore OrderCloud API)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "gumroad\\.com",
+      "flags": "",
+      "label": "Ecommerce (Gumroad embed/overlay)",
+      "confidence": "HIGH",
+      "category": "ecommerce",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "bigcartel\\.com",
+      "flags": "",
+      "label": "Ecommerce (Big Cartel)",
       "confidence": "MEDIUM",
       "category": "ecommerce",
       "functionalImpact": "checkout"
@@ -2708,6 +3252,358 @@
       "functionalImpact": "features"
     },
     {
+      "pattern": "dynamicyield\\.com",
+      "flags": "",
+      "label": "A/B Testing (Dynamic Yield)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "tt\\.omtrdc\\.net",
+      "flags": "",
+      "label": "A/B Testing (Adobe Target)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "monetate\\.net",
+      "flags": "",
+      "label": "A/B Testing (Monetate/Kibo Personalization)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "mutinycdn\\.com",
+      "flags": "",
+      "label": "Personalization (Mutiny)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "ninetailed\\.co",
+      "flags": "",
+      "label": "Personalization (Ninetailed/Contentful)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "absmartly\\.io",
+      "flags": "",
+      "label": "A/B Testing (ABsmartly)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "croct\\.io",
+      "flags": "",
+      "label": "Personalization (Croct)",
+      "confidence": "MEDIUM",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "omniconvert\\.com",
+      "flags": "",
+      "label": "A/B Testing (Omniconvert)",
+      "confidence": "MEDIUM",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.modrinth\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.modrinth.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.basalam\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.basalam.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.football24\\.ua",
+      "flags": "",
+      "label": "feature-flags (posthog.football24.ua)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.lingvanex\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.lingvanex.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.tarnkappe\\.info",
+      "flags": "",
+      "label": "feature-flags (posthog.tarnkappe.info)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "optimizely\\.techtarget\\.com",
+      "flags": "",
+      "label": "feature-flags (optimizely.techtarget.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.24tv\\.ua",
+      "flags": "",
+      "label": "feature-flags (posthog.24tv.ua)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.alpineiq\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.alpineiq.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.appercut\\.eu",
+      "flags": "",
+      "label": "feature-flags (posthog.appercut.eu)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.bloomgrowth\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.bloomgrowth.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.bunny\\.net",
+      "flags": "",
+      "label": "feature-flags (posthog.bunny.net)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.carestack\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.carestack.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.casinoplus\\.top",
+      "flags": "",
+      "label": "feature-flags (posthog.casinoplus.top)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.client10\\.me",
+      "flags": "",
+      "label": "feature-flags (posthog.client10.me)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.prod\\.cluster\\.compose\\.ai",
+      "flags": "",
+      "label": "feature-flags (posthog.prod.cluster.compose.ai)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.eagleeyenetworks\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.eagleeyenetworks.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.element\\.io",
+      "flags": "",
+      "label": "feature-flags (posthog.element.io)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.fiveprayer\\.app",
+      "flags": "",
+      "label": "feature-flags (posthog.fiveprayer.app)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.infra\\.gmt\\.io",
+      "flags": "",
+      "label": "feature-flags (posthog.infra.gmt.io)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.hs-plus\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.hs-plus.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.ingresse\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.ingresse.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.myfans\\.jp",
+      "flags": "",
+      "label": "feature-flags (posthog.myfans.jp)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "prd\\.posthog\\.myfans\\.jp",
+      "flags": "",
+      "label": "feature-flags (prd.posthog.myfans.jp)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.ldmtech\\.net\\.br",
+      "flags": "",
+      "label": "feature-flags (posthog.ldmtech.net.br)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.noteit\\.fun",
+      "flags": "",
+      "label": "feature-flags (posthog.noteit.fun)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "statsig\\.prizepicks\\.com",
+      "flags": "",
+      "label": "feature-flags (statsig.prizepicks.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.qrdev\\.org",
+      "flags": "",
+      "label": "feature-flags (posthog.qrdev.org)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.scaledagile\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.scaledagile.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.infra\\.sohohousedigital\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.infra.sohohousedigital.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.sweedpos\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.sweedpos.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.talkpal\\.ai",
+      "flags": "",
+      "label": "feature-flags (posthog.talkpal.ai)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.tractian\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.tractian.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.gallerycdn\\.vsassets\\.io",
+      "flags": "",
+      "label": "feature-flags (posthog.gallerycdn.vsassets.io)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.webdoxclm\\.com",
+      "flags": "",
+      "label": "feature-flags (posthog.webdoxclm.com)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.consumer\\.worldcoin\\.org",
+      "flags": "",
+      "label": "feature-flags (posthog.consumer.worldcoin.org)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
+      "pattern": "posthog\\.worldshopping\\.global",
+      "flags": "",
+      "label": "feature-flags (posthog.worldshopping.global)",
+      "confidence": "HIGH",
+      "category": "feature-flags",
+      "functionalImpact": "features"
+    },
+    {
       "pattern": "images\\.ctfassets\\.net",
       "flags": "",
       "label": "Headless CMS (Contentful image CDN)",
@@ -2892,6 +3788,174 @@
       "functionalImpact": "content"
     },
     {
+      "pattern": "graphassets\\.com",
+      "flags": "",
+      "label": "Headless CMS (Hygraph asset CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "hygraph\\.com",
+      "flags": "",
+      "label": "Headless CMS (Hygraph content API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "\\.graphcms\\.com",
+      "flags": "",
+      "label": "Headless CMS (GraphCMS legacy API)",
+      "confidence": "MEDIUM",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "api\\.aglty\\.io",
+      "flags": "",
+      "label": "Headless CMS (Agility CMS Fetch API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.aglty\\.io",
+      "flags": "",
+      "label": "Headless CMS (Agility CMS asset CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.content\\.amplience\\.net",
+      "flags": "",
+      "label": "Headless CMS (Amplience content delivery)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.media\\.amplience\\.net",
+      "flags": "",
+      "label": "Headless CMS (Amplience media CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "\\.adis\\.ws",
+      "flags": "",
+      "label": "Headless CMS (Amplience Dynamic Media legacy)",
+      "confidence": "MEDIUM",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cdn\\.umbraco\\.io",
+      "flags": "",
+      "label": "Headless CMS (Umbraco Heartcore Content Delivery API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "media\\.umbraco\\.io",
+      "flags": "",
+      "label": "Headless CMS (Umbraco Heartcore media CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "\\.strapiapp\\.com",
+      "flags": "",
+      "label": "Headless CMS (Strapi Cloud API and media)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "\\.directus\\.app",
+      "flags": "",
+      "label": "Headless CMS (Directus Cloud API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "edge\\.sitecorecloud\\.io",
+      "flags": "",
+      "label": "Headless CMS (Sitecore Experience Edge)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "media\\.crystallize\\.com",
+      "flags": "",
+      "label": "Headless CMS (Crystallize media CDN)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cloud\\.caisy\\.io",
+      "flags": "",
+      "label": "Headless CMS (caisy GraphQL API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "assets\\.caisy\\.io",
+      "flags": "",
+      "label": "Headless CMS (caisy asset CDN)",
+      "confidence": "LOW",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "uniform\\.global",
+      "flags": "",
+      "label": "Headless CMS (Uniform edge delivery API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cg\\.optimizely\\.com",
+      "flags": "",
+      "label": "Headless CMS (Optimizely Graph delivery API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "cloud\\.squidex\\.io",
+      "flags": "",
+      "label": "Headless CMS (Squidex Cloud API)",
+      "confidence": "HIGH",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "contents\\.squidex\\.io",
+      "flags": "",
+      "label": "Headless CMS (Squidex content CDN)",
+      "confidence": "MEDIUM",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
+      "pattern": "\\.ghost\\.io",
+      "flags": "",
+      "label": "Headless CMS (Ghost Pro Content API)",
+      "confidence": "MEDIUM",
+      "category": "headless-cms",
+      "functionalImpact": "content"
+    },
+    {
       "pattern": "\\.imgix\\.net",
       "flags": "",
       "label": "Image CDN (Imgix)",
@@ -2962,6 +4026,30 @@
       "confidence": "HIGH",
       "category": "image-cdn",
       "functionalImpact": "assets"
+    },
+    {
+      "pattern": "sirv\\.freebitco\\.in",
+      "flags": "",
+      "label": "image-cdn (sirv.freebitco.in)",
+      "confidence": "MEDIUM",
+      "category": "image-cdn",
+      "functionalImpact": "images"
+    },
+    {
+      "pattern": "smytten-ads\\.gumlet\\.io",
+      "flags": "",
+      "label": "image-cdn (smytten-ads.gumlet.io)",
+      "confidence": "MEDIUM",
+      "category": "image-cdn",
+      "functionalImpact": "images"
+    },
+    {
+      "pattern": "unsplash-video-ads\\.imgix\\.video",
+      "flags": "",
+      "label": "image-cdn (unsplash-video-ads.imgix.video)",
+      "confidence": "MEDIUM",
+      "category": "image-cdn",
+      "functionalImpact": "images"
     },
     {
       "pattern": "cdn\\.crowdin\\.com",
@@ -3106,6 +4194,30 @@
       "confidence": "HIGH",
       "category": "maps",
       "functionalImpact": "map"
+    },
+    {
+      "pattern": "sfirstparty\\.here\\.com",
+      "flags": "",
+      "label": "maps (sfirstparty.here.com)",
+      "confidence": "MEDIUM",
+      "category": "maps",
+      "functionalImpact": "maps"
+    },
+    {
+      "pattern": "piwik\\.openstreetmap\\.org",
+      "flags": "",
+      "label": "maps (piwik.openstreetmap.org)",
+      "confidence": "MEDIUM",
+      "category": "maps",
+      "functionalImpact": "maps"
+    },
+    {
+      "pattern": "matomo\\.openstreetmap\\.org",
+      "flags": "",
+      "label": "maps (matomo.openstreetmap.org)",
+      "confidence": "MEDIUM",
+      "category": "maps",
+      "functionalImpact": "maps"
     },
     {
       "pattern": "browser\\.sentry-cdn\\.com",
@@ -3484,6 +4596,222 @@
       "functionalImpact": null
     },
     {
+      "pattern": "signalfx\\.com",
+      "flags": "",
+      "label": "Monitoring (Splunk SignalFx)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "\\.observability\\.splunkcloud\\.com",
+      "flags": "",
+      "label": "Monitoring (Splunk Observability Cloud ingest)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "trackjs\\.com",
+      "flags": "",
+      "label": "Error Tracking (TrackJS)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "atatus\\.com",
+      "flags": "",
+      "label": "Monitoring (Atatus)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "instana\\.io",
+      "flags": "",
+      "label": "Monitoring (IBM Instana EUM)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "sematext\\.com",
+      "flags": "",
+      "label": "Monitoring (Sematext Experience)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "rum-ingress-coralogix\\.com",
+      "flags": "",
+      "label": "Monitoring (Coralogix RUM ingest)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "coralogix\\.com",
+      "flags": "",
+      "label": "Observability (Coralogix)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "site24x7rum\\.com",
+      "flags": "",
+      "label": "Monitoring (Site24x7 RUM)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "pingdom\\.net",
+      "flags": "",
+      "label": "Monitoring (Pingdom RUM)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "requestmetrics\\.com",
+      "flags": "",
+      "label": "Monitoring (Request Metrics)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "hyperdx\\.io",
+      "flags": "",
+      "label": "Observability (HyperDX)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "signoz\\.cloud",
+      "flags": "",
+      "label": "Observability (SigNoz Cloud ingest)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "honeycomb\\.io",
+      "flags": "",
+      "label": "Observability (Honeycomb)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "backtrace\\.io",
+      "flags": "",
+      "label": "Error Tracking (Backtrace)",
+      "confidence": "HIGH",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "elmah\\.io",
+      "flags": "",
+      "label": "Error Tracking (elmah.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "echidna\\.honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (echidna.honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "app\\.honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (app.honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "blog\\.honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (blog.honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "docs\\.honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (docs.honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "www\\.honeybadger\\.io",
+      "flags": "",
+      "label": "monitoring (www.honeybadger.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "raygun\\.io",
+      "flags": "",
+      "label": "monitoring (raygun.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.raygun\\.io",
+      "flags": "",
+      "label": "monitoring (api.raygun.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "app\\.raygun\\.io",
+      "flags": "",
+      "label": "monitoring (app.raygun.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "cdn\\.raygun\\.io",
+      "flags": "",
+      "label": "monitoring (cdn.raygun.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "www\\.raygun\\.io",
+      "flags": "",
+      "label": "monitoring (www.raygun.io)",
+      "confidence": "MEDIUM",
+      "category": "monitoring",
+      "functionalImpact": null
+    },
+    {
       "pattern": "cdn\\.onesignal\\.com",
       "flags": "",
       "label": "Notifications (OneSignal CDN)",
@@ -3671,6 +4999,134 @@
       "pattern": "notix\\.co",
       "flags": "",
       "label": "Notifications (Notix)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "clientcdn\\.pushengage\\.com",
+      "flags": "",
+      "label": "Notifications (PushEngage Web SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.izooto\\.com",
+      "flags": "",
+      "label": "Notifications (iZooto Web SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.webpushr\\.com",
+      "flags": "",
+      "label": "Notifications (Webpushr SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.pushalert\\.co",
+      "flags": "",
+      "label": "Notifications (PushAlert SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.by\\.wonderpush\\.com",
+      "flags": "",
+      "label": "Notifications (WonderPush Web SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.gravitec\\.net",
+      "flags": "",
+      "label": "Notifications (Gravitec SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "web\\.webpushs\\.com",
+      "flags": "",
+      "label": "Notifications (SendPulse web push SDK)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.aimtell\\.com",
+      "flags": "",
+      "label": "Notifications (Aimtell SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.subscribers\\.com",
+      "flags": "",
+      "label": "Notifications (Subscribers.com SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "(via|ws)\\.batch\\.com",
+      "flags": "",
+      "label": "Notifications (Batch Web SDK)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "cdn\\.moengage\\.com",
+      "flags": "",
+      "label": "Notifications (MoEngage Web SDK CDN)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "widgets\\.webengage\\.com",
+      "flags": "",
+      "label": "Notifications (WebEngage widget SDK)",
+      "confidence": "HIGH",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "sgtm\\.beams\\.co\\.jp",
+      "flags": "",
+      "label": "notifications (sgtm.beams.co.jp)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "courier\\.darkleads\\.pro",
+      "flags": "",
+      "label": "notifications (courier.darkleads.pro)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "beams\\.silveregg\\.net",
+      "flags": "",
+      "label": "notifications (beams.silveregg.net)",
+      "confidence": "MEDIUM",
+      "category": "notifications",
+      "functionalImpact": "notifications"
+    },
+    {
+      "pattern": "qzxfnv\\.beams\\.co\\.jp",
+      "flags": "",
+      "label": "notifications (qzxfnv.beams.co.jp)",
       "confidence": "MEDIUM",
       "category": "notifications",
       "functionalImpact": "notifications"
@@ -4132,6 +5588,174 @@
       "functionalImpact": "checkout"
     },
     {
+      "pattern": "(js|api)\\.authorize\\.net",
+      "flags": "",
+      "label": "Payments (Authorize.Net Accept.js)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "(test)?flex\\.cybersource\\.com",
+      "flags": "",
+      "label": "Payments (Cybersource Flex Microform)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "access\\.worldpay\\.com",
+      "flags": "",
+      "label": "Payments (Worldpay Access Checkout)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "static-(na|eu|fe)\\.payments-amazon\\.com",
+      "flags": "",
+      "label": "Payments (Amazon Pay checkout.js)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "connect\\.bolt\\.com",
+      "flags": "",
+      "label": "Payments (Bolt Checkout)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "(sand)?pay\\.bluesnap\\.com",
+      "flags": "",
+      "label": "Payments (BlueSnap Web SDK)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "(sdk|api)\\.mercadopago\\.com",
+      "flags": "",
+      "label": "Payments (Mercado Pago SDK)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "jssdk(-uat)?\\.payu\\.in",
+      "flags": "",
+      "label": "Payments (PayU India Checkout)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "secure\\.payu\\.com",
+      "flags": "",
+      "label": "Payments (PayU GPO Secure Form)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "js(-sandbox)?\\.dlocal\\.com",
+      "flags": "",
+      "label": "Payments (dLocal Smart Fields)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "js\\.xendit\\.co",
+      "flags": "",
+      "label": "Payments (Xendit.js)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "app(\\.sandbox)?\\.midtrans\\.com",
+      "flags": "",
+      "label": "Payments (Midtrans Snap)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "2checkout\\.com",
+      "flags": "",
+      "label": "Payments (2Checkout/Verifone)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "secure\\.(nmi|networkmerchants)\\.com",
+      "flags": "",
+      "label": "Payments (NMI Collect.js)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "onfastspring\\.com",
+      "flags": "",
+      "label": "Payments (FastSpring Store Builder)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "(checkout|static)\\.airwallex\\.com",
+      "flags": "",
+      "label": "Payments (Airwallex Components SDK)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "events\\.production\\.us1\\.pgw-pci\\.klarna\\.net",
+      "flags": "",
+      "label": "payments (events.production.us1.pgw-pci.klarna.net)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "paypal\\.112\\.2o7\\.net",
+      "flags": "",
+      "label": "payments (paypal.112.2o7.net)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "stripe\\.rs-1028-a\\.com",
+      "flags": "",
+      "label": "payments (stripe.rs-1028-a.com)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "checkout\\.perfectpay\\.com\\.br",
+      "flags": "",
+      "label": "payments (checkout.perfectpay.com.br)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
+      "pattern": "stripe\\.rs-stripe\\.com",
+      "flags": "",
+      "label": "payments (stripe.rs-stripe.com)",
+      "confidence": "HIGH",
+      "category": "payments",
+      "functionalImpact": "checkout"
+    },
+    {
       "pattern": "pusherapp\\.com",
       "flags": "",
       "label": "Real-time (Pusher)",
@@ -4327,6 +5951,102 @@
       "pattern": "liveblocks\\.io",
       "flags": "",
       "label": "Realtime (Liveblocks)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "(firebaseio\\.com|firebasedatabase\\.app)",
+      "flags": "",
+      "label": "Real-time (Firebase Realtime Database)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "convex\\.cloud",
+      "flags": "",
+      "label": "Real-time (Convex)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "partykit\\.dev",
+      "flags": "",
+      "label": "Real-time (PartyKit)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "appsync-(realtime-)?api\\.[a-z0-9-]+\\.amazonaws\\.com",
+      "flags": "",
+      "label": "Real-time (AWS AppSync)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "service\\.signalr\\.net",
+      "flags": "",
+      "label": "Real-time (Azure SignalR Service)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "webpubsub\\.azure\\.com",
+      "flags": "",
+      "label": "Real-time (Azure Web PubSub)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "sendbird\\.com",
+      "flags": "",
+      "label": "Chat (Sendbird)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "(stream-io-api\\.com|stream-io-cdn\\.com|stream-io-video\\.com|getstream\\.io)",
+      "flags": "",
+      "label": "Chat (Stream / GetStream.io)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "scaledrone\\.com",
+      "flags": "",
+      "label": "Real-time (Scaledrone)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "piesocket\\.com",
+      "flags": "",
+      "label": "Real-time (PieSocket)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "momentohq\\.com",
+      "flags": "",
+      "label": "Real-time (Momento Topics)",
+      "confidence": "HIGH",
+      "category": "realtime",
+      "functionalImpact": "realtime"
+    },
+    {
+      "pattern": "api\\.instantdb\\.com",
+      "flags": "",
+      "label": "Real-time (InstantDB)",
       "confidence": "HIGH",
       "category": "realtime",
       "functionalImpact": "realtime"
@@ -4623,6 +6343,182 @@
       "pattern": "recombee\\.com",
       "flags": "",
       "label": "Search (Recombee)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "luigisbox",
+      "flags": "",
+      "label": "Search (Luigi's Box)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "unbxd\\.io",
+      "flags": "",
+      "label": "Search (Netcore Unbxd)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "hawksearch",
+      "flags": "",
+      "label": "Search (HawkSearch)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "instantsearchplus\\.com",
+      "flags": "",
+      "label": "Search (Fast Simon InstantSearch+)",
+      "confidence": "MEDIUM",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "fastsimon\\.com",
+      "flags": "",
+      "label": "Search (Fast Simon)",
+      "confidence": "MEDIUM",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "addsearch\\.com",
+      "flags": "",
+      "label": "Search (AddSearch)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "cludo\\.com",
+      "flags": "",
+      "label": "Search (Cludo)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "sitesearch360\\.com",
+      "flags": "",
+      "label": "Search (Site Search 360)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "searchserverapi",
+      "flags": "",
+      "label": "Search (Searchanise API)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "searchanise",
+      "flags": "",
+      "label": "Search (Searchanise)",
+      "confidence": "MEDIUM",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "swiftype\\.com",
+      "flags": "",
+      "label": "Search (Swiftype/Elastic Site Search)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "swiftypecdn\\.com",
+      "flags": "",
+      "label": "Search (Swiftype CDN)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "fredhopperservices\\.com",
+      "flags": "",
+      "label": "Search (Fredhopper/Crownpeak)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "attraqt\\.io",
+      "flags": "",
+      "label": "Search (Attraqt XO)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "clerk\\.io",
+      "flags": "",
+      "label": "Search (Clerk.io)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "empathy\\.co",
+      "flags": "",
+      "label": "Search (Empathy Platform)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "mybcapps\\.com",
+      "flags": "",
+      "label": "Search (Boost AI Search and Discovery)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "sooqr\\.com",
+      "flags": "",
+      "label": "Search (Sooqr)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "analytics\\.algolia\\.com",
+      "flags": "",
+      "label": "search-api (analytics.algolia.com)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "analytics\\.de\\.algolia\\.com",
+      "flags": "",
+      "label": "search-api (analytics.de.algolia.com)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "analytics\\.us\\.algolia\\.com",
+      "flags": "",
+      "label": "search-api (analytics.us.algolia.com)",
+      "confidence": "HIGH",
+      "category": "search-api",
+      "functionalImpact": "search"
+    },
+    {
+      "pattern": "analytics\\.searchspring\\.net",
+      "flags": "",
+      "label": "search-api (analytics.searchspring.net)",
       "confidence": "HIGH",
       "category": "search-api",
       "functionalImpact": "search"
@@ -4936,6 +6832,1110 @@
       "flags": "",
       "label": "Session Replay (Sprig)",
       "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "sentry-cdn\\.com",
+      "flags": "",
+      "label": "Session Replay (Sentry CDN)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "ingest\\.sentry\\.io",
+      "flags": "",
+      "label": "Session Replay (Sentry ingest)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "datadoghq-browser-agent\\.com",
+      "flags": "",
+      "label": "Session Replay (Datadog browser agent CDN)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "crazyegg\\.com",
+      "flags": "",
+      "label": "Session Replay (Crazy Egg)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "openreplay\\.com",
+      "flags": "",
+      "label": "Session Replay (OpenReplay)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "heap-api\\.com",
+      "flags": "",
+      "label": "Session Replay (Heap ingest)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "livesession\\.io",
+      "flags": "",
+      "label": "Session Replay (LiveSession)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "visualwebsiteoptimizer\\.com",
+      "flags": "",
+      "label": "Session Replay (VWO Insights)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "pub\\.highlight\\.(io|run)",
+      "flags": "",
+      "label": "Session Replay (Highlight.io)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "sessionstack\\.com",
+      "flags": "",
+      "label": "Session Replay (SessionStack)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "plerdy\\.com",
+      "flags": "",
+      "label": "Session Replay (Plerdy)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "pagesense\\.io",
+      "flags": "",
+      "label": "Session Replay (Zoho PageSense)",
+      "confidence": "HIGH",
+      "category": "session-replay",
+      "functionalImpact": "none"
+    },
+    {
+      "pattern": "contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "cdn\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (cdn.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.abacast\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.abacast.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "t\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (t.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "vc\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (vc.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.clarity\\.abacast\\.com",
+      "flags": "",
+      "label": "session-replay (api.clarity.abacast.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.alight\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.alight.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.amcfirst\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.amcfirst.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.clarity\\.amperwave\\.net",
+      "flags": "",
+      "label": "session-replay (api.clarity.amperwave.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.noblesworld\\.com\\.ng",
+      "flags": "",
+      "label": "session-replay (clarity.noblesworld.com.ng)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c1\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c1.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-argo\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-argo.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-malka-argo\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-malka-argo.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k1\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k1.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m1\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m1.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "srm\\.aa\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (srm.aa.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c1\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c1.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-malka\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-malka.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-malka-mobile\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-malka-mobile.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-mobile\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-mobile.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k1\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k1.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m1\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m1.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "srm\\.af\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (srm.af.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c\\.az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c.az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ca\\.az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ca.az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k-eu1\\.az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k-eu1.az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k-us1\\.az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k-us1.az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "q-us1\\.az\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (q-us1.az.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-dep-mobile\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-dep-mobile.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "mh\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (mh.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "srm\\.ba\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (srm.ba.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "c\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (c.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "dep-dep-mobile\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (dep-dep-mobile.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "mh\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (mh.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "srm\\.bf\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (srm.bf.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ca\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ca.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "csxd\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (csxd.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "csxd-02\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (csxd-02.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ct\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ct.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "hj\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (hj.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "script\\.hj\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (script.hj.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "static\\.hj\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (static.hj.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "survey-images\\.hj\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (survey-images.hj.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "surveystats\\.hj\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (surveystats.hj.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "hp\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (hp.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.eu\\.hp\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (api.eu.hp.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.us\\.hp\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (api.us.hp.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k-aeu1\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k-aeu1.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "k-aus1\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (k-aus1.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka-aeu1\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka-aeu1.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ka-aus1\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (ka-aus1.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "l\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (l.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "m-aus1\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (m-aus1.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.dexcom\\.jp",
+      "flags": "",
+      "label": "session-replay (clarity.dexcom.jp)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "productstore\\.clarity\\.dexcom\\.eu",
+      "flags": "",
+      "label": "session-replay (productstore.clarity.dexcom.eu)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.fonio\\.ai",
+      "flags": "",
+      "label": "session-replay (clarity.fonio.ai)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "ask\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (ask.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "content\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (content.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "metrics\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (metrics.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "surveystats\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (surveystats.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "vc-live-cf\\.hotjar\\.io",
+      "flags": "",
+      "label": "session-replay (vc-live-cf.hotjar.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.isdevs\\.cv",
+      "flags": "",
+      "label": "session-replay (clarity.isdevs.cv)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.kosgis\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.kosgis.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.pactflow\\.io",
+      "flags": "",
+      "label": "session-replay (clarity.pactflow.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.rahul\\.gs",
+      "flags": "",
+      "label": "session-replay (clarity.rahul.gs)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "br\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (br.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "web-writer\\.br\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (web-writer.br.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "eu\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (eu.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "manager\\.eu\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (manager.eu.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "sdk-writer\\.eu\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (sdk-writer.eu.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "web-writer\\.eu\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (web-writer.eu.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "sg\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (sg.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "web-writer\\.sg\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (web-writer.sg.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "us\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (us.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "manager\\.us\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (manager.us.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "sdk-writer\\.us\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (sdk-writer.us.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "web-writer\\.us\\.smartlook\\.cloud",
+      "flags": "",
+      "label": "session-replay (web-writer.us.smartlook.cloud)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.cloud\\.tibco\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.cloud.tibco.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.zepp\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.zepp.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.blockbooster\\.shop",
+      "flags": "",
+      "label": "session-replay (clarity.blockbooster.shop)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.charlieyat\\.es",
+      "flags": "",
+      "label": "session-replay (clarity.charlieyat.es)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.dexcom\\.jp\\.cdn\\.cloudflare\\.net",
+      "flags": "",
+      "label": "session-replay (clarity.dexcom.jp.cdn.cloudflare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "www\\.contentsquare\\.net",
+      "flags": "",
+      "label": "session-replay (www.contentsquare.net)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.dentalbohrer\\.shop",
+      "flags": "",
+      "label": "session-replay (clarity.dentalbohrer.shop)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "hotjar\\.dualsidedapp\\.com",
+      "flags": "",
+      "label": "session-replay (hotjar.dualsidedapp.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "www\\.clarity\\.ms\\.dvaitas\\.lt",
+      "flags": "",
+      "label": "session-replay (www.clarity.ms.dvaitas.lt)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.eurosim\\.shop",
+      "flags": "",
+      "label": "session-replay (clarity.eurosim.shop)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "load\\.clarity\\.fonio\\.ai",
+      "flags": "",
+      "label": "session-replay (load.clarity.fonio.ai)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.handelsplatz\\.shop",
+      "flags": "",
+      "label": "session-replay (clarity.handelsplatz.shop)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.itdesign\\.de",
+      "flags": "",
+      "label": "session-replay (clarity.itdesign.de)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "cdn\\.clarity\\.itdesign\\.de",
+      "flags": "",
+      "label": "session-replay (cdn.clarity.itdesign.de)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.landian\\.la",
+      "flags": "",
+      "label": "session-replay (clarity.landian.la)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "api\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (api.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "app\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (app.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "e\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (e.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "go2\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (go2.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "i\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (i.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "jobs\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (jobs.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "staging\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (staging.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "staging-i\\.logrocket\\.com",
+      "flags": "",
+      "label": "session-replay (staging-i.logrocket.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.microsoft\\.com",
+      "flags": "",
+      "label": "session-replay (clarity.microsoft.com)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "clarity\\.slidesai\\.io",
+      "flags": "",
+      "label": "session-replay (clarity.slidesai.io)",
+      "confidence": "MEDIUM",
+      "category": "session-replay",
+      "functionalImpact": null
+    },
+    {
+      "pattern": "hotjar\\.info",
+      "flags": "",
+      "label": "session-replay (hotjar.info)",
+      "confidence": "MEDIUM",
       "category": "session-replay",
       "functionalImpact": null
     },
@@ -5311,6 +8311,534 @@
       "pattern": "reamaze\\.com",
       "flags": "",
       "label": "Support Chat (Re:amaze base)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "salesiq\\.zohopublic\\.com",
+      "flags": "",
+      "label": "Support Chat (Zoho SalesIQ)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "smartsuppchat\\.com",
+      "flags": "",
+      "label": "Support Chat (Smartsupp)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "chatra\\.io",
+      "flags": "",
+      "label": "Support Chat (Chatra)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "liveperson\\.net",
+      "flags": "",
+      "label": "Support Chat (LivePerson tag)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "lpsnmedia\\.net",
+      "flags": "",
+      "label": "Support Chat (LivePerson CDN)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "chat-assets\\.frontapp\\.com",
+      "flags": "",
+      "label": "Support Chat (Front Chat)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "widget\\.helpcrunch\\.com",
+      "flags": "",
+      "label": "Support Chat (HelpCrunch)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "customerly\\.io",
+      "flags": "",
+      "label": "Support Chat (Customerly)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "app\\.chaport\\.com",
+      "flags": "",
+      "label": "Support Chat (Chaport)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "ladesk\\.com",
+      "flags": "",
+      "label": "Support Chat (LiveAgent)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "apps\\.mypurecloud\\.com",
+      "flags": "",
+      "label": "Support Chat (Genesys Cloud widgets)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "service\\.force\\.com",
+      "flags": "",
+      "label": "Support Chat (Salesforce Embedded Service)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "salesforceliveagent\\.com",
+      "flags": "",
+      "label": "Support Chat (Salesforce Live Agent)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "ada\\.support",
+      "flags": "",
+      "label": "Support Chat (Ada AI chatbot)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "iadvize\\.com",
+      "flags": "",
+      "label": "Support Chat (iAdvize)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "comm100\\.com",
+      "flags": "",
+      "label": "Support Chat (Comm100)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "app\\.purechat\\.com",
+      "flags": "",
+      "label": "Support Chat (Pure Chat)",
+      "confidence": "HIGH",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "api-visitor-analytics\\.intercom\\.com",
+      "flags": "",
+      "label": "support-chat (api-visitor-analytics.intercom.com)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "drift\\.click",
+      "flags": "",
+      "label": "support-chat (drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "bynder\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (bynder.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "certif-id\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (certif-id.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "clio\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (clio.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "cloudzero\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (cloudzero.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "copado\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (copado.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "drift-lp-66680075\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (drift-lp-66680075.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "drift-lp-96785964\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (drift-lp-96785964.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "elastic\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (elastic.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "flywire\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (flywire.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "frame-io\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (frame-io.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "icims\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (icims.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "inkling\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (inkling.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "nozomi\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (nozomi.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "on24\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (on24.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "opentext2\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (opentext2.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "requestademo\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (requestademo.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "servicerocket\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (servicerocket.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "sob\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (sob.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "symantec\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (symantec.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "events-ingestion\\.services\\.gorgias\\.com",
+      "flags": "",
+      "label": "support-chat (events-ingestion.services.gorgias.com)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "beacon-v2\\.helpscout\\.help",
+      "flags": "",
+      "label": "support-chat (beacon-v2.helpscout.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "events-ingestion-helpcenter\\.services\\.gorgias\\.help",
+      "flags": "",
+      "label": "support-chat (events-ingestion-helpcenter.services.gorgias.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "hubspot\\.clearbit\\.com",
+      "flags": "",
+      "label": "support-chat (hubspot.clearbit.com)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "client\\.crisp\\.im",
+      "flags": "",
+      "label": "support-chat (client.crisp.im)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "www\\.drift\\.click",
+      "flags": "",
+      "label": "support-chat (www.drift.click)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "sgtm-emea\\.hubspot\\.de",
+      "flags": "",
+      "label": "support-chat (sgtm-emea.hubspot.de)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "sgtm-emea\\.hubspot\\.es",
+      "flags": "",
+      "label": "support-chat (sgtm-emea.hubspot.es)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "info\\.crisp\\.aleragroup\\.com",
+      "flags": "",
+      "label": "support-chat (info.crisp.aleragroup.com)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "158743\\.group43\\.sites\\.hubspot\\.net",
+      "flags": "",
+      "label": "support-chat (158743.group43.sites.hubspot.net)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "158743g43\\.secure0034\\.hubspot\\.net",
+      "flags": "",
+      "label": "support-chat (158743g43.secure0034.hubspot.net)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "antilgbtq\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (antilgbtq.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "bad\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (bad.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "bbcnews\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (bbcnews.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "cnn\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (cnn.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "customersupportliveagent\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (customersupportliveagent.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discord-official\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (discord-official.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discord\\.gorgias\\.help",
+      "flags": "",
+      "label": "support-chat (discord.gorgias.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discordfaq\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (discordfaq.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discordsafety\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (discordsafety.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discordsecurity\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (discordsecurity.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discordsupport\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (discordsupport.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "discordsupport\\.gorgias\\.help",
+      "flags": "",
+      "label": "support-chat (discordsupport.gorgias.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "googlechat\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (googlechat.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "msn\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (msn.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "testingsomething\\.crisp\\.help",
+      "flags": "",
+      "label": "support-chat (testingsomething.crisp.help)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "goodblock\\.gladly\\.io",
+      "flags": "",
+      "label": "support-chat (goodblock.gladly.io)",
+      "confidence": "MEDIUM",
+      "category": "support-chat",
+      "functionalImpact": "chat"
+    },
+    {
+      "pattern": "www\\.goodblock\\.gladly\\.io",
+      "flags": "",
+      "label": "support-chat (www.goodblock.gladly.io)",
       "confidence": "MEDIUM",
       "category": "support-chat",
       "functionalImpact": "chat"
@@ -5746,6 +9274,222 @@
       "confidence": "MEDIUM",
       "category": "video",
       "functionalImpact": "media"
+    },
+    {
+      "pattern": "metrics\\.brightcove\\.com",
+      "flags": "",
+      "label": "video (metrics.brightcove.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "pipedream\\.wistia\\.com",
+      "flags": "",
+      "label": "video (pipedream.wistia.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "player-telemetry\\.vimeo\\.com",
+      "flags": "",
+      "label": "video (player-telemetry.vimeo.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "ads\\.youtube\\.com",
+      "flags": "",
+      "label": "video (ads.youtube.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "fcmatch\\.youtube\\.com",
+      "flags": "",
+      "label": "video (fcmatch.youtube.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "entitlements\\.jwplayer\\.com",
+      "flags": "",
+      "label": "video (entitlements.jwplayer.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "interactivity-collector\\.metric\\.brightcove\\.com",
+      "flags": "",
+      "label": "video (interactivity-collector.metric.brightcove.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "arclight\\.vimeo\\.com",
+      "flags": "",
+      "label": "video (arclight.vimeo.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "analytics\\.youtube\\.com",
+      "flags": "",
+      "label": "video (analytics.youtube.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "youtube\\.2cnt\\.net",
+      "flags": "",
+      "label": "video (youtube.2cnt.net)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "mux\\.alimama\\.com",
+      "flags": "",
+      "label": "video (mux.alimama.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "youtube\\.apponic\\.com",
+      "flags": "",
+      "label": "video (youtube.apponic.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "brightcove\\.services",
+      "flags": "",
+      "label": "video (brightcove.services)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "reflector\\.brightcove\\.services",
+      "flags": "",
+      "label": "video (reflector.brightcove.services)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "vimeo\\.extole\\.com",
+      "flags": "",
+      "label": "video (vimeo.extole.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "matomo\\.mux\\.de",
+      "flags": "",
+      "label": "video (matomo.mux.de)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "wistia\\.partnerstack\\.com",
+      "flags": "",
+      "label": "video (wistia.partnerstack.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "youtube\\.en\\.softmany\\.com",
+      "flags": "",
+      "label": "video (youtube.en.softmany.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "jwplayer\\.technoratimedia\\.com",
+      "flags": "",
+      "label": "video (jwplayer.technoratimedia.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "metrics\\.cbc\\.youtube\\.mercedes-benz\\.com",
+      "flags": "",
+      "label": "video (metrics.cbc.youtube.mercedes-benz.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "smetrics\\.cbc\\.youtube\\.mercedes-benz\\.com",
+      "flags": "",
+      "label": "video (smetrics.cbc.youtube.mercedes-benz.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "brightcove\\.112\\.2o7\\.net",
+      "flags": "",
+      "label": "video (brightcove.112.2o7.net)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "youtube\\.112\\.2o7\\.net",
+      "flags": "",
+      "label": "video (youtube.112.2o7.net)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "s2\\.youtube\\.com",
+      "flags": "",
+      "label": "video (s2.youtube.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "t\\.vimeo\\.com",
+      "flags": "",
+      "label": "video (t.vimeo.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "youtube\\.tf",
+      "flags": "",
+      "label": "video (youtube.tf)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
+    },
+    {
+      "pattern": "goku\\.brightcove\\.com",
+      "flags": "",
+      "label": "video (goku.brightcove.com)",
+      "confidence": "MEDIUM",
+      "category": "video",
+      "functionalImpact": "video"
     }
   ]
 }
